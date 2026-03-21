@@ -1,5 +1,5 @@
 // ボタンクラス
-class Button{
+export class Button{
     constructor(x, y, width, height, text, button_color, text_color){
         this.x = x;
         this.y = y;
@@ -32,7 +32,7 @@ class Button{
     }
 }
 
-class ImageButton extends Button{
+export class ImageButton extends Button{
     constructor(x, y, width, height, img){
         super(x, y, width, height, "", "");
         this.img = img;

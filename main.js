@@ -2,8 +2,10 @@
 // main関数 //
 /////////////
 
+import { title } from "./game.js";
+
 //// お題 ////
-const questions = [
+export const questions = [
     //// もともとウェーブレングスにあるお題 ////
     // あ行
     ["熱い", "冷たい"],
@@ -78,12 +80,12 @@ const questions = [
 ];
 
 // 半円の中心の x, y 座標
-let center_of_arc_x;
-let center_of_arc_y;
+export let center_of_arc_x;
+export let center_of_arc_y;
 // 半円の半径
-let radius;
+export let radius;
 
-function main(){
+export function main(){
     //// CANVASの用意 ////
     let canvas = document.getElementById("canvas");
     let context = canvas.getContext("2d");
@@ -106,7 +108,3 @@ function main(){
     //// タイトル画面を表示 ////
     title(canvas, context);
 }
-
-
-// メイン関数実行
-main();

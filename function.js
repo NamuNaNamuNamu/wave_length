@@ -1,3 +1,7 @@
+import { center_of_arc_x, center_of_arc_y, radius } from "./main.js";
+import { area_size } from "./game.js";
+import { points } from "./game.js";
+
 //// 汎用関数 ////
 
 // 角度からラジアンを求める関数
@@ -11,7 +15,7 @@ function rad_to_degree(rad){
 }
 
 // 2点の x, y 座標から角度を算出する関数(単位は 度)
-function get_degree(x1, y1, x2, y2){
+export function get_degree(x1, y1, x2, y2){
     let rad = Math.atan2(y2 - y1, x2 - x1);
     return rad_to_degree(rad);
 }
@@ -19,14 +23,14 @@ function get_degree(x1, y1, x2, y2){
 //// ゲームの各パーツに関わる関数 ////
 
 // canvas のリセット
-function canvas_reset(canvas, context){
+export function canvas_reset(canvas, context){
     // 灰色で染める
     context.fillStyle = "rgb(240, 240, 240)";
     context.fillRect(0, 0, canvas.width, canvas.height);
 }
 
 // 半円形の描画
-function draw_half_circle(canvas, context){
+export function draw_half_circle(canvas, context){
     // パスの開始
     context.beginPath();
     // 弧を指定
@@ -41,7 +45,7 @@ function draw_half_circle(canvas, context){
 }
 
 // 得点ゾーンの描画
-function draw_point_zone(degree, canvas, context){
+export function draw_point_zone(degree, canvas, context){
     const COLORS = ["rgb(225, 225, 200)", "rgb(250, 175, 80)", "rgb(240, 240, 80)", "rgb(250, 175, 80)", "rgb(225, 225, 200)"];
     for(let i = 0; i < 5; i++){
         // パスの開始
@@ -62,7 +66,7 @@ function draw_point_zone(degree, canvas, context){
 }
 
 // 針の描画
-function draw_needle(degrees, canvas, context){
+export function draw_needle(degrees, canvas, context){
     const COLORS = ["rgb(200, 0, 0)", "rgb(0, 0, 200)", "rgb(0, 200, 0)"];
     for(let i = degrees.length; i >= 0; i--){
         // パスの開始
@@ -79,7 +83,7 @@ function draw_needle(degrees, canvas, context){
 }
 
 // お題の描画
-function draw_question(content1, content2, canvas, context){
+export function draw_question(content1, content2, canvas, context){
     // スタイルの決定
     context.fillStyle = "rgb(0, 0, 0)";
     context.textAlign = "center";
@@ -110,7 +114,7 @@ function draw_question(content1, content2, canvas, context){
 }
 
 // 準備画面のテキストの描画
-function draw_caution(canvas, context){
+export function draw_caution(canvas, context){
     // スタイルの決定
     context.fillStyle = "rgb(0, 0, 0)";
     context.textAlign = "center";
@@ -120,7 +124,7 @@ function draw_caution(canvas, context){
 }
 
 // 画面上部のテキストの描画
-function draw_text_of_the_top(text, canvas, context){
+export function draw_text_of_the_top(text, canvas, context){
     // スタイルの決定
     context.fillStyle = "rgb(200, 0, 0)";
     context.textAlign = "left";
@@ -129,7 +133,7 @@ function draw_text_of_the_top(text, canvas, context){
 }
 
 // 結果画面での得点の描画
-function draw_point(areas, canvas, context){
+export function draw_point(areas, canvas, context){
     let texts = [];
     // 参加プレイヤーが2人の場合
     if(areas.length == 1){
@@ -309,7 +313,7 @@ function draw_point(areas, canvas, context){
 }
 
 // 設定画面での各種設定テキストの描画
-function draw_text_on_option(text, y, canvas, context){
+export function draw_text_on_option(text, y, canvas, context){
     // スタイルの決定
     context.fillStyle = "rgb(0, 0, 0)";
     context.textAlign = "left";
@@ -317,7 +321,7 @@ function draw_text_on_option(text, y, canvas, context){
     context.fillText(text, canvas.width * 0.03, canvas.width * y);
 }
 
-function draw_number_on_option(num, x, y, canvas, context){
+export function draw_number_on_option(num, x, y, canvas, context){
     // スタイルの決定
     context.fillStyle = "rgb(0, 0, 0)";
     context.textAlign = "center";

@@ -1,16 +1,32 @@
+import { canvas_reset } from "./function.js";
+import { Button } from "./class.js";
+import { draw_caution } from "./function.js";
+import { draw_text_of_the_top } from "./function.js";
+import { draw_half_circle } from "./function.js";
+import { center_of_arc_x, center_of_arc_y } from "./main.js";
+import { draw_point_zone } from "./function.js";
+import { questions } from "./main.js";
+import { draw_question } from "./function.js";
+import { draw_needle } from "./function.js";
+import { get_degree } from "./function.js";
+import { draw_point } from "./function.js";
+import { draw_text_on_option } from "./function.js";
+import { draw_number_on_option } from "./function.js";
+import { ImageButton } from "./class.js";
+
 ////// ゲームに必要なパラメータ //////
 let question_number; // 何番目のお題をランダムに選んだか
 let theta = []; // 針の角度(左から プレイヤー 1, 2, 3)
 let answer_degree = 0; // 正解の角度
 let num_of_player = 2; // 参加プレイヤー数
-let area_size = 10; // 1つの得点エリアのサイズ(度)
-let points = [5, 3, 1]; // 各得点ゾーンの得点
+export let area_size = 10; // 1つの得点エリアのサイズ(度)
+export let points = [5, 3, 1]; // 各得点ゾーンの得点
 
 let x = new Array(1000);    // 指の数だけx座標を格納するための配列 (余裕を持って1000要素用意) 
 let y = new Array(1000);    // 指の数だけy座標を格納するための配列 (余裕を持って1000要素用意)
 
 //// タイトル画面 ////
-function title(canvas, context){
+export function title(canvas, context){
     // canvas のリセット
     canvas_reset(canvas, context);
 
