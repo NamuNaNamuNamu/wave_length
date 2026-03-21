@@ -13,6 +13,7 @@ import { draw_point } from "./function.js";
 import { draw_text_on_option } from "./function.js";
 import { draw_number_on_option } from "./function.js";
 import { ImageButton } from "./class.js";
+import { enableButtonTitle } from "./helpers/eventListeners.js";
 
 ////// ゲームに必要なパラメータ //////
 let question_number; // 何番目のお題をランダムに選んだか
@@ -52,25 +53,11 @@ export function title(canvas, context){
     );
     option_button.draw(canvas, context);
 
-    canvas.addEventListener("mousedown", mousedownListener, false);
-    function mousedownListener(event){
-        event.preventDefault();
-        let canvas_rectangle = canvas.getBoundingClientRect();
-        // スタートボタンがクリックされたらお題出題フェーズに移行する
-        if(start_button.clicked(event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top)){
-            canvas.removeEventListener("mousedown", mousedownListener, false);
-            ready(canvas, context);
-        }
-        // 設定ボタンが押されたら設定画面に移動する
-        if(option_button.clicked(event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top)){
-            canvas.removeEventListener("mousedown", mousedownListener, false);
-            option(canvas, context);
-        }
-    }
+    enableButtonTitle(canvas, context, start_button, option_button);
 }
 
 //// 設定画面 ////
-function option(canvas, context){
+export function option(canvas, context){
     // canvas のリセット
     canvas_reset(canvas, context);
 
@@ -317,7 +304,7 @@ function option(canvas, context){
 }
 
 //// 注意書きの画面 ////
-function ready(canvas, context){
+export function ready(canvas, context){
     // canvas のリセット
     canvas_reset(canvas, context);
 
