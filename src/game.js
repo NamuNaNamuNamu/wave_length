@@ -337,6 +337,16 @@ function question(canvas, context){
     );
     confirmation_button.draw(canvas, context);
 
+    let question_reset_button = new Button(
+        canvas.width * 0.9,     // x座標
+        canvas.height * 0.08,    // y座標
+        canvas.width * 0.1,     // 横幅
+        canvas.height * 0.08,   // 縦幅
+        "⟲",              // テキスト
+        "rgb(250, 200, 200)",   // ボタンカラー
+    );
+    question_reset_button.draw(canvas, context);
+
     canvas.addEventListener("mousedown", mousedownListener, false);
     function mousedownListener(event){
         event.preventDefault();
@@ -345,6 +355,27 @@ function question(canvas, context){
         if(confirmation_button.clicked(event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top)){
             canvas.removeEventListener("mousedown", mousedownListener, false);
             answer(canvas, context);
+        }
+        if(question_reset_button.clicked(event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top)){
+            // canvas のリセット
+            canvas_reset(canvas, context);
+            
+            // 画面上部のテキストを表示
+            draw_text_of_the_top("正解の得点ゾーンを表示中...", canvas, context);
+            // 半円形の用意
+            draw_half_circle(canvas, context);
+            // 得点ゾーンをランダムで設定
+            answer_degree = -Math.random() * 180;
+            // 得点ゾーンの描画
+            draw_point_zone(answer_degree, canvas, context);
+            // お題をランダムで設定
+            question_number = Math.floor(Math.random() * questions.length);
+            if(question_number == questions.length) question_number -= 1;
+            // お題の描画
+            draw_question(questions[question_number][0], questions[question_number][1], canvas, context);
+
+            confirmation_button.draw(canvas, context);
+            question_reset_button.draw(canvas, context);
         }
     }
 }
