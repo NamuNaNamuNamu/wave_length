@@ -1,5 +1,5 @@
-import { ready } from "../game.js";
-import { option } from "../game.js";
+import { ready } from "../../../game.js";
+import { option } from "../../../game.js";
 
 export function enableButtonTitle(canvas, context, start_button, option_button) {
     canvas.addEventListener("mousedown", mousedownListener, false);

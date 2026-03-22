@@ -13,13 +13,14 @@ import { draw_point } from "./function.js";
 import { draw_text_on_option } from "./function.js";
 import { draw_number_on_option } from "./function.js";
 import { ImageButton } from "./class.js";
-import { enableButtonTitle } from "./helpers/eventListeners.js";
+import { enableButtonTitle } from "./helpers/screen/title/eventListeners.js";
+import { numPlayers } from "./helpers/screen/option/numPlayers.js";
 
 ////// ゲームに必要なパラメータ //////
 let question_number; // 何番目のお題をランダムに選んだか
 let theta = []; // 針の角度(左から プレイヤー 1, 2, 3)
 let answer_degree = 0; // 正解の角度
-let num_of_player = 2; // 参加プレイヤー数
+export let num_of_player = 2; // 参加プレイヤー数
 export let area_size = 10; // 1つの得点エリアのサイズ(度)
 export let points = [5, 3, 1]; // 各得点ゾーンの得点
 
@@ -61,33 +62,7 @@ export function option(canvas, context){
     // canvas のリセット
     canvas_reset(canvas, context);
 
-    // 得点ゾーン1つ分の大きさの設定
-    draw_text_on_option("プレイヤー数", 0.1, canvas, context);
-    draw_number_on_option(num_of_player, 0.7, 0.1, canvas, context);
-    let triangle_left1 = new Image();
-    let triangle_right1 = new Image();
-    triangle_left1.src = "img/triangle_left.png";
-    triangle_right1.src = "img/triangle_right.png";
-    let left_button1 = new ImageButton(
-        canvas.width * 0.6,     // x座標
-        canvas.height * 0.08,    // y座標
-        canvas.width * 0.1,     // 横幅
-        canvas.height * 0.1,   // 縦幅
-        triangle_left1, // 画像
-    );
-    let right_button1 = new ImageButton(
-        canvas.width * 0.8,     // x座標
-        canvas.height * 0.08,    // y座標
-        canvas.width * 0.1,     // 横幅
-        canvas.height * 0.1,   // 縦幅
-        triangle_right1, // 画像
-    );
-    triangle_left1.onload = function(){
-        left_button1.draw(canvas, context);
-    };
-    triangle_right1.onload = function(){
-        right_button1.draw(canvas, context);
-    };
+    let [left_button1, right_button1] = numPlayers(canvas, context);
 
     // 得点ゾーン1つ分の大きさの設定
     draw_text_on_option("得点ゾーン１つの大きさ(度)", 0.27, canvas, context);
