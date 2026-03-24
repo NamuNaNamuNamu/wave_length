@@ -15,6 +15,7 @@ import { draw_number_on_option } from "./function.js";
 import { ImageButton } from "./class.js";
 import { enableButtonTitle } from "./helpers/screen/title/eventListeners.js";
 import { numPlayers } from "./helpers/screen/option/numPlayers.js";
+import { pointZoneWidth } from "./helpers/screen/option/pointZoneWidth.js";
 
 ////// ゲームに必要なパラメータ //////
 let question_number; // 何番目のお題をランダムに選んだか
@@ -65,32 +66,7 @@ export function option(canvas, context){
     let [left_button1, right_button1] = numPlayers(canvas, context);
 
     // 得点ゾーン1つ分の大きさの設定
-    draw_text_on_option("得点ゾーン１つの大きさ(度)", 0.27, canvas, context);
-    draw_number_on_option(area_size, 0.7, 0.37, canvas, context);
-    let triangle_left2 = new Image();
-    let triangle_right2 = new Image();
-    triangle_left2.src = "img/triangle_left.png";
-    triangle_right2.src = "img/triangle_right.png";
-    let left_button2 = new ImageButton(
-        canvas.width * 0.6,     // x座標
-        canvas.height * 0.35,    // y座標
-        canvas.width * 0.1,     // 横幅
-        canvas.height * 0.1,   // 縦幅
-        triangle_left2, // 画像
-    );
-    let right_button2 = new ImageButton(
-        canvas.width * 0.8,     // x座標
-        canvas.height * 0.35,    // y座標
-        canvas.width * 0.1,     // 横幅
-        canvas.height * 0.1,   // 縦幅
-        triangle_right2, // 画像
-    );
-    triangle_left2.onload = function(){
-        left_button2.draw(canvas, context);
-    };
-    triangle_right2.onload = function(){
-        right_button2.draw(canvas, context);
-    };
+    let [left_button2, right_button2] = pointZoneWidth(canvas, context);
 
     // 得点ゾーン１の得点
     draw_text_on_option("得点ゾーン１の得点", 0.55, canvas, context);
