@@ -19,6 +19,7 @@ import { pointZoneWidth } from "./helpers/screen/option/pointZoneWidth.js";
 import { pointZone1 } from "./helpers/screen/option/pointZone1.js";
 import { pointZone2 } from "./helpers/screen/option/pointZone2.js";
 import { pointZone3 } from "./helpers/screen/option/pointZone3.js";
+import { enableButtonOption } from "./helpers/screen/option/eventListeners.js";
 import { gameSettings } from "./gameSettings.js";
 
 ////// ゲームに必要なパラメータ //////
@@ -80,95 +81,23 @@ export function option(canvas, context){
     );
     back_to_title_button.draw(canvas, context);
 
-    canvas.addEventListener("mousedown", mousedownListener, false);
-    function mousedownListener(event){
-        event.preventDefault();
-        let canvas_rectangle = canvas.getBoundingClientRect();
-        // 左右ボタン1
-        if(left_button1.clicked(event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top)){
-            if(gameSettings.num_of_player > 2){
-                gameSettings.num_of_player -= 1;
-            }
-        }
-        if(right_button1.clicked(event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top)){
-            if(gameSettings.num_of_player < 4){
-                gameSettings.num_of_player += 1;
-            }
-        }
-        // 左右ボタン2
-        if(left_button2.clicked(event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top)){
-            if(gameSettings.area_size > 5){
-                gameSettings.area_size -= 1;
-            }
-        }
-        if(right_button2.clicked(event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top)){
-            if(gameSettings.area_size < 20){
-                gameSettings.area_size += 1;
-            }
-        }
-        // 左右ボタン3
-        if(left_button3.clicked(event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top)){
-            if(gameSettings.points[0] > 1){
-                gameSettings.points[0] -= 1;
-            }
-        }
-        if(right_button3.clicked(event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top)){
-            if(gameSettings.points[0] < 10){
-                gameSettings.points[0] += 1;
-            }
-        }
-        // 左右ボタン4
-        if(left_button4.clicked(event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top)){
-            if(gameSettings.points[1] > 1){
-                gameSettings.points[1] -= 1;
-            }
-        }
-        if(right_button4.clicked(event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top)){
-            if(gameSettings.points[1] < 10){
-                gameSettings.points[1] += 1;
-            }
-        }
-        // 左右ボタン5
-        if(left_button5.clicked(event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top)){
-            if(gameSettings.points[2] > 1){
-                gameSettings.points[2] -= 1;
-            }
-        }
-        if(right_button5.clicked(event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top)){
-            if(gameSettings.points[2] < 10){
-                gameSettings.points[2] += 1;
-            }
-        }
+    let buttons = {
+        left: {},
+        right: {}
+    };
+    buttons.left.numPlayers = left_button1;
+    buttons.right.numPlayers = right_button1;
+    buttons.left.pointZoneWidth = left_button2;
+    buttons.right.pointZoneWidth = right_button2;
+    buttons.left.pointZone1 = left_button3;
+    buttons.right.pointZone1 = right_button3;
+    buttons.left.pointZone2 = left_button4;
+    buttons.right.pointZone2 = right_button4;
+    buttons.left.pointZone3 = left_button5;
+    buttons.right.pointZone3 = right_button5;
+    buttons.back_to_title = back_to_title_button;
 
-        canvas_reset(canvas, context);
-        draw_text_on_option("プレイヤー数", 0.1, canvas, context);
-        draw_number_on_option(gameSettings.num_of_player, 0.7, 0.1, canvas, context);
-        left_button1.draw(canvas, context);
-        right_button1.draw(canvas, context);
-        draw_text_on_option("得点ゾーン１つの大きさ(度)", 0.27, canvas, context);
-        draw_number_on_option(gameSettings.area_size, 0.7, 0.37, canvas, context);
-        left_button2.draw(canvas, context);
-        right_button2.draw(canvas, context);
-        draw_text_on_option("得点ゾーン１の得点", 0.55, canvas, context);
-        draw_number_on_option(gameSettings.points[0], 0.7, 0.55, canvas, context);
-        left_button3.draw(canvas, context);
-        right_button3.draw(canvas, context);
-        draw_text_on_option("得点ゾーン２の得点", 0.65, canvas, context);
-        draw_number_on_option(gameSettings.points[1], 0.7, 0.65, canvas, context);
-        left_button4.draw(canvas, context);
-        right_button4.draw(canvas, context);
-        draw_text_on_option("得点ゾーン３の得点", 0.75, canvas, context);
-        draw_number_on_option(gameSettings.points[2], 0.7, 0.75, canvas, context);
-        left_button5.draw(canvas, context);
-        right_button5.draw(canvas, context);
-        back_to_title_button.draw(canvas, context);
-
-        // スタートボタンがクリックされたらお題出題フェーズに移行する
-        if(back_to_title_button.clicked(event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top)){
-            canvas.removeEventListener("mousedown", mousedownListener, false);
-            title(canvas, context);
-        }
-    }
+    enableButtonOption(canvas, context, buttons);
 }
 
 //// 注意書きの画面 ////
