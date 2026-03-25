@@ -21,6 +21,7 @@ import { pointZone2 } from "./helpers/screen/option/pointZone2.js";
 import { pointZone3 } from "./helpers/screen/option/pointZone3.js";
 import { enableButtonOption } from "./helpers/screen/option/eventListeners.js";
 import { gameSettings } from "./gameSettings.js";
+import { enableButtonReady } from "./helpers/screen/ready/eventListeners.js";
 
 ////// ゲームに必要なパラメータ //////
 let question_number; // 何番目のお題をランダムに選んだか
@@ -118,20 +119,11 @@ export function ready(canvas, context){
     );
     display_point_zone_button.draw(canvas, context);
 
-    canvas.addEventListener("mousedown", mousedownListener, false);
-    function mousedownListener(event){
-        event.preventDefault();
-        let canvas_rectangle = canvas.getBoundingClientRect();
-        // 得点ゾーン表示ボタンがクリックされたらお題出題フェーズに移行する
-        if(display_point_zone_button.clicked(event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top)){
-            canvas.removeEventListener("mousedown", mousedownListener, false);
-            question(canvas, context);
-        }
-    }
+    enableButtonReady(canvas, context, display_point_zone_button);
 }
 
 //// お題出題フェーズ ////
-function question(canvas, context){
+export function question(canvas, context){
     // canvas のリセット
     canvas_reset(canvas, context);
     
