@@ -1,6 +1,5 @@
 import { center_of_arc_x, center_of_arc_y, radius } from "./main.js";
-import { area_size } from "./game.js";
-import { points } from "./game.js";
+import { gameSettings } from "./gameSettings.js";
 
 //// 汎用関数 ////
 
@@ -53,7 +52,7 @@ export function draw_point_zone(degree, canvas, context){
         // 起点
         context.moveTo(center_of_arc_x, center_of_arc_y);
         // 弧を指定
-        context.arc(center_of_arc_x, center_of_arc_y, radius, degree_to_rad(degree - area_size * 2.5 + i * area_size), degree_to_rad(degree - area_size * 1.5 + i * area_size), false); // 引数: (円弧の中心の x 座標, 円弧の中心の y 座標, 半径, 始まりの角度[rad], 終わりの角度[rad], 反時計回り{true} or 時計回り{false})
+        context.arc(center_of_arc_x, center_of_arc_y, radius, degree_to_rad(degree - gameSettings.area_size * 2.5 + i * gameSettings.area_size), degree_to_rad(degree - gameSettings.area_size * 1.5 + i * gameSettings.area_size), false); // 引数: (円弧の中心の x 座標, 円弧の中心の y 座標, 半径, 始まりの角度[rad], 終わりの角度[rad], 反時計回り{true} or 時計回り{false})
         // 塗りつぶし
         context.fillStyle = COLORS[i];
         context.fill();
@@ -140,17 +139,17 @@ export function draw_point(areas, canvas, context){
         if(areas[0] == 0){
             context.fillStyle = "rgb(240, 240, 80)";
             context.fillRect(canvas.width * 0.35, canvas.width * 0.05, canvas.width * 0.3, canvas.width * 0.06);
-            texts[0] = points[0] + "点！！！";
+            texts[0] = gameSettings.points[0] + "点！！！";
         }
         else if(areas[0] == 1){
             context.fillStyle = "rgb(250, 175, 80)";
             context.fillRect(canvas.width * 0.35, canvas.width * 0.05, canvas.width * 0.3, canvas.width * 0.06);
-            texts[0] = points[1] + "点！！";
+            texts[0] = gameSettings.points[1] + "点！！";
         }
         else if(areas[0] == 2){
             context.fillStyle = "rgb(225, 225, 200)";
             context.fillRect(canvas.width * 0.35, canvas.width * 0.05, canvas.width * 0.3, canvas.width * 0.06);
-            texts[0] = points[2] + "点！";
+            texts[0] = gameSettings.points[2] + "点！";
         }
         else{
             texts[0] = 0 + "点...";
@@ -167,17 +166,17 @@ export function draw_point(areas, canvas, context){
         if(areas[0] == 0){
             context.fillStyle = "rgb(240, 240, 80)";
             context.fillRect(canvas.width * 0.15, canvas.width * 0.05, canvas.width * 0.3, canvas.width * 0.06);
-            texts[0] = points[0] + "点！！！";
+            texts[0] = gameSettings.points[0] + "点！！！";
         }
         else if(areas[0] == 1){
             context.fillStyle = "rgb(250, 175, 80)";
             context.fillRect(canvas.width * 0.15, canvas.width * 0.05, canvas.width * 0.3, canvas.width * 0.06);
-            texts[0] = points[1] + "点！！";
+            texts[0] = gameSettings.points[1] + "点！！";
         }
         else if(areas[0] == 2){
             context.fillStyle = "rgb(225, 225, 200)";
             context.fillRect(canvas.width * 0.15, canvas.width * 0.05, canvas.width * 0.3, canvas.width * 0.06);
-            texts[0] = points[2] + "点！";
+            texts[0] = gameSettings.points[2] + "点！";
         }
         else{
             texts[0] = 0 + "点...";
@@ -196,17 +195,17 @@ export function draw_point(areas, canvas, context){
         if(areas[1] == 0){
             context.fillStyle = "rgb(240, 240, 80)";
             context.fillRect(canvas.width * 0.55, canvas.width * 0.05, canvas.width * 0.3, canvas.width * 0.06);
-            texts[1] = points[0] + "点！！！";
+            texts[1] = gameSettings.points[0] + "点！！！";
         }
         else if(areas[1] == 1){
             context.fillStyle = "rgb(250, 175, 80)";
             context.fillRect(canvas.width * 0.55, canvas.width * 0.05, canvas.width * 0.3, canvas.width * 0.06);
-            texts[1] = points[1] + "点！！";
+            texts[1] = gameSettings.points[1] + "点！！";
         }
         else if(areas[1] == 2){
             context.fillStyle = "rgb(225, 225, 200)";
             context.fillRect(canvas.width * 0.55, canvas.width * 0.05, canvas.width * 0.3, canvas.width * 0.06);
-            texts[1] = points[2] + "点！";
+            texts[1] = gameSettings.points[2] + "点！";
         }
         else{
             texts[1] = 0 + "点...";
@@ -227,17 +226,17 @@ export function draw_point(areas, canvas, context){
         if(areas[0] == 0){
             context.fillStyle = "rgb(240, 240, 80)";
             context.fillRect(canvas.width * 0.02, canvas.width * 0.05, canvas.width * 0.3, canvas.width * 0.06);
-            texts[0] = points[0] + "点！！！";
+            texts[0] = gameSettings.points[0] + "点！！！";
         }
         else if(areas[0] == 1){
             context.fillStyle = "rgb(250, 175, 80)";
             context.fillRect(canvas.width * 0.02, canvas.width * 0.05, canvas.width * 0.3, canvas.width * 0.06);
-            texts[0] = points[1] + "点！！";
+            texts[0] = gameSettings.points[1] + "点！！";
         }
         else if(areas[0] == 2){
             context.fillStyle = "rgb(225, 225, 200)";
             context.fillRect(canvas.width * 0.02, canvas.width * 0.05, canvas.width * 0.3, canvas.width * 0.06);
-            texts[0] = points[2] + "点！";
+            texts[0] = gameSettings.points[2] + "点！";
         }
         else{
             texts[0] = 0 + "点...";
@@ -256,17 +255,17 @@ export function draw_point(areas, canvas, context){
         if(areas[1] == 0){
             context.fillStyle = "rgb(240, 240, 80)";
             context.fillRect(canvas.width * 0.35, canvas.width * 0.05, canvas.width * 0.3, canvas.width * 0.06);
-            texts[1] = points[0] + "点！！！";
+            texts[1] = gameSettings.points[0] + "点！！！";
         }
         else if(areas[1] == 1){
             context.fillStyle = "rgb(250, 175, 80)";
             context.fillRect(canvas.width * 0.35, canvas.width * 0.05, canvas.width * 0.3, canvas.width * 0.06);
-            texts[1] = points[1] + "点！！";
+            texts[1] = gameSettings.points[1] + "点！！";
         }
         else if(areas[1] == 2){
             context.fillStyle = "rgb(225, 225, 200)";
             context.fillRect(canvas.width * 0.35, canvas.width * 0.05, canvas.width * 0.3, canvas.width * 0.06);
-            texts[1] = points[2] + "点！";
+            texts[1] = gameSettings.points[2] + "点！";
         }
         else{
             texts[1] = 0 + "点...";
@@ -285,17 +284,17 @@ export function draw_point(areas, canvas, context){
         if(areas[2] == 0){
             context.fillStyle = "rgb(240, 240, 80)";
             context.fillRect(canvas.width * 0.68, canvas.width * 0.05, canvas.width * 0.3, canvas.width * 0.06);
-            texts[2] = points[0] + "点！！！";
+            texts[2] = gameSettings.points[0] + "点！！！";
         }
         else if(areas[2] == 1){
             context.fillStyle = "rgb(250, 175, 80)";
             context.fillRect(canvas.width * 0.68, canvas.width * 0.05, canvas.width * 0.3, canvas.width * 0.06);
-            texts[2] = points[1] + "点！！";
+            texts[2] = gameSettings.points[1] + "点！！";
         }
         else if(areas[2] == 2){
             context.fillStyle = "rgb(225, 225, 200)";
             context.fillRect(canvas.width * 0.68, canvas.width * 0.05, canvas.width * 0.3, canvas.width * 0.06);
-            texts[2] = points[2] + "点！";
+            texts[2] = gameSettings.points[2] + "点！";
         }
         else{
             texts[2] = 0 + "点...";

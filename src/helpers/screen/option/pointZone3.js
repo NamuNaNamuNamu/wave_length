@@ -1,11 +1,11 @@
 import { draw_text_on_option } from "../../../function.js";
 import { draw_number_on_option } from "../../../function.js";
-import { points } from "../../../game.js";
+import { gameSettings } from "../../../gameSettings.js";
 import { ImageButton } from "../../../class.js";
 
 export function pointZone3(canvas, context) {
     draw_text_on_option("得点ゾーン３の得点", 0.75, canvas, context);
-    draw_number_on_option(points[2], 0.7, 0.75, canvas, context);
+    draw_number_on_option(gameSettings.points[2], 0.7, 0.75, canvas, context);
     let triangle_left5 = new Image();
     let triangle_right5 = new Image();
     triangle_left5.src = "img/triangle_left.png";

@@ -19,14 +19,12 @@ import { pointZoneWidth } from "./helpers/screen/option/pointZoneWidth.js";
 import { pointZone1 } from "./helpers/screen/option/pointZone1.js";
 import { pointZone2 } from "./helpers/screen/option/pointZone2.js";
 import { pointZone3 } from "./helpers/screen/option/pointZone3.js";
+import { gameSettings } from "./gameSettings.js";
 
 ////// ゲームに必要なパラメータ //////
 let question_number; // 何番目のお題をランダムに選んだか
 let theta = []; // 針の角度(左から プレイヤー 1, 2, 3)
 let answer_degree = 0; // 正解の角度
-export let num_of_player = 2; // 参加プレイヤー数
-export let area_size = 10; // 1つの得点エリアのサイズ(度)
-export let points = [5, 3, 1]; // 各得点ゾーンの得点
 
 let x = new Array(1000);    // 指の数だけx座標を格納するための配列 (余裕を持って1000要素用意) 
 let y = new Array(1000);    // 指の数だけy座標を格納するための配列 (余裕を持って1000要素用意)
@@ -64,20 +62,11 @@ export function title(canvas, context){
 //// 設定画面 ////
 export function option(canvas, context){
     // canvas のリセット
-    canvas_reset(canvas, context);
-
+    canvas_reset(canvas, context);    
     let [left_button1, right_button1] = numPlayers(canvas, context);
-
-    // 得点ゾーン1つ分の大きさの設定
     let [left_button2, right_button2] = pointZoneWidth(canvas, context);
-
-    // 得点ゾーン１の得点
     let [left_button3, right_button3] = pointZone1(canvas, context);
-
-    // 得点ゾーン２の得点
     let [left_button4, right_button4] = pointZone2(canvas, context);
-
-    // 得点ゾーン３の得点
     let [left_button5, right_button5] = pointZone3(canvas, context);
 
     // タイトルに戻るボタンの描画
@@ -97,79 +86,79 @@ export function option(canvas, context){
         let canvas_rectangle = canvas.getBoundingClientRect();
         // 左右ボタン1
         if(left_button1.clicked(event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top)){
-            if(num_of_player > 2){
-                num_of_player -= 1;
+            if(gameSettings.num_of_player > 2){
+                gameSettings.num_of_player -= 1;
             }
         }
         if(right_button1.clicked(event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top)){
-            if(num_of_player < 4){
-                num_of_player += 1;
+            if(gameSettings.num_of_player < 4){
+                gameSettings.num_of_player += 1;
             }
         }
         // 左右ボタン2
         if(left_button2.clicked(event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top)){
-            if(area_size > 5){
-                area_size -= 1;
+            if(gameSettings.area_size > 5){
+                gameSettings.area_size -= 1;
             }
         }
         if(right_button2.clicked(event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top)){
-            if(area_size < 20){
-                area_size += 1;
+            if(gameSettings.area_size < 20){
+                gameSettings.area_size += 1;
             }
         }
         // 左右ボタン3
         if(left_button3.clicked(event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top)){
-            if(points[0] > 1){
-                points[0] -= 1;
+            if(gameSettings.points[0] > 1){
+                gameSettings.points[0] -= 1;
             }
         }
         if(right_button3.clicked(event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top)){
-            if(points[0] < 10){
-                points[0] += 1;
+            if(gameSettings.points[0] < 10){
+                gameSettings.points[0] += 1;
             }
         }
         // 左右ボタン4
         if(left_button4.clicked(event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top)){
-            if(points[1] > 1){
-                points[1] -= 1;
+            if(gameSettings.points[1] > 1){
+                gameSettings.points[1] -= 1;
             }
         }
         if(right_button4.clicked(event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top)){
-            if(points[1] < 10){
-                points[1] += 1;
+            if(gameSettings.points[1] < 10){
+                gameSettings.points[1] += 1;
             }
         }
         // 左右ボタン5
         if(left_button5.clicked(event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top)){
-            if(points[2] > 1){
-                points[2] -= 1;
+            if(gameSettings.points[2] > 1){
+                gameSettings.points[2] -= 1;
             }
         }
         if(right_button5.clicked(event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top)){
-            if(points[2] < 10){
-                points[2] += 1;
+            if(gameSettings.points[2] < 10){
+                gameSettings.points[2] += 1;
             }
         }
 
         canvas_reset(canvas, context);
         draw_text_on_option("プレイヤー数", 0.1, canvas, context);
-        draw_number_on_option(num_of_player, 0.7, 0.1, canvas, context);
+        draw_number_on_option(gameSettings.num_of_player, 0.7, 0.1, canvas, context);
         left_button1.draw(canvas, context);
         right_button1.draw(canvas, context);
         draw_text_on_option("得点ゾーン１つの大きさ(度)", 0.27, canvas, context);
-        draw_number_on_option(area_size, 0.7, 0.37, canvas, context);
+        draw_number_on_option(gameSettings.area_size, 0.7, 0.37, canvas, context);
         left_button2.draw(canvas, context);
         right_button2.draw(canvas, context);
         draw_text_on_option("得点ゾーン１の得点", 0.55, canvas, context);
-        draw_number_on_option(points[0], 0.7, 0.55, canvas, context);
+        draw_number_on_option(gameSettings.points[0], 0.7, 0.55, canvas, context);
         left_button3.draw(canvas, context);
         right_button3.draw(canvas, context);
         draw_text_on_option("得点ゾーン２の得点", 0.65, canvas, context);
-        draw_number_on_option(points[1], 0.7, 0.65, canvas, context);
+        draw_number_on_option(gameSettings.points[1], 0.7, 0.65, canvas, context);
         left_button4.draw(canvas, context);
         right_button4.draw(canvas, context);
         draw_text_on_option("得点ゾーン３の得点", 0.75, canvas, context);
-        draw_number_on_option(points[2], 0.7, 0.75, canvas, context);
+        draw_number_on_option(gameSettings.points[2], 0.7, 0.75, canvas, context);
         left_button5.draw(canvas, context);
         right_button5.draw(canvas, context);
         back_to_title_button.draw(canvas, context);
@@ -296,7 +285,7 @@ function answer(canvas, context){
     draw_text_of_the_top("出題者は具体例を出してください", canvas, context);
     // 現在の針の角度
     theta = [];
-    for(let i = 0; i < num_of_player - 1; i++){
+    for(let i = 0; i < gameSettings.num_of_player - 1; i++){
         theta[i] = -90;
     }
     // 半円形の用意
@@ -350,7 +339,7 @@ function answer(canvas, context){
         }
         // もし 操作プレイヤー変更ボタン で左クリックされた場合, 針を操作するプレイヤーを変更する
         if(change_player_button.clicked(event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top)){
-            if(current_player == num_of_player - 1){
+            if(current_player == gameSettings.num_of_player - 1){
                 current_player = 1;
             }
             else{
@@ -493,14 +482,14 @@ function result(canvas, context){
 
     // 点数の判定
     let areas = [];
-    for(let i = 0; i < num_of_player - 1; i++){
-        if(Math.abs(theta[i] - answer_degree) <= area_size / 2){
+    for(let i = 0; i < gameSettings.num_of_player - 1; i++){
+        if(Math.abs(theta[i] - answer_degree) <= gameSettings.area_size / 2){
             areas[i] = 0;
         }
-        else if(Math.abs(theta[i] - answer_degree) <= area_size / 2 * 3){
+        else if(Math.abs(theta[i] - answer_degree) <= gameSettings.area_size / 2 * 3){
             areas[i] = 1;
         }
-        else if(Math.abs(theta[i] - answer_degree) <= area_size / 2 * 5){
+        else if(Math.abs(theta[i] - answer_degree) <= gameSettings.area_size / 2 * 5){
             areas[i] = 2;
         }
         else{
