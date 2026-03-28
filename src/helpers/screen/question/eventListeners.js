@@ -1,7 +1,9 @@
 import { answer } from "../../../game.js";
-import { canvas_reset, draw_text_of_the_top } from "../../../function.js";
+import { canvas_reset, draw_point_zone, draw_question, draw_text_of_the_top } from "../../../function.js";
 import { draw_half_circle } from "../../../function.js";
 import { gameParams } from "../../shared/gameParams.js";
+import { questions } from "../../../main.js";
+
 
 export function enableButtonQuestion(canvas, context, confirmation_button, question_reset_button) {
     canvas.addEventListener("mousedown", mousedownListener, false);
