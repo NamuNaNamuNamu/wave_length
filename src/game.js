@@ -22,7 +22,7 @@ import { pointZone3 } from "./helpers/screen/option/pointZone3.js";
 import { enableButtonOption } from "./helpers/screen/option/eventListeners.js";
 import { gameSettings } from "./gameSettings.js";
 import { enableButtonReady } from "./helpers/screen/ready/eventListeners.js";
-import { gameParams } from "./helpers/screen/question/gameParams.js";
+import { gameParams } from "./helpers/shared/gameParams.js";
 import { enableButtonQuestion } from "./helpers/screen/question/eventListeners.js";
 
 let x = new Array(1000);    // 指の数だけx座標を格納するための配列 (余裕を持って1000要素用意) 
