@@ -25,8 +25,6 @@ import { enableButtonReady } from "./helpers/screen/ready/eventListeners.js";
 import { gameParams } from "./helpers/screen/question/gameParams.js";
 import { enableButtonQuestion } from "./helpers/screen/question/eventListeners.js";
 
-////// ゲームに必要なパラメータ //////
-
 let x = new Array(1000);    // 指の数だけx座標を格納するための配列 (余裕を持って1000要素用意) 
 let y = new Array(1000);    // 指の数だけy座標を格納するための配列 (余裕を持って1000要素用意)
 
