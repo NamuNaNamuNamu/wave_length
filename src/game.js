@@ -22,11 +22,9 @@ import { pointZone3 } from "./helpers/screen/option/pointZone3.js";
 import { enableButtonOption } from "./helpers/screen/option/eventListeners.js";
 import { gameSettings } from "./gameSettings.js";
 import { enableButtonReady } from "./helpers/screen/ready/eventListeners.js";
+import { gameParams } from "./helpers/screen/question/gameParams.js";
 
 ////// ゲームに必要なパラメータ //////
-let question_number; // 何番目のお題をランダムに選んだか
-let theta = []; // 針の角度(左から プレイヤー 1, 2, 3)
-let answer_degree = 0; // 正解の角度
 
 let x = new Array(1000);    // 指の数だけx座標を格納するための配列 (余裕を持って1000要素用意) 
 let y = new Array(1000);    // 指の数だけy座標を格納するための配列 (余裕を持って1000要素用意)
@@ -132,14 +130,14 @@ export function question(canvas, context){
     // 半円形の用意
     draw_half_circle(canvas, context);
     // 得点ゾーンをランダムで設定
-    answer_degree = -Math.random() * 180;
+    gameParams.answer_degree = -Math.random() * 180;
     // 得点ゾーンの描画
-    draw_point_zone(answer_degree, canvas, context);
+    draw_point_zone(gameParams.answer_degree, canvas, context);
     // お題をランダムで設定
-    question_number = Math.floor(Math.random() * questions.length);
-    if(question_number == questions.length) question_number -= 1;
+    gameParams.question_number = Math.floor(Math.random() * questions.length);
+    if(gameParams.question_number == questions.length) gameParams.question_number -= 1;
     // お題の描画
-    draw_question(questions[question_number][0], questions[question_number][1], canvas, context);
+    draw_question(questions[gameParams.question_number][0], questions[gameParams.question_number][1], canvas, context);
     // 「確認しました」ボタンの描画
     let confirmation_button = new Button(
         canvas.width * 0.5,     // x座標
@@ -179,14 +177,14 @@ export function question(canvas, context){
             // 半円形の用意
             draw_half_circle(canvas, context);
             // 得点ゾーンをランダムで設定
-            answer_degree = -Math.random() * 180;
+            gameParams.answer_degree = -Math.random() * 180;
             // 得点ゾーンの描画
-            draw_point_zone(answer_degree, canvas, context);
+            draw_point_zone(gameParams.answer_degree, canvas, context);
             // お題をランダムで設定
-            question_number = Math.floor(Math.random() * questions.length);
-            if(question_number == questions.length) question_number -= 1;
+            gameParams.question_number = Math.floor(Math.random() * questions.length);
+            if(gameParams.question_number == questions.length) gameParams.question_number -= 1;
             // お題の描画
-            draw_question(questions[question_number][0], questions[question_number][1], canvas, context);
+            draw_question(questions[gameParams.question_number][0], questions[gameParams.question_number][1], canvas, context);
 
             confirmation_button.draw(canvas, context);
             question_reset_button.draw(canvas, context);
@@ -205,16 +203,16 @@ function answer(canvas, context){
     // 画面上部のテキストを表示
     draw_text_of_the_top("出題者は具体例を出してください", canvas, context);
     // 現在の針の角度
-    theta = [];
+    gameParams.theta = [];
     for(let i = 0; i < gameSettings.num_of_player - 1; i++){
-        theta[i] = -90;
+        gameParams.theta[i] = -90;
     }
     // 半円形の用意
     draw_half_circle(canvas, context);
     // 針の描画
-    draw_needle(theta, canvas, context);
+    draw_needle(gameParams.theta, canvas, context);
     // お題の描画
-    draw_question(questions[question_number][0], questions[question_number][1], canvas, context);
+    draw_question(questions[gameParams.question_number][0], questions[gameParams.question_number][1], canvas, context);
     // 操作プレイヤー変更ボタンの描画
     let text_color = "";
     if(current_player == 1) text_color = "rgb(200, 0, 0)";
@@ -270,11 +268,11 @@ function answer(canvas, context){
         // ボタンが押されてなければ, 針を移動させる
         clicked = true;
         // クリックされた時点でのマウスの場所の角度を算出
-        let previous = theta[current_player - 1]; // 一つ前の角度を保存しておく
-        theta[current_player - 1] = get_degree(center_of_arc_x, center_of_arc_y, event.clientX, event.clientY);
+        let previous = gameParams.theta[current_player - 1]; // 一つ前の角度を保存しておく
+        gameParams.theta[current_player - 1] = get_degree(center_of_arc_x, center_of_arc_y, event.clientX, event.clientY);
         // 決定ボタン以外で画面下半分がクリックされたら, 針は動かさない 
-        if(theta[current_player - 1] > 0){
-            theta[current_player - 1] = previous;
+        if(gameParams.theta[current_player - 1] > 0){
+            gameParams.theta[current_player - 1] = previous;
         }
         //// 各パーツの描画 ////
         // canvas のリセット
@@ -284,9 +282,9 @@ function answer(canvas, context){
         // 半円形の用意
         draw_half_circle(canvas, context);
         // 針の描画
-        draw_needle(theta, canvas, context);
+        draw_needle(gameParams.theta, canvas, context);
         // お題の描画
-        draw_question(questions[question_number][0], questions[question_number][1], canvas, context);
+        draw_question(questions[gameParams.question_number][0], questions[gameParams.question_number][1], canvas, context);
         // 操作プレイヤー変更ボタンの描画
         if(current_player == 1) text_color = "rgb(200, 0, 0)";
         if(current_player == 2) text_color = "rgb(0, 0, 200)";
@@ -315,13 +313,13 @@ function answer(canvas, context){
                 return;
             }
             // ドラッグされた時点でのマウスの場所の角度を算出
-            theta[current_player - 1] = get_degree(center_of_arc_x, center_of_arc_y, event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top);
+            gameParams.theta[current_player - 1] = get_degree(center_of_arc_x, center_of_arc_y, event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top);
             // 針が半円の下半分に行かないようにする
-            if(theta[current_player - 1] > 90){
-                theta[current_player - 1] = -180;
+            if(gameParams.theta[current_player - 1] > 90){
+                gameParams.theta[current_player - 1] = -180;
             }
-            else if(theta[current_player - 1] > 0){
-                theta[current_player - 1] = 0;
+            else if(gameParams.theta[current_player - 1] > 0){
+                gameParams.theta[current_player - 1] = 0;
             }
             //// 各パーツの描画 ////
             // canvas のリセット
@@ -331,9 +329,9 @@ function answer(canvas, context){
             // 半円形の用意
             draw_half_circle(canvas, context);
             // 針の描画
-            draw_needle(theta, canvas, context);
+            draw_needle(gameParams.theta, canvas, context);
             // お題の描画
-            draw_question(questions[question_number][0], questions[question_number][1], canvas, context);
+            draw_question(questions[gameParams.question_number][0], questions[gameParams.question_number][1], canvas, context);
             // 操作プレイヤー変更ボタンの描画
             change_player_button.draw(canvas, context);
             // 決定ボタンの描画
@@ -354,13 +352,13 @@ function answer(canvas, context){
                 return;
             }
             // ドラッグされた時点での指の場所の角度を算出
-            theta[current_player - 1] = get_degree(center_of_arc_x, center_of_arc_y, x[0], y[0]);
+            gameParams.theta[current_player - 1] = get_degree(center_of_arc_x, center_of_arc_y, x[0], y[0]);
             // 針が半円の下半分に行かないようにする
-            if(theta[current_player - 1] > 90){
-                theta[current_player - 1] = -180;
+            if(gameParams.theta[current_player - 1] > 90){
+                gameParams.theta[current_player - 1] = -180;
             }
-            else if(theta[current_player - 1] > 0){
-                theta[current_player - 1] = 0;
+            else if(gameParams.theta[current_player - 1] > 0){
+                gameParams.theta[current_player - 1] = 0;
             }
             //// 各パーツの描画 ////
             // canvas のリセット
@@ -370,9 +368,9 @@ function answer(canvas, context){
             // 半円形の用意
             draw_half_circle(canvas, context);
             // 針の描画
-            draw_needle(theta, canvas, context);
+            draw_needle(gameParams.theta, canvas, context);
             // お題の描画
-            draw_question(questions[question_number][0], questions[question_number][1], canvas, context);
+            draw_question(questions[gameParams.question_number][0], questions[gameParams.question_number][1], canvas, context);
             // 操作プレイヤー変更ボタンの描画
             change_player_button.draw(canvas, context);
             // 決定ボタンの描画
@@ -395,22 +393,22 @@ function result(canvas, context){
     // 半円形の用意
     draw_half_circle(canvas, context);
     // 得点ゾーンの描画
-    draw_point_zone(answer_degree, canvas, context);
+    draw_point_zone(gameParams.answer_degree, canvas, context);
     // 針の描画
-    draw_needle(theta, canvas, context);
+    draw_needle(gameParams.theta, canvas, context);
     // お題の描画
-    draw_question(questions[question_number][0], questions[question_number][1], canvas, context);
+    draw_question(questions[gameParams.question_number][0], questions[gameParams.question_number][1], canvas, context);
 
     // 点数の判定
     let areas = [];
     for(let i = 0; i < gameSettings.num_of_player - 1; i++){
-        if(Math.abs(theta[i] - answer_degree) <= gameSettings.area_size / 2){
+        if(Math.abs(gameParams.theta[i] - gameParams.answer_degree) <= gameSettings.area_size / 2){
             areas[i] = 0;
         }
-        else if(Math.abs(theta[i] - answer_degree) <= gameSettings.area_size / 2 * 3){
+        else if(Math.abs(gameParams.theta[i] - gameParams.answer_degree) <= gameSettings.area_size / 2 * 3){
             areas[i] = 1;
         }
-        else if(Math.abs(theta[i] - answer_degree) <= gameSettings.area_size / 2 * 5){
+        else if(Math.abs(gameParams.theta[i] - gameParams.answer_degree) <= gameSettings.area_size / 2 * 5){
             areas[i] = 2;
         }
         else{
