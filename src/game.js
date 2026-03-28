@@ -24,6 +24,7 @@ import { gameSettings } from "./gameSettings.js";
 import { enableButtonReady } from "./helpers/screen/ready/eventListeners.js";
 import { gameParams } from "./helpers/shared/gameParams.js";
 import { enableButtonQuestion } from "./helpers/screen/question/eventListeners.js";
+import { answerGameParams } from "./helpers/screen/answer/answerGameParams.js";
 
 let x = new Array(1000);    // 指の数だけx座標を格納するための配列 (余裕を持って1000要素用意) 
 let y = new Array(1000);    // 指の数だけy座標を格納するための配列 (余裕を持って1000要素用意)
@@ -166,9 +167,6 @@ export function answer(canvas, context){
     // canvas のリセット
     canvas_reset(canvas, context);
 
-    // 現在針を操作できるプレイヤー
-    let current_player = 1;
-
     // 画面上部のテキストを表示
     draw_text_of_the_top("出題者は具体例を出してください", canvas, context);
     // 現在の針の角度
@@ -184,15 +182,15 @@ export function answer(canvas, context){
     draw_question(questions[gameParams.question_number][0], questions[gameParams.question_number][1], canvas, context);
     // 操作プレイヤー変更ボタンの描画
     let text_color = "";
-    if(current_player == 1) text_color = "rgb(200, 0, 0)";
-    if(current_player == 2) text_color = "rgb(0, 200, 0)";
-    if(current_player == 3) text_color = "rgb(0, 0, 200)";
+    if(answerGameParams.current_player == 1) text_color = "rgb(200, 0, 0)";
+    if(answerGameParams.current_player == 2) text_color = "rgb(0, 200, 0)";
+    if(answerGameParams.current_player == 3) text_color = "rgb(0, 0, 200)";
     let change_player_button = new Button(
         canvas.width * 0.3,     // x座標
         canvas.height * 0.85,    // y座標
         canvas.width * 0.5,     // 横幅
         canvas.height * 0.15,   // 縦幅
-        "P" + current_player,   // テキスト
+        "P" + answerGameParams.current_player,   // テキスト
         "rgb(250, 200, 200)",   // ボタンカラー
         text_color,             // テキストカラー
     );
@@ -227,21 +225,21 @@ export function answer(canvas, context){
         }
         // もし 操作プレイヤー変更ボタン で左クリックされた場合, 針を操作するプレイヤーを変更する
         if(change_player_button.clicked(event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top)){
-            if(current_player == gameSettings.num_of_player - 1){
-                current_player = 1;
+            if(answerGameParams.current_player == gameSettings.num_of_player - 1){
+                answerGameParams.current_player = 1;
             }
             else{
-                current_player++;
+                answerGameParams.current_player++;
             }
         }
         // ボタンが押されてなければ, 針を移動させる
         clicked = true;
         // クリックされた時点でのマウスの場所の角度を算出
-        let previous = gameParams.theta[current_player - 1]; // 一つ前の角度を保存しておく
-        gameParams.theta[current_player - 1] = get_degree(center_of_arc_x, center_of_arc_y, event.clientX, event.clientY);
+        let previous = gameParams.theta[answerGameParams.current_player - 1]; // 一つ前の角度を保存しておく
+        gameParams.theta[answerGameParams.current_player - 1] = get_degree(center_of_arc_x, center_of_arc_y, event.clientX, event.clientY);
         // 決定ボタン以外で画面下半分がクリックされたら, 針は動かさない 
-        if(gameParams.theta[current_player - 1] > 0){
-            gameParams.theta[current_player - 1] = previous;
+        if(gameParams.theta[answerGameParams.current_player - 1] > 0){
+            gameParams.theta[answerGameParams.current_player - 1] = previous;
         }
         //// 各パーツの描画 ////
         // canvas のリセット
@@ -255,15 +253,15 @@ export function answer(canvas, context){
         // お題の描画
         draw_question(questions[gameParams.question_number][0], questions[gameParams.question_number][1], canvas, context);
         // 操作プレイヤー変更ボタンの描画
-        if(current_player == 1) text_color = "rgb(200, 0, 0)";
-        if(current_player == 2) text_color = "rgb(0, 0, 200)";
-        if(current_player == 3) text_color = "rgb(0, 200, 0)";
+        if(answerGameParams.current_player == 1) text_color = "rgb(200, 0, 0)";
+        if(answerGameParams.current_player == 2) text_color = "rgb(0, 0, 200)";
+        if(answerGameParams.current_player == 3) text_color = "rgb(0, 200, 0)";
         change_player_button = new Button(
             canvas.width * 0.3,     // x座標
             canvas.height * 0.85,    // y座標
             canvas.width * 0.5,     // 横幅
             canvas.height * 0.15,   // 縦幅
-            "P" + current_player,   // テキスト
+            "P" + answerGameParams.current_player,   // テキスト
             "rgb(250, 200, 200)",   // ボタンカラー
             text_color,             // テキストカラー
         );
@@ -282,13 +280,13 @@ export function answer(canvas, context){
                 return;
             }
             // ドラッグされた時点でのマウスの場所の角度を算出
-            gameParams.theta[current_player - 1] = get_degree(center_of_arc_x, center_of_arc_y, event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top);
+            gameParams.theta[answerGameParams.current_player - 1] = get_degree(center_of_arc_x, center_of_arc_y, event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top);
             // 針が半円の下半分に行かないようにする
-            if(gameParams.theta[current_player - 1] > 90){
-                gameParams.theta[current_player - 1] = -180;
+            if(gameParams.theta[answerGameParams.current_player - 1] > 90){
+                gameParams.theta[answerGameParams.current_player - 1] = -180;
             }
-            else if(gameParams.theta[current_player - 1] > 0){
-                gameParams.theta[current_player - 1] = 0;
+            else if(gameParams.theta[answerGameParams.current_player - 1] > 0){
+                gameParams.theta[answerGameParams.current_player - 1] = 0;
             }
             //// 各パーツの描画 ////
             // canvas のリセット
@@ -321,13 +319,13 @@ export function answer(canvas, context){
                 return;
             }
             // ドラッグされた時点での指の場所の角度を算出
-            gameParams.theta[current_player - 1] = get_degree(center_of_arc_x, center_of_arc_y, x[0], y[0]);
+            gameParams.theta[answerGameParams.current_player - 1] = get_degree(center_of_arc_x, center_of_arc_y, x[0], y[0]);
             // 針が半円の下半分に行かないようにする
-            if(gameParams.theta[current_player - 1] > 90){
-                gameParams.theta[current_player - 1] = -180;
+            if(gameParams.theta[answerGameParams.current_player - 1] > 90){
+                gameParams.theta[answerGameParams.current_player - 1] = -180;
             }
-            else if(gameParams.theta[current_player - 1] > 0){
-                gameParams.theta[current_player - 1] = 0;
+            else if(gameParams.theta[answerGameParams.current_player - 1] > 0){
+                gameParams.theta[answerGameParams.current_player - 1] = 0;
             }
             //// 各パーツの描画 ////
             // canvas のリセット
