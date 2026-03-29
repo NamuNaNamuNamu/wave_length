@@ -1,0 +1,159 @@
+import { draw_half_circle, draw_needle, draw_question, draw_text_of_the_top, get_degree } from "../../../function.js";
+import { gameParams } from "../../shared/gameParams.js";
+import { answerGameParams } from "./answerGameParams.js";
+import { center_of_arc_x, center_of_arc_y, questions } from "../../../main.js";
+import { canvas_reset } from "../../../function.js";
+import { Button } from "../../../class.js";
+import { change_player_button, result, x, y } from "../../../game.js";
+import { gameSettings } from "../../../gameSettings.js";
+
+//// 針のドラッグアンドドロップ機能 ////
+let clicked = false; // クリックされているかどうか
+
+let mousedownListener;
+let mousemoveListener;
+let touchmoveListener;
+let mouseupListener;
+
+export function enableMousedownListener(canvas, context, determination_button) {
+    mousedownListener = (event) => {
+        event.preventDefault();
+        let canvas_rectangle = canvas.getBoundingClientRect();
+        // もし「決定ボタン」で左クリックされた場合, 答え合わせフェーズに移行する
+        if(determination_button.clicked(event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top)){
+            canvas.removeEventListener("mousedown", mousedownListener, false);
+            canvas.removeEventListener("mousemove", mousemoveListener, false);
+            canvas.removeEventListener("touchmove", touchmoveListener, false);
+            canvas.removeEventListener("mouseup", mouseupListener, false);
+            result(canvas, context);
+            return;
+        }
+        // もし 操作プレイヤー変更ボタン で左クリックされた場合, 針を操作するプレイヤーを変更する
+        if(change_player_button.clicked(event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top)){
+            if(answerGameParams.current_player == gameSettings.num_of_player - 1){
+                answerGameParams.current_player = 1;
+            }
+            else{
+                answerGameParams.current_player++;
+            }
+        }
+        // ボタンが押されてなければ, 針を移動させる
+        clicked = true;
+        // クリックされた時点でのマウスの場所の角度を算出
+        let previous = gameParams.theta[answerGameParams.current_player - 1]; // 一つ前の角度を保存しておく
+        gameParams.theta[answerGameParams.current_player - 1] = get_degree(center_of_arc_x, center_of_arc_y, event.clientX, event.clientY);
+        // 決定ボタン以外で画面下半分がクリックされたら, 針は動かさない 
+        if(gameParams.theta[answerGameParams.current_player - 1] > 0){
+            gameParams.theta[answerGameParams.current_player - 1] = previous;
+        }
+        //// 各パーツの描画 ////
+        // canvas のリセット
+        canvas_reset(canvas, context);
+        // 画面上部のテキストを表示
+        draw_text_of_the_top("回答中...", canvas, context);
+        // 半円形の用意
+        draw_half_circle(canvas, context);
+        // 針の描画
+        draw_needle(gameParams.theta, canvas, context);
+        // お題の描画
+        draw_question(questions[gameParams.question_number][0], questions[gameParams.question_number][1], canvas, context);
+        // 操作プレイヤー変更ボタンの描画
+        let text_color = "";
+        if(answerGameParams.current_player == 1) text_color = "rgb(200, 0, 0)";
+        if(answerGameParams.current_player == 2) text_color = "rgb(0, 0, 200)";
+        if(answerGameParams.current_player == 3) text_color = "rgb(0, 200, 0)";
+        change_player_button.text = "P" + answerGameParams.current_player;
+        change_player_button.text_color = text_color;
+        change_player_button.draw(canvas, context);
+        // 決定ボタンの描画
+        determination_button.draw(canvas, context);
+    }
+    canvas.addEventListener("mousedown", mousedownListener, false);
+}
+
+export function enableMousemoveListener(canvas, context, determination_button) {
+    mousemoveListener = (event) => {
+        event.preventDefault();
+        if(clicked){
+            let canvas_rectangle = canvas.getBoundingClientRect();
+            // もしもし 操作プレイヤー変更ボタン でマウスがドラッグされた場合, 何もしない
+            if(change_player_button.clicked(event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top)){
+                return;
+            }
+            // ドラッグされた時点でのマウスの場所の角度を算出
+            gameParams.theta[answerGameParams.current_player - 1] = get_degree(center_of_arc_x, center_of_arc_y, event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top);
+            // 針が半円の下半分に行かないようにする
+            if(gameParams.theta[answerGameParams.current_player - 1] > 90){
+                gameParams.theta[answerGameParams.current_player - 1] = -180;
+            }
+            else if(gameParams.theta[answerGameParams.current_player - 1] > 0){
+                gameParams.theta[answerGameParams.current_player - 1] = 0;
+            }
+            //// 各パーツの描画 ////
+            // canvas のリセット
+            canvas_reset(canvas, context);
+            // 画面上部のテキストを表示
+            draw_text_of_the_top("回答中...", canvas, context);
+            // 半円形の用意
+            draw_half_circle(canvas, context);
+            // 針の描画
+            draw_needle(gameParams.theta, canvas, context);
+            // お題の描画
+            draw_question(questions[gameParams.question_number][0], questions[gameParams.question_number][1], canvas, context);
+            // 操作プレイヤー変更ボタンの描画
+            change_player_button.draw(canvas, context);
+            // 決定ボタンの描画
+            determination_button.draw(canvas, context);
+        }
+    }
+    canvas.addEventListener("mousemove", mousemoveListener, false);
+}
+
+export function enableTouchmoveListener(canvas, context, determination_button) {
+    touchmoveListener = (event) => {
+        event.preventDefault();
+        for (let i = 0; i < event.changedTouches.length; i++) {
+            let canvas_rectangle = canvas.getBoundingClientRect();
+            x[i] = event.changedTouches[i].pageX - (canvas_rectangle.left + window.pageXOffset);
+            y[i] = event.changedTouches[i].pageY - (canvas_rectangle.top + window.pageYOffset);
+
+            // もしもし 操作プレイヤー変更ボタン で指がドラッグされた場合, 何もしない
+            if(change_player_button.clicked(x[0], y[0])){
+                return;
+            }
+            // ドラッグされた時点での指の場所の角度を算出
+            gameParams.theta[answerGameParams.current_player - 1] = get_degree(center_of_arc_x, center_of_arc_y, x[0], y[0]);
+            // 針が半円の下半分に行かないようにする
+            if(gameParams.theta[answerGameParams.current_player - 1] > 90){
+                gameParams.theta[answerGameParams.current_player - 1] = -180;
+            }
+            else if(gameParams.theta[answerGameParams.current_player - 1] > 0){
+                gameParams.theta[answerGameParams.current_player - 1] = 0;
+            }
+            //// 各パーツの描画 ////
+            // canvas のリセット
+            canvas_reset(canvas, context);
+            // 画面上部のテキストを表示
+            draw_text_of_the_top("回答中...", canvas, context);
+            // 半円形の用意
+            draw_half_circle(canvas, context);
+            // 針の描画
+            draw_needle(gameParams.theta, canvas, context);
+            // お題の描画
+            draw_question(questions[gameParams.question_number][0], questions[gameParams.question_number][1], canvas, context);
+            // 操作プレイヤー変更ボタンの描画
+            change_player_button.draw(canvas, context);
+            // 決定ボタンの描画
+            determination_button.draw(canvas, context);
+        }
+    }
+    canvas.addEventListener("touchmove", touchmoveListener, false);
+}
+
+export function enableMouseupListener() {
+    mouseupListener = (event) => {
+        event.preventDefault();
+        clicked = false;
+    }
+    canvas.addEventListener("mouseup", mouseupListener, false);
+}
