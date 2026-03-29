@@ -1,4 +1,4 @@
-import { gameSettings } from "../../../gameSettings.js";
+import { gameSettings } from "../../gameSettings.js";
 import { canvas_reset } from "../../../function.js";
 import { draw_text_on_option } from "../../../function.js";
 import { draw_number_on_option } from "../../../function.js";

@@ -19,7 +19,7 @@ import { pointZone1 } from "./helpers/screen/option/pointZone1.js";
 import { pointZone2 } from "./helpers/screen/option/pointZone2.js";
 import { pointZone3 } from "./helpers/screen/option/pointZone3.js";
 import { enableButtonOption } from "./helpers/screen/option/eventListeners.js";
-import { gameSettings } from "./gameSettings.js";
+import { gameSettings } from "./helpers/gameSettings.js";
 import { enableButtonReady } from "./helpers/screen/ready/eventListeners.js";
 import { gameParams } from "./helpers/shared/gameParams.js";
 import { enableButtonQuestion } from "./helpers/screen/question/eventListeners.js";

@@ -1,4 +1,4 @@
-import { gameSettings } from "../../../gameSettings.js";
+import { gameSettings } from "../../gameSettings.js";
 import { gameParams } from "../../shared/gameParams.js";
 
 export function judge() {

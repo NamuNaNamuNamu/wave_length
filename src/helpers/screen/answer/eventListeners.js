@@ -4,7 +4,7 @@ import { answerGameParams } from "./answerGameParams.js";
 import { center_of_arc_x, center_of_arc_y, questions } from "../../../main.js";
 import { canvas_reset } from "../../../function.js";
 import { change_player_button, result, x, y } from "../../../game.js";
-import { gameSettings } from "../../../gameSettings.js";
+import { gameSettings } from "../../gameSettings.js";
 
 //// 針のドラッグアンドドロップ機能 ////
 let clicked = false; // クリックされているかどうか

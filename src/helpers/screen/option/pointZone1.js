@@ -1,6 +1,6 @@
 import { draw_text_on_option } from "../../../function.js";
 import { draw_number_on_option } from "../../../function.js";
-import { gameSettings } from "../../../gameSettings.js";
+import { gameSettings } from "../../gameSettings.js";
 import { ImageButton } from "../../Button.js";
 
 export function pointZone1(canvas, context){

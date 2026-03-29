@@ -1,5 +1,5 @@
 import { center_of_arc_x, center_of_arc_y, radius } from "./main.js";
-import { gameSettings } from "./gameSettings.js";
+import { gameSettings } from "./helpers/gameSettings.js";
 
 //// 汎用関数 ////
 
