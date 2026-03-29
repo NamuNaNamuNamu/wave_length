@@ -185,6 +185,9 @@ export function answer(canvas, context){
     draw_needle(gameParams.theta, canvas, context);
     // お題の描画
     draw_question(questions[gameParams.question_number][0], questions[gameParams.question_number][1], canvas, context);
+
+    answerGameParams.current_player = 1;
+
     // 操作プレイヤー変更ボタンの描画
     let text_color = "";
     if(answerGameParams.current_player == 1) text_color = "rgb(200, 0, 0)";
