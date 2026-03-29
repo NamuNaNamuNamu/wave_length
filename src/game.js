@@ -26,6 +26,7 @@ import { gameParams } from "./helpers/shared/gameParams.js";
 import { enableButtonQuestion } from "./helpers/screen/question/eventListeners.js";
 import { answerGameParams } from "./helpers/screen/answer/answerGameParams.js";
 import { enableMousedownListener, enableMousemoveListener, enableMouseupListener, enableTouchmoveListener } from "./helpers/screen/answer/eventListeners.js";
+import { judge } from "./helpers/screen/result/judge.js";
 
 export let x = new Array(1000);    // 指の数だけx座標を格納するための配列 (余裕を持って1000要素用意) 
 export let y = new Array(1000);    // 指の数だけy座標を格納するための配列 (余裕を持って1000要素用意)
@@ -231,21 +232,7 @@ export function result(canvas, context){
     draw_question(questions[gameParams.question_number][0], questions[gameParams.question_number][1], canvas, context);
 
     // 点数の判定
-    let areas = [];
-    for(let i = 0; i < gameSettings.num_of_player - 1; i++){
-        if(Math.abs(gameParams.theta[i] - gameParams.answer_degree) <= gameSettings.area_size / 2){
-            areas[i] = 0;
-        }
-        else if(Math.abs(gameParams.theta[i] - gameParams.answer_degree) <= gameSettings.area_size / 2 * 3){
-            areas[i] = 1;
-        }
-        else if(Math.abs(gameParams.theta[i] - gameParams.answer_degree) <= gameSettings.area_size / 2 * 5){
-            areas[i] = 2;
-        }
-        else{
-            areas[i] = 3;
-        }
-    }
+    let areas = judge();
     
     // 点数の描画
     draw_point(areas, canvas, context);
