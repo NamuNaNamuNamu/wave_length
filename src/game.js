@@ -27,6 +27,7 @@ import { enableButtonQuestion } from "./helpers/screen/question/eventListeners.j
 import { answerGameParams } from "./helpers/screen/answer/answerGameParams.js";
 import { enableMousedownListener, enableMousemoveListener, enableMouseupListener, enableTouchmoveListener } from "./helpers/screen/answer/eventListeners.js";
 import { judge } from "./helpers/screen/result/judge.js";
+import { enableButtonResult } from "./helpers/screen/result/eventListeners.js";
 
 export let x = new Array(1000);    // 指の数だけx座標を格納するための配列 (余裕を持って1000要素用意) 
 export let y = new Array(1000);    // 指の数だけy座標を格納するための配列 (余裕を持って1000要素用意)
@@ -248,14 +249,5 @@ export function result(canvas, context){
     );
     go_back_to_title_button.draw(canvas, context);
 
-    canvas.addEventListener("mousedown", mousedownListener, false);
-    function mousedownListener(event){
-        event.preventDefault();
-        // 「タイトルに戻る」ボタンがクリックされたらタイトル画面に移行する
-        let canvas_rectangle = canvas.getBoundingClientRect();
-        if(go_back_to_title_button.clicked(event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top)){
-            canvas.removeEventListener("mousedown", mousedownListener, false);
-            title(canvas, context);
-        }
-    }
+    enableButtonResult(canvas, context, go_back_to_title_button);
 }
