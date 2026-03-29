@@ -1,7 +1,7 @@
 import { draw_text_on_option } from "../../../function.js";
 import { draw_number_on_option } from "../../../function.js";
 import { gameSettings } from "../../../gameSettings.js";
-import { ImageButton } from "../../../class.js";
+import { ImageButton } from "../../Button.js";
 
 export function pointZone3(canvas, context) {
     draw_text_on_option("得点ゾーン３の得点", 0.75, canvas, context);

@@ -1,5 +1,5 @@
 import { canvas_reset } from "./function.js";
-import { Button } from "./class.js";
+import { Button } from "./helpers/Button.js";
 import { draw_caution } from "./function.js";
 import { draw_text_of_the_top } from "./function.js";
 import { draw_half_circle } from "./function.js";
@@ -12,7 +12,6 @@ import { get_degree } from "./function.js";
 import { draw_point } from "./function.js";
 import { draw_text_on_option } from "./function.js";
 import { draw_number_on_option } from "./function.js";
-import { ImageButton } from "./class.js";
 import { enableButtonTitle } from "./helpers/screen/title/eventListeners.js";
 import { numPlayers } from "./helpers/screen/option/numPlayers.js";
 import { pointZoneWidth } from "./helpers/screen/option/pointZoneWidth.js";
