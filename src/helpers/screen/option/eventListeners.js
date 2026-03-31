@@ -8,7 +8,7 @@ export function enableButtonOption(canvas, context, buttons) {
     canvasReplaced.addEventListener("mousedown", mousedownListener, false);
     function mousedownListener(event){
         event.preventDefault();
-        let canvas_rectangle = canvas.getBoundingClientRect();
+        let canvas_rectangle = canvasReplaced.getBoundingClientRect();
         // 左右ボタン1
         if(buttons.left.numPlayers.clicked(event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top)){
             if(gameSettings.num_of_player > 2){

@@ -11,7 +11,7 @@ export function enableButtonQuestion(canvas, context, confirmation_button, quest
     function mousedownListener(event){
         event.preventDefault();
         // スタートボタンがクリックされたらお題出題フェーズに移行する
-        let canvas_rectangle = canvas.getBoundingClientRect();
+        let canvas_rectangle = canvasReplaced.getBoundingClientRect();
         if(confirmation_button.clicked(event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top)){
             canvasReplaced.removeEventListener("mousedown", mousedownListener, false);
             answer(canvas, context);

@@ -18,7 +18,7 @@ let mouseupListener;
 export function enableMousedownListener(canvas, context, determination_button) {
     mousedownListener = (event) => {
         event.preventDefault();
-        let canvas_rectangle = canvas.getBoundingClientRect();
+        let canvas_rectangle = canvasReplaced.getBoundingClientRect();
         // もし「決定ボタン」で左クリックされた場合, 答え合わせフェーズに移行する
         if(determination_button.clicked(event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top)){
             canvasReplaced.removeEventListener("mousedown", mousedownListener, false);
@@ -75,7 +75,7 @@ export function enableMousemoveListener(canvas, context, determination_button) {
     mousemoveListener = (event) => {
         event.preventDefault();
         if(clicked){
-            let canvas_rectangle = canvas.getBoundingClientRect();
+            let canvas_rectangle = canvasReplaced.getBoundingClientRect();
             // もしもし 操作プレイヤー変更ボタン でマウスがドラッグされた場合, 何もしない
             if(change_player_button.clicked(event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top)){
                 return;
@@ -113,7 +113,7 @@ export function enableTouchmoveListener(canvas, context, determination_button) {
     touchmoveListener = (event) => {
         event.preventDefault();
         for (let i = 0; i < event.changedTouches.length; i++) {
-            let canvas_rectangle = canvas.getBoundingClientRect();
+            let canvas_rectangle = canvasReplaced.getBoundingClientRect();
             x[i] = event.changedTouches[i].pageX - (canvas_rectangle.left + window.pageXOffset);
             y[i] = event.changedTouches[i].pageY - (canvas_rectangle.top + window.pageYOffset);
 

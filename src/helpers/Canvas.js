@@ -36,6 +36,10 @@ class Canvas {
         this.#canvas.removeEventListener(...args);
     }
 
+    getBoundingClientRect(...args) {
+        return this.#canvas.getBoundingClientRect(...args);
+    }
+
 
     reset() {
         reset(this);
