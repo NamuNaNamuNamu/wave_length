@@ -28,6 +28,11 @@ class Canvas {
         this.#canvas.height = height;
     }
 
+    addEventListener(...args) {
+        this.#canvas.addEventListener(...args);
+    }
+
+
     reset() {
         reset(this);
     }

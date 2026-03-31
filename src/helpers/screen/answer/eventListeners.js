@@ -68,7 +68,7 @@ export function enableMousedownListener(canvas, context, determination_button) {
         // 決定ボタンの描画
         determination_button.draw();
     }
-    canvas.addEventListener("mousedown", mousedownListener, false);
+    canvasReplaced.addEventListener("mousedown", mousedownListener, false);
 }
 
 export function enableMousemoveListener(canvas, context, determination_button) {
@@ -106,7 +106,7 @@ export function enableMousemoveListener(canvas, context, determination_button) {
             determination_button.draw();
         }
     }
-    canvas.addEventListener("mousemove", mousemoveListener, false);
+    canvasReplaced.addEventListener("mousemove", mousemoveListener, false);
 }
 
 export function enableTouchmoveListener(canvas, context, determination_button) {
@@ -147,7 +147,7 @@ export function enableTouchmoveListener(canvas, context, determination_button) {
             determination_button.draw();
         }
     }
-    canvas.addEventListener("touchmove", touchmoveListener, false);
+    canvasReplaced.addEventListener("touchmove", touchmoveListener, false);
 }
 
 export function enableMouseupListener() {
@@ -155,5 +155,5 @@ export function enableMouseupListener() {
         event.preventDefault();
         clicked = false;
     }
-    canvas.addEventListener("mouseup", mouseupListener, false);
+    canvasReplaced.addEventListener("mouseup", mouseupListener, false);
 }

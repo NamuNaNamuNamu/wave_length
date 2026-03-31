@@ -5,7 +5,7 @@ import { title } from "../../../game.js";
 import { canvasReplaced } from "../../Canvas.js";
 
 export function enableButtonOption(canvas, context, buttons) {
-    canvas.addEventListener("mousedown", mousedownListener, false);
+    canvasReplaced.addEventListener("mousedown", mousedownListener, false);
     function mousedownListener(event){
         event.preventDefault();
         let canvas_rectangle = canvas.getBoundingClientRect();

@@ -7,7 +7,7 @@ import { canvasReplaced } from "../../Canvas.js";
 
 
 export function enableButtonQuestion(canvas, context, confirmation_button, question_reset_button) {
-    canvas.addEventListener("mousedown", mousedownListener, false);
+    canvasReplaced.addEventListener("mousedown", mousedownListener, false);
     function mousedownListener(event){
         event.preventDefault();
         // スタートボタンがクリックされたらお題出題フェーズに移行する

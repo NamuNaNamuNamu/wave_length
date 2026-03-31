@@ -1,7 +1,8 @@
 import { question } from "../../../game.js";
+import { canvasReplaced } from "../../Canvas.js";
 
 export function enableButtonReady(canvas, context, display_point_zone_button) {
-    canvas.addEventListener("mousedown", mousedownListener, false);
+    canvasReplaced.addEventListener("mousedown", mousedownListener, false);
     function mousedownListener(event){
         event.preventDefault();
         let canvas_rectangle = canvas.getBoundingClientRect();

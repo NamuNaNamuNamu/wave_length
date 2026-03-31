@@ -1,8 +1,9 @@
 import { ready } from "../../../game.js";
 import { option } from "../../../game.js";
+import { canvasReplaced } from "../../Canvas.js";
 
 export function enableButtonTitle(canvas, context, start_button, option_button) {
-    canvas.addEventListener("mousedown", mousedownListener, false);
+    canvasReplaced.addEventListener("mousedown", mousedownListener, false);
     function mousedownListener(event){
         event.preventDefault();
         let canvas_rectangle = canvas.getBoundingClientRect();

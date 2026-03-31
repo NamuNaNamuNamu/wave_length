@@ -1,7 +1,8 @@
 import { title } from "../../../game.js";
+import { canvasReplaced } from "../../Canvas.js";
 
 export function enableButtonResult(canvas, context, go_back_to_title_button) {
-    canvas.addEventListener("mousedown", mousedownListener, false);
+    canvasReplaced.addEventListener("mousedown", mousedownListener, false);
     function mousedownListener(event){
         event.preventDefault();
         // 「タイトルに戻る」ボタンがクリックされたらタイトル画面に移行する
