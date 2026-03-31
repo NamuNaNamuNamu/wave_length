@@ -1,4 +1,5 @@
-// ボタンクラス
+import { canvasReplaced } from "./Canvas.js";
+
 export class Button{
     constructor(x, y, width, height, text, button_color, text_color){
         this.x = x;
@@ -12,7 +13,8 @@ export class Button{
         else this.text_color = text_color;
     }
 
-    draw(canvas, context){
+    draw(){
+        let context = canvasReplaced.getContext();
         context.fillStyle = this.button_color;
         context.fillRect(this.x - this.width * 0.5, this.y - this.height * 0.5, this.width, this.height);
 
@@ -38,7 +40,13 @@ export class ImageButton extends Button{
         this.img = img;
     }
 
-    draw(canvas, context){
-        context.drawImage(this.img, this.x - this.width * 0.5, this.y - this.height * 0.5, this.width, this.height)
+    draw(){
+        canvasReplaced.getContext().drawImage(
+            this.img,
+            this.x - this.width * 0.5,
+            this.y - this.height * 0.5,
+            this.width,
+            this.height
+        )
     }
 }

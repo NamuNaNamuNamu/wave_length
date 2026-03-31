@@ -64,9 +64,9 @@ export function enableMousedownListener(canvas, context, determination_button) {
         if(answerGameParams.current_player == 3) text_color = "rgb(0, 200, 0)";
         change_player_button.text = "P" + answerGameParams.current_player;
         change_player_button.text_color = text_color;
-        change_player_button.draw(canvas, context);
+        change_player_button.draw();
         // 決定ボタンの描画
-        determination_button.draw(canvas, context);
+        determination_button.draw();
     }
     canvas.addEventListener("mousedown", mousedownListener, false);
 }
@@ -101,9 +101,9 @@ export function enableMousemoveListener(canvas, context, determination_button) {
             // お題の描画
             draw_question(questions[gameParams.question_number][0], questions[gameParams.question_number][1], canvas, context);
             // 操作プレイヤー変更ボタンの描画
-            change_player_button.draw(canvas, context);
+            change_player_button.draw();
             // 決定ボタンの描画
-            determination_button.draw(canvas, context);
+            determination_button.draw();
         }
     }
     canvas.addEventListener("mousemove", mousemoveListener, false);
@@ -142,9 +142,9 @@ export function enableTouchmoveListener(canvas, context, determination_button) {
             // お題の描画
             draw_question(questions[gameParams.question_number][0], questions[gameParams.question_number][1], canvas, context);
             // 操作プレイヤー変更ボタンの描画
-            change_player_button.draw(canvas, context);
+            change_player_button.draw();
             // 決定ボタンの描画
-            determination_button.draw(canvas, context);
+            determination_button.draw();
         }
     }
     canvas.addEventListener("touchmove", touchmoveListener, false);

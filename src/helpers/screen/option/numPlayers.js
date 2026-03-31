@@ -26,10 +26,10 @@ export function numPlayers(canvas, context) {
         triangle_right1, // 画像
     );
     triangle_left1.onload = function(){
-        left_button1.draw(canvas, context);
+        left_button1.draw();
     };
     triangle_right1.onload = function(){
-        right_button1.draw(canvas, context);
+        right_button1.draw();
     };
 
     return [left_button1, right_button1];

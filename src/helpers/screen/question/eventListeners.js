@@ -34,8 +34,8 @@ export function enableButtonQuestion(canvas, context, confirmation_button, quest
             // お題の描画
             draw_question(questions[gameParams.question_number][0], questions[gameParams.question_number][1], canvas, context);
 
-            confirmation_button.draw(canvas, context);
-            question_reset_button.draw(canvas, context);
+            confirmation_button.draw();
+            question_reset_button.draw();
         }
     }
 }

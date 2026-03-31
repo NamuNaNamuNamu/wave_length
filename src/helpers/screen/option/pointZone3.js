@@ -26,10 +26,10 @@ export function pointZone3(canvas, context) {
         triangle_right5, // 画像
     );
     triangle_left5.onload = function(){
-        left_button5.draw(canvas, context);
+        left_button5.draw();
     };
     triangle_right5.onload = function(){
-        right_button5.draw(canvas, context);
+        right_button5.draw();
     };
 
     return [left_button5, right_button5];

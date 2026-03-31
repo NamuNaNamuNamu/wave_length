@@ -46,7 +46,7 @@ export function title(canvas, context){
         "スタート",              // テキスト
         "rgb(250, 200, 200)",   // ボタンカラー
     );
-    start_button.draw(canvas, context);
+    start_button.draw();
 
     // オプションボタンの描画
     let option_button = new Button(
@@ -57,7 +57,7 @@ export function title(canvas, context){
         "設定",              // テキスト
         "rgb(250, 200, 200)",   // ボタンカラー
     );
-    option_button.draw(canvas, context);
+    option_button.draw();
 
     enableButtonTitle(canvas, context, start_button, option_button);
 }
@@ -81,7 +81,7 @@ export function option(canvas, context){
         "戻る",              // テキスト
         "rgb(250, 200, 200)",   // ボタンカラー
     );
-    back_to_title_button.draw(canvas, context);
+    back_to_title_button.draw();
 
     let buttons = {
         left: {},
@@ -118,7 +118,7 @@ export function ready(canvas, context){
         "得点ゾーン表示",        // テキスト
         "rgb(250, 200, 200)",   // ボタンカラー
     );
-    display_point_zone_button.draw(canvas, context);
+    display_point_zone_button.draw();
 
     enableButtonReady(canvas, context, display_point_zone_button);
 }
@@ -150,7 +150,7 @@ export function question(canvas, context){
         "確認しました",              // テキスト
         "rgb(250, 200, 200)",   // ボタンカラー
     );
-    confirmation_button.draw(canvas, context);
+    confirmation_button.draw();
 
     let question_reset_button = new Button(
         canvasReplaced.getWidth() * 0.9,     // x座標
@@ -160,7 +160,7 @@ export function question(canvas, context){
         "⟲",              // テキスト
         "rgb(250, 200, 200)",   // ボタンカラー
     );
-    question_reset_button.draw(canvas, context);
+    question_reset_button.draw();
 
     enableButtonQuestion(canvas, context, confirmation_button, question_reset_button);
 }
@@ -200,7 +200,7 @@ export function answer(canvas, context){
         "rgb(250, 200, 200)",   // ボタンカラー
         text_color,             // テキストカラー
     );
-    change_player_button.draw(canvas, context);
+    change_player_button.draw();
 
     // 「答え合わせ (決定)」ボタンの描画
     let determination_button = new Button(
@@ -211,7 +211,7 @@ export function answer(canvas, context){
         "決定",              // テキスト
         "rgb(250, 200, 200)",   // ボタンカラー
     );
-    determination_button.draw(canvas, context);
+    determination_button.draw();
 
     enableMousedownListener(canvas, context, determination_button);
     enableMousemoveListener(canvas, context, determination_button);
@@ -248,7 +248,7 @@ export function result(canvas, context){
         "タイトルに戻る",         // テキスト
         "rgb(250, 200, 200)",   // ボタンカラー
     );
-    go_back_to_title_button.draw(canvas, context);
+    go_back_to_title_button.draw();
 
     enableButtonResult(canvas, context, go_back_to_title_button);
 }

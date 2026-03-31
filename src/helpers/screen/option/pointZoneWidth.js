@@ -26,10 +26,10 @@ export function pointZoneWidth(canvas, context) {
         triangle_right2, // 画像
     );
     triangle_left2.onload = function(){
-        left_button2.draw(canvas, context);
+        left_button2.draw();
     };
     triangle_right2.onload = function(){
-        right_button2.draw(canvas, context);
+        right_button2.draw();
     };
 
     return [left_button2, right_button2];
