@@ -32,6 +32,10 @@ class Canvas {
         this.#canvas.addEventListener(...args);
     }
 
+    removeEventListener(...args) {
+        this.#canvas.removeEventListener(...args);
+    }
+
 
     reset() {
         reset(this);

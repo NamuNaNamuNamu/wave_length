@@ -21,10 +21,10 @@ export function enableMousedownListener(canvas, context, determination_button) {
         let canvas_rectangle = canvas.getBoundingClientRect();
         // もし「決定ボタン」で左クリックされた場合, 答え合わせフェーズに移行する
         if(determination_button.clicked(event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top)){
-            canvas.removeEventListener("mousedown", mousedownListener, false);
-            canvas.removeEventListener("mousemove", mousemoveListener, false);
-            canvas.removeEventListener("touchmove", touchmoveListener, false);
-            canvas.removeEventListener("mouseup", mouseupListener, false);
+            canvasReplaced.removeEventListener("mousedown", mousedownListener, false);
+            canvasReplaced.removeEventListener("mousemove", mousemoveListener, false);
+            canvasReplaced.removeEventListener("touchmove", touchmoveListener, false);
+            canvasReplaced.removeEventListener("mouseup", mouseupListener, false);
             result(canvas, context);
             return;
         }

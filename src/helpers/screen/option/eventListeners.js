@@ -90,7 +90,7 @@ export function enableButtonOption(canvas, context, buttons) {
 
         // スタートボタンがクリックされたらお題出題フェーズに移行する
         if(buttons.back_to_title.clicked(event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top)){
-            canvas.removeEventListener("mousedown", mousedownListener, false);
+            canvasReplaced.removeEventListener("mousedown", mousedownListener, false);
             title(canvas, context);
         }
     }
