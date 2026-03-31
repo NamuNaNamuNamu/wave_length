@@ -2,10 +2,10 @@ import { draw_half_circle, draw_needle, draw_question, draw_text_of_the_top } fr
 import { gameParams } from "../../shared/gameParams.js";
 import { answerGameParams } from "./answerGameParams.js";
 import { center_of_arc_x, center_of_arc_y, questions } from "../../../main.js";
-import { canvas_reset } from "../../../function.js";
 import { change_player_button, result, x, y } from "../../../game.js";
 import { gameSettings } from "../../gameSettings.js";
 import { get_degree } from "../../../utils/degree.js";
+import { canvasReplaced } from "../../Canvas.js";
 
 //// 針のドラッグアンドドロップ機能 ////
 let clicked = false; // クリックされているかどうか
@@ -48,7 +48,7 @@ export function enableMousedownListener(canvas, context, determination_button) {
         }
         //// 各パーツの描画 ////
         // canvas のリセット
-        canvas_reset(canvas, context);
+        canvasReplaced.reset();
         // 画面上部のテキストを表示
         draw_text_of_the_top("回答中...", canvas, context);
         // 半円形の用意
@@ -91,7 +91,7 @@ export function enableMousemoveListener(canvas, context, determination_button) {
             }
             //// 各パーツの描画 ////
             // canvas のリセット
-            canvas_reset(canvas, context);
+            canvasReplaced.reset();
             // 画面上部のテキストを表示
             draw_text_of_the_top("回答中...", canvas, context);
             // 半円形の用意
@@ -132,7 +132,7 @@ export function enableTouchmoveListener(canvas, context, determination_button) {
             }
             //// 各パーツの描画 ////
             // canvas のリセット
-            canvas_reset(canvas, context);
+            canvasReplaced.reset();
             // 画面上部のテキストを表示
             draw_text_of_the_top("回答中...", canvas, context);
             // 半円形の用意

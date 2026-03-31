@@ -2,13 +2,6 @@ import { center_of_arc_x, center_of_arc_y, radius } from "./main.js";
 import { gameSettings } from "./helpers/gameSettings.js";
 import { degree_to_rad } from "./utils/degree.js";
 
-// canvas のリセット
-export function canvas_reset(canvas, context){
-    // 灰色で染める
-    context.fillStyle = "rgb(240, 240, 240)";
-    context.fillRect(0, 0, canvas.width, canvas.height);
-}
-
 // 半円形の描画
 export function draw_half_circle(canvas, context){
     // パスの開始

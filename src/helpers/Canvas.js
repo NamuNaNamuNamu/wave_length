@@ -1,3 +1,5 @@
+import { reset } from "./canvas/reset.js";
+
 class Canvas {
     #canvas;
 
@@ -6,7 +8,19 @@ class Canvas {
     }
 
     getContext() {
-        this.#canvas.getContext("2d");
+        return this.#canvas.getContext("2d");
+    }
+
+    getWidth() {
+        return this.#canvas.width;
+    }
+
+    getHeight() {
+        return this.#canvas.height;
+    }
+
+    reset() {
+        reset(this);
     }
 
     resizeAdjustToWindowSize() {

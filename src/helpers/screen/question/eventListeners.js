@@ -1,8 +1,9 @@
 import { answer } from "../../../game.js";
-import { canvas_reset, draw_point_zone, draw_question, draw_text_of_the_top } from "../../../function.js";
+import { draw_point_zone, draw_question, draw_text_of_the_top } from "../../../function.js";
 import { draw_half_circle } from "../../../function.js";
 import { gameParams } from "../../shared/gameParams.js";
 import { questions } from "../../../main.js";
+import { canvasReplaced } from "../../Canvas.js";
 
 
 export function enableButtonQuestion(canvas, context, confirmation_button, question_reset_button) {
@@ -17,7 +18,7 @@ export function enableButtonQuestion(canvas, context, confirmation_button, quest
         }
         if(question_reset_button.clicked(event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top)){
             // canvas のリセット
-            canvas_reset(canvas, context);
+            canvasReplaced.reset();
             
             // 画面上部のテキストを表示
             draw_text_of_the_top("正解の得点ゾーンを表示中...", canvas, context);

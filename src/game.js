@@ -1,4 +1,3 @@
-import { canvas_reset } from "./function.js";
 import { Button } from "./helpers/Button.js";
 import { draw_caution } from "./function.js";
 import { draw_text_of_the_top } from "./function.js";
@@ -26,6 +25,7 @@ import { answerGameParams } from "./helpers/screen/answer/answerGameParams.js";
 import { enableMousedownListener, enableMousemoveListener, enableMouseupListener, enableTouchmoveListener } from "./helpers/screen/answer/eventListeners.js";
 import { judge } from "./helpers/screen/result/judge.js";
 import { enableButtonResult } from "./helpers/screen/result/eventListeners.js";
+import { canvasReplaced } from "./helpers/Canvas.js";
 
 export let x = new Array(1000);    // 指の数だけx座標を格納するための配列 (余裕を持って1000要素用意) 
 export let y = new Array(1000);    // 指の数だけy座標を格納するための配列 (余裕を持って1000要素用意)
@@ -35,7 +35,7 @@ export let change_player_button;
 //// タイトル画面 ////
 export function title(canvas, context){
     // canvas のリセット
-    canvas_reset(canvas, context);
+    canvasReplaced.reset();
 
     // スタートボタンの描画
     let start_button = new Button(
@@ -65,7 +65,7 @@ export function title(canvas, context){
 //// 設定画面 ////
 export function option(canvas, context){
     // canvas のリセット
-    canvas_reset(canvas, context);    
+    canvasReplaced.reset();
     let [left_button1, right_button1] = numPlayers(canvas, context);
     let [left_button2, right_button2] = pointZoneWidth(canvas, context);
     let [left_button3, right_button3] = pointZone1(canvas, context);
@@ -105,7 +105,7 @@ export function option(canvas, context){
 //// 注意書きの画面 ////
 export function ready(canvas, context){
     // canvas のリセット
-    canvas_reset(canvas, context);
+    canvasReplaced.reset();
 
     // 注意書き
     draw_caution(canvas, context);
@@ -126,7 +126,7 @@ export function ready(canvas, context){
 //// お題出題フェーズ ////
 export function question(canvas, context){
     // canvas のリセット
-    canvas_reset(canvas, context);
+    canvasReplaced.reset();
     
     // 画面上部のテキストを表示
     draw_text_of_the_top("正解の得点ゾーンを表示中...", canvas, context);
@@ -168,7 +168,7 @@ export function question(canvas, context){
 //// 回答フェーズ ////
 export function answer(canvas, context){
     // canvas のリセット
-    canvas_reset(canvas, context);
+    canvasReplaced.reset();
 
     // 画面上部のテキストを表示
     draw_text_of_the_top("出題者は具体例を出してください", canvas, context);
@@ -222,7 +222,7 @@ export function answer(canvas, context){
 //// 答え合わせフェーズ ////
 export function result(canvas, context){
     // canvas のリセット
-    canvas_reset(canvas, context);
+    canvasReplaced.reset();
 
     // 半円形の用意
     draw_half_circle(canvas, context);

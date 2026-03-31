@@ -1,8 +1,8 @@
 import { gameSettings } from "../../gameSettings.js";
-import { canvas_reset } from "../../../function.js";
 import { draw_text_on_option } from "../../../function.js";
 import { draw_number_on_option } from "../../../function.js";
 import { title } from "../../../game.js";
+import { canvasReplaced } from "../../Canvas.js";
 
 export function enableButtonOption(canvas, context, buttons) {
     canvas.addEventListener("mousedown", mousedownListener, false);
@@ -65,7 +65,7 @@ export function enableButtonOption(canvas, context, buttons) {
             }
         }
 
-        canvas_reset(canvas, context);
+        canvasReplaced.reset();
         draw_text_on_option("プレイヤー数", 0.1, canvas, context);
         draw_number_on_option(gameSettings.num_of_player, 0.7, 0.1, canvas, context);
         buttons.left.numPlayers.draw(canvas, context);
