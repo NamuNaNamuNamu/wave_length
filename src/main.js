@@ -95,7 +95,7 @@ export function main(){
 
     // 半円の中心の x, y 座標
     center_of_arc_x = canvasReplaced.getWidth() * 0.5;
-    center_of_arc_y = canvas.height * 0.6;
+    center_of_arc_y = canvasReplaced.getHeight() * 0.6;
     // 半円の半径
     radius = canvasReplaced.getWidth() * 0.45;
 

@@ -35,7 +35,7 @@ export function draw_point_zone(degree, canvas, context){
         // はみ出した部分を抜き出す
         // 灰色で染める
         context.fillStyle = "rgb(230, 230, 230)";
-        context.fillRect(0, center_of_arc_y, canvasReplaced.getWidth(), canvas.height - center_of_arc_y);
+        context.fillRect(0, center_of_arc_y, canvasReplaced.getWidth(), canvasReplaced.getHeight() - center_of_arc_y);
     }
 }
 
@@ -62,7 +62,7 @@ export function draw_question(content1, content2, canvas, context){
     context.fillStyle = "rgb(0, 0, 0)";
     context.textAlign = "center";
     //// 矢印の描画
-    context.font = canvas.height * 0.05 + "px serif";
+    context.font = canvasReplaced.getHeight() * 0.05 + "px serif";
     context.fillText("←", canvasReplaced.getWidth() * 0.2, canvasReplaced.getWidth() * 0.65);
     context.fillText("→", canvasReplaced.getWidth() * 0.8, canvasReplaced.getWidth() * 0.65);
     //// 12文字ごとに改行を入れる
@@ -76,7 +76,7 @@ export function draw_question(content1, content2, canvas, context){
     }
 
     //// お題本体の描画
-    context.font = canvas.height * 0.03 + "px serif";
+    context.font = canvasReplaced.getHeight() * 0.03 + "px serif";
     // 一方のお題
     for(let i = 0; i < sliced_c1.length; i++){
         context.fillText(sliced_c1[i], canvasReplaced.getWidth() * 0.2, canvasReplaced.getWidth() * (0.7 + 0.04 * i));
@@ -92,7 +92,7 @@ export function draw_caution(canvas, context){
     // スタイルの決定
     context.fillStyle = "rgb(0, 0, 0)";
     context.textAlign = "center";
-    context.font = canvas.height * 0.05 + "px serif";
+    context.font = canvasReplaced.getHeight() * 0.05 + "px serif";
     context.fillText("出題者にのみ画面が見えるようにして", canvasReplaced.getWidth() * 0.5, canvasReplaced.getWidth() * 0.3);
     context.fillText("ボタンを押してください", canvasReplaced.getWidth() * 0.5, canvasReplaced.getWidth() * 0.4);
 }
@@ -102,7 +102,7 @@ export function draw_text_of_the_top(text, canvas, context){
     // スタイルの決定
     context.fillStyle = "rgb(200, 0, 0)";
     context.textAlign = "left";
-    context.font = canvas.height * 0.05 + "px serif";
+    context.font = canvasReplaced.getHeight() * 0.05 + "px serif";
     context.fillText(text, canvasReplaced.getWidth() * 0.01, canvasReplaced.getWidth() * 0.06);
 }
 
@@ -132,7 +132,7 @@ export function draw_point(areas, canvas, context){
         // スタイルの決定
         context.fillStyle = "rgb(0, 0, 0)";
         context.textAlign = "center";
-        context.font = canvas.height * 0.05 + "px serif";
+        context.font = canvasReplaced.getHeight() * 0.05 + "px serif";
         context.fillText(texts[0], canvasReplaced.getWidth() * 0.5, canvasReplaced.getWidth() * 0.1);
     }
     // 参加プレイヤーが3人の場合
@@ -159,11 +159,11 @@ export function draw_point(areas, canvas, context){
         // 点数をテキストとして描画
         context.fillStyle = "rgb(0, 0, 0)";
         context.textAlign = "center";
-        context.font = canvas.height * 0.05 + "px serif";
+        context.font = canvasReplaced.getHeight() * 0.05 + "px serif";
         context.fillText(texts[0], canvasReplaced.getWidth() * 0.3, canvasReplaced.getWidth() * 0.1);
         // どっちのプレイヤーか描画
         context.fillStyle = "rgb(200, 0, 0)";
-        context.font = canvas.height * 0.03 + "px serif";
+        context.font = canvasReplaced.getHeight() * 0.03 + "px serif";
         context.fillText("P1", canvasReplaced.getWidth() * 0.3, canvasReplaced.getWidth() * 0.04);
 
         //// プレイヤー2の得点
@@ -188,11 +188,11 @@ export function draw_point(areas, canvas, context){
         // 点数をテキストとして描画
         context.fillStyle = "rgb(0, 0, 0)";
         context.textAlign = "center";
-        context.font = canvas.height * 0.05 + "px serif";
+        context.font = canvasReplaced.getHeight() * 0.05 + "px serif";
         context.fillText(texts[1], canvasReplaced.getWidth() * 0.7, canvasReplaced.getWidth() * 0.1);
         // どっちのプレイヤーか描画
         context.fillStyle = "rgb(0, 0, 200)";
-        context.font = canvas.height * 0.03 + "px serif";
+        context.font = canvasReplaced.getHeight() * 0.03 + "px serif";
         context.fillText("P2", canvasReplaced.getWidth() * 0.7, canvasReplaced.getWidth() * 0.04);
     }
     // 参加プレイヤーが4人の場合
@@ -219,11 +219,11 @@ export function draw_point(areas, canvas, context){
         // 点数をテキストとして描画
         context.fillStyle = "rgb(0, 0, 0)";
         context.textAlign = "center";
-        context.font = canvas.height * 0.05 + "px serif";
+        context.font = canvasReplaced.getHeight() * 0.05 + "px serif";
         context.fillText(texts[0], canvasReplaced.getWidth() * 0.17, canvasReplaced.getWidth() * 0.1);
         // どっちのプレイヤーか描画
         context.fillStyle = "rgb(200, 0, 0)";
-        context.font = canvas.height * 0.03 + "px serif";
+        context.font = canvasReplaced.getHeight() * 0.03 + "px serif";
         context.fillText("P1", canvasReplaced.getWidth() * 0.17, canvasReplaced.getWidth() * 0.04);
 
         //// プレイヤー2の得点
@@ -248,11 +248,11 @@ export function draw_point(areas, canvas, context){
         // 点数をテキストとして描画
         context.fillStyle = "rgb(0, 0, 0)";
         context.textAlign = "center";
-        context.font = canvas.height * 0.05 + "px serif";
+        context.font = canvasReplaced.getHeight() * 0.05 + "px serif";
         context.fillText(texts[1], canvasReplaced.getWidth() * 0.5, canvasReplaced.getWidth() * 0.1);
         // どっちのプレイヤーか描画
         context.fillStyle = "rgb(0, 0, 200)";
-        context.font = canvas.height * 0.03 + "px serif";
+        context.font = canvasReplaced.getHeight() * 0.03 + "px serif";
         context.fillText("P2", canvasReplaced.getWidth() * 0.5, canvasReplaced.getWidth() * 0.04);
 
         //// プレイヤー3の得点
@@ -277,11 +277,11 @@ export function draw_point(areas, canvas, context){
         // 点数をテキストとして描画
         context.fillStyle = "rgb(0, 0, 0)";
         context.textAlign = "center";
-        context.font = canvas.height * 0.05 + "px serif";
+        context.font = canvasReplaced.getHeight() * 0.05 + "px serif";
         context.fillText(texts[2], canvasReplaced.getWidth() * 0.83, canvasReplaced.getWidth() * 0.1);
         // どっちのプレイヤーか描画
         context.fillStyle = "rgb(0, 200, 0)";
-        context.font = canvas.height * 0.03 + "px serif";
+        context.font = canvasReplaced.getHeight() * 0.03 + "px serif";
         context.fillText("P3", canvasReplaced.getWidth() * 0.83, canvasReplaced.getWidth() * 0.04);
     }
 }
@@ -291,7 +291,7 @@ export function draw_text_on_option(text, y, canvas, context){
     // スタイルの決定
     context.fillStyle = "rgb(0, 0, 0)";
     context.textAlign = "left";
-    context.font = canvas.height * 0.05 + "px serif";
+    context.font = canvasReplaced.getHeight() * 0.05 + "px serif";
     context.fillText(text, canvasReplaced.getWidth() * 0.03, canvasReplaced.getWidth() * y);
 }
 
@@ -299,6 +299,6 @@ export function draw_number_on_option(num, x, y, canvas, context){
     // スタイルの決定
     context.fillStyle = "rgb(0, 0, 0)";
     context.textAlign = "center";
-    context.font = canvas.height * 0.05 + "px serif";
+    context.font = canvasReplaced.getHeight() * 0.05 + "px serif";
     context.fillText(num, canvasReplaced.getWidth() * x, canvasReplaced.getWidth() * y);
 }

@@ -13,16 +13,16 @@ export function pointZone3(canvas, context) {
     triangle_right5.src = "img/triangle_right.png";
     let left_button5 = new ImageButton(
         canvasReplaced.getWidth() * 0.6,     // x座標
-        canvas.height * 0.73,    // y座標
+        canvasReplaced.getHeight() * 0.73,    // y座標
         canvasReplaced.getWidth() * 0.1,     // 横幅
-        canvas.height * 0.1,   // 縦幅
+        canvasReplaced.getHeight() * 0.1,   // 縦幅
         triangle_left5, // 画像
     );
     let right_button5 = new ImageButton(
         canvasReplaced.getWidth() * 0.8,     // x座標
-        canvas.height * 0.73,    // y座標
+        canvasReplaced.getHeight() * 0.73,    // y座標
         canvasReplaced.getWidth() * 0.1,     // 横幅
-        canvas.height * 0.1,   // 縦幅
+        canvasReplaced.getHeight() * 0.1,   // 縦幅
         triangle_right5, // 画像
     );
     triangle_left5.onload = function(){

@@ -40,9 +40,9 @@ export function title(canvas, context){
     // スタートボタンの描画
     let start_button = new Button(
         canvasReplaced.getWidth() * 0.5,     // x座標
-        canvas.height * 0.3,    // y座標
+        canvasReplaced.getHeight() * 0.3,    // y座標
         canvasReplaced.getWidth() * 0.6,     // 横幅
-        canvas.height * 0.15,   // 縦幅
+        canvasReplaced.getHeight() * 0.15,   // 縦幅
         "スタート",              // テキスト
         "rgb(250, 200, 200)",   // ボタンカラー
     );
@@ -51,9 +51,9 @@ export function title(canvas, context){
     // オプションボタンの描画
     let option_button = new Button(
         canvasReplaced.getWidth() * 0.5,     // x座標
-        canvas.height * 0.7,    // y座標
+        canvasReplaced.getHeight() * 0.7,    // y座標
         canvasReplaced.getWidth() * 0.6,     // 横幅
-        canvas.height * 0.15,   // 縦幅
+        canvasReplaced.getHeight() * 0.15,   // 縦幅
         "設定",              // テキスト
         "rgb(250, 200, 200)",   // ボタンカラー
     );
@@ -75,9 +75,9 @@ export function option(canvas, context){
     // タイトルに戻るボタンの描画
     let back_to_title_button = new Button(
         canvasReplaced.getWidth() * 0.5,     // x座標
-        canvas.height * 0.9,    // y座標
+        canvasReplaced.getHeight() * 0.9,    // y座標
         canvasReplaced.getWidth() * 0.7,     // 横幅
-        canvas.height * 0.15,   // 縦幅
+        canvasReplaced.getHeight() * 0.15,   // 縦幅
         "戻る",              // テキスト
         "rgb(250, 200, 200)",   // ボタンカラー
     );
@@ -112,9 +112,9 @@ export function ready(canvas, context){
     // 得点ゾーン表示ボタン
     let display_point_zone_button = new Button(
         canvasReplaced.getWidth() * 0.5,     // x座標
-        canvas.height * 0.7,    // y座標
+        canvasReplaced.getHeight() * 0.7,    // y座標
         canvasReplaced.getWidth() * 0.85,     // 横幅
-        canvas.height * 0.15,   // 縦幅
+        canvasReplaced.getHeight() * 0.15,   // 縦幅
         "得点ゾーン表示",        // テキスト
         "rgb(250, 200, 200)",   // ボタンカラー
     );
@@ -144,9 +144,9 @@ export function question(canvas, context){
     // 「確認しました」ボタンの描画
     let confirmation_button = new Button(
         canvasReplaced.getWidth() * 0.5,     // x座標
-        canvas.height * 0.85,    // y座標
+        canvasReplaced.getHeight() * 0.85,    // y座標
         canvasReplaced.getWidth() * 0.8,     // 横幅
-        canvas.height * 0.15,   // 縦幅
+        canvasReplaced.getHeight() * 0.15,   // 縦幅
         "確認しました",              // テキスト
         "rgb(250, 200, 200)",   // ボタンカラー
     );
@@ -154,9 +154,9 @@ export function question(canvas, context){
 
     let question_reset_button = new Button(
         canvasReplaced.getWidth() * 0.9,     // x座標
-        canvas.height * 0.08,    // y座標
+        canvasReplaced.getHeight() * 0.08,    // y座標
         canvasReplaced.getWidth() * 0.1,     // 横幅
-        canvas.height * 0.08,   // 縦幅
+        canvasReplaced.getHeight() * 0.08,   // 縦幅
         "⟲",              // テキスト
         "rgb(250, 200, 200)",   // ボタンカラー
     );
@@ -193,9 +193,9 @@ export function answer(canvas, context){
     if(answerGameParams.current_player == 3) text_color = "rgb(0, 0, 200)";
     change_player_button = new Button(
         canvasReplaced.getWidth() * 0.3,     // x座標
-        canvas.height * 0.85,    // y座標
+        canvasReplaced.getHeight() * 0.85,    // y座標
         canvasReplaced.getWidth() * 0.5,     // 横幅
-        canvas.height * 0.15,   // 縦幅
+        canvasReplaced.getHeight() * 0.15,   // 縦幅
         "P" + answerGameParams.current_player,   // テキスト
         "rgb(250, 200, 200)",   // ボタンカラー
         text_color,             // テキストカラー
@@ -205,9 +205,9 @@ export function answer(canvas, context){
     // 「答え合わせ (決定)」ボタンの描画
     let determination_button = new Button(
         canvasReplaced.getWidth() * 0.8,     // x座標
-        canvas.height * 0.85,    // y座標
+        canvasReplaced.getHeight() * 0.85,    // y座標
         canvasReplaced.getWidth() * 0.3,     // 横幅
-        canvas.height * 0.15,   // 縦幅
+        canvasReplaced.getHeight() * 0.15,   // 縦幅
         "決定",              // テキスト
         "rgb(250, 200, 200)",   // ボタンカラー
     );
@@ -242,9 +242,9 @@ export function result(canvas, context){
     // 「タイトルに戻る」ボタンの描画
     let go_back_to_title_button = new Button(
         canvasReplaced.getWidth() * 0.5,     // x座標
-        canvas.height * 0.85,    // y座標
+        canvasReplaced.getHeight() * 0.85,    // y座標
         canvasReplaced.getWidth() * 0.85,     // 横幅
-        canvas.height * 0.15,   // 縦幅
+        canvasReplaced.getHeight() * 0.15,   // 縦幅
         "タイトルに戻る",         // テキスト
         "rgb(250, 200, 200)",   // ボタンカラー
     );
