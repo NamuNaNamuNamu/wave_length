@@ -106,7 +106,7 @@ export function ready(canvas, context){
     canvasReplaced.reset();
 
     // 注意書き
-    draw_caution(canvas, context);
+    draw_caution();
     // 得点ゾーン表示ボタン
     let display_point_zone_button = new Button(
         canvasReplaced.getWidth() * 0.5,     // x座標

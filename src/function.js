@@ -88,8 +88,8 @@ export function draw_question(content1, content2, canvas, context){
 }
 
 // 準備画面のテキストの描画
-export function draw_caution(canvas, context){
-    // スタイルの決定
+export function draw_caution(){
+    let context = canvasReplaced.getContext();
     context.fillStyle = "rgb(0, 0, 0)";
     context.textAlign = "center";
     context.font = canvasReplaced.getHeight() * 0.05 + "px serif";
