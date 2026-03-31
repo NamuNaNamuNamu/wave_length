@@ -1,10 +1,11 @@
-import { draw_half_circle, draw_needle, draw_question, draw_text_of_the_top, get_degree } from "../../../function.js";
+import { draw_half_circle, draw_needle, draw_question, draw_text_of_the_top } from "../../../function.js";
 import { gameParams } from "../../shared/gameParams.js";
 import { answerGameParams } from "./answerGameParams.js";
 import { center_of_arc_x, center_of_arc_y, questions } from "../../../main.js";
 import { canvas_reset } from "../../../function.js";
 import { change_player_button, result, x, y } from "../../../game.js";
 import { gameSettings } from "../../gameSettings.js";
+import { get_degree } from "../../../utils/degree.js";
 
 //// 針のドラッグアンドドロップ機能 ////
 let clicked = false; // クリックされているかどうか
