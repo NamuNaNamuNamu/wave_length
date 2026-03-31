@@ -87,9 +87,6 @@ export let center_of_arc_y;
 export let radius;
 
 export function main(){
-    //// CANVASの用意 ////
-    let canvas = document.getElementById("canvas");
-    let context = canvas.getContext("2d");
     // ウィンドウに合わせてゲーム画面の大きさ合わせ
     canvasReplaced.resizeAdjustToWindowSize();
 
@@ -100,5 +97,5 @@ export function main(){
     radius = canvasReplaced.getWidth() * 0.45;
 
     //// タイトル画面を表示 ////
-    title(canvas, context);
+    title();
 }
