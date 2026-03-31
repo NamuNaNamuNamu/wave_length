@@ -15,7 +15,7 @@ let mousemoveListener;
 let touchmoveListener;
 let mouseupListener;
 
-export function enableMousedownListener(canvas, context, determination_button) {
+export function enableMousedownListener(determination_button) {
     mousedownListener = (event) => {
         event.preventDefault();
         let canvas_rectangle = canvasReplaced.getBoundingClientRect();
@@ -25,7 +25,7 @@ export function enableMousedownListener(canvas, context, determination_button) {
             canvasReplaced.removeEventListener("mousemove", mousemoveListener, false);
             canvasReplaced.removeEventListener("touchmove", touchmoveListener, false);
             canvasReplaced.removeEventListener("mouseup", mouseupListener, false);
-            result(canvas, context);
+            result();
             return;
         }
         // もし 操作プレイヤー変更ボタン で左クリックされた場合, 針を操作するプレイヤーを変更する

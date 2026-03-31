@@ -1,7 +1,7 @@
 import { title } from "../../../game.js";
 import { canvasReplaced } from "../../Canvas.js";
 
-export function enableButtonResult(canvas, context, go_back_to_title_button) {
+export function enableButtonResult(go_back_to_title_button) {
     canvasReplaced.addEventListener("mousedown", mousedownListener, false);
     function mousedownListener(event){
         event.preventDefault();
@@ -9,7 +9,7 @@ export function enableButtonResult(canvas, context, go_back_to_title_button) {
         let canvas_rectangle = canvasReplaced.getBoundingClientRect();
         if(go_back_to_title_button.clicked(event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top)){
             canvasReplaced.removeEventListener("mousedown", mousedownListener, false);
-            title(canvas, context);
+            title();
         }
     }
 }

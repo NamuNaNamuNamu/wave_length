@@ -4,7 +4,7 @@ import { draw_number_on_option } from "../../../function.js";
 import { title } from "../../../game.js";
 import { canvasReplaced } from "../../Canvas.js";
 
-export function enableButtonOption(canvas, context, buttons) {
+export function enableButtonOption(buttons) {
     canvasReplaced.addEventListener("mousedown", mousedownListener, false);
     function mousedownListener(event){
         event.preventDefault();
@@ -91,7 +91,7 @@ export function enableButtonOption(canvas, context, buttons) {
         // スタートボタンがクリックされたらお題出題フェーズに移行する
         if(buttons.back_to_title.clicked(event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top)){
             canvasReplaced.removeEventListener("mousedown", mousedownListener, false);
-            title(canvas, context);
+            title();
         }
     }
 }

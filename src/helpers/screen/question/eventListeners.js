@@ -5,16 +5,15 @@ import { gameParams } from "../../shared/gameParams.js";
 import { questions } from "../../../main.js";
 import { canvasReplaced } from "../../Canvas.js";
 
-
-export function enableButtonQuestion(canvas, context, confirmation_button, question_reset_button) {
+export function enableButtonQuestion(confirmation_button, question_reset_button) {
     canvasReplaced.addEventListener("mousedown", mousedownListener, false);
     function mousedownListener(event){
         event.preventDefault();
-        // スタートボタンがクリックされたらお題出題フェーズに移行する
+        // スタートボタンがクリックされたらお題出題フェーズに移行するß
         let canvas_rectangle = canvasReplaced.getBoundingClientRect();
         if(confirmation_button.clicked(event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top)){
             canvasReplaced.removeEventListener("mousedown", mousedownListener, false);
-            answer(canvas, context);
+            answer();
         }
         if(question_reset_button.clicked(event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top)){
             // canvas のリセット
