@@ -66,9 +66,9 @@ export function option(canvas, context){
     canvasReplaced.reset();
     let [left_button1, right_button1] = numPlayers();
     let [left_button2, right_button2] = pointZoneWidth();
-    let [left_button3, right_button3] = pointZone1(canvas, context);
-    let [left_button4, right_button4] = pointZone2(canvas, context);
-    let [left_button5, right_button5] = pointZone3(canvas, context);
+    let [left_button3, right_button3] = pointZone1();
+    let [left_button4, right_button4] = pointZone2();
+    let [left_button5, right_button5] = pointZone3();
 
     // タイトルに戻るボタンの描画
     let back_to_title_button = new Button(
