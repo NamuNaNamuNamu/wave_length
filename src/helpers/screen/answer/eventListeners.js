@@ -56,7 +56,7 @@ export function enableMousedownListener(canvas, context, determination_button) {
         // 針の描画
         draw_needle(gameParams.theta);
         // お題の描画
-        draw_question(questions[gameParams.question_number][0], questions[gameParams.question_number][1], canvas, context);
+        draw_question(questions[gameParams.question_number][0], questions[gameParams.question_number][1]);
         // 操作プレイヤー変更ボタンの描画
         let text_color = "";
         if(answerGameParams.current_player == 1) text_color = "rgb(200, 0, 0)";
@@ -99,7 +99,7 @@ export function enableMousemoveListener(canvas, context, determination_button) {
             // 針の描画
             draw_needle(gameParams.theta);
             // お題の描画
-            draw_question(questions[gameParams.question_number][0], questions[gameParams.question_number][1], canvas, context);
+            draw_question(questions[gameParams.question_number][0], questions[gameParams.question_number][1]);
             // 操作プレイヤー変更ボタンの描画
             change_player_button.draw();
             // 決定ボタンの描画
@@ -140,7 +140,7 @@ export function enableTouchmoveListener(canvas, context, determination_button) {
             // 針の描画
             draw_needle(gameParams.theta);
             // お題の描画
-            draw_question(questions[gameParams.question_number][0], questions[gameParams.question_number][1], canvas, context);
+            draw_question(questions[gameParams.question_number][0], questions[gameParams.question_number][1]);
             // 操作プレイヤー変更ボタンの描画
             change_player_button.draw();
             // 決定ボタンの描画

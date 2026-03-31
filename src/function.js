@@ -60,7 +60,8 @@ export function draw_needle(degrees){
 }
 
 // お題の描画
-export function draw_question(content1, content2, canvas, context){
+export function draw_question(content1, content2){
+    let context = canvasReplaced.getContext();
     // スタイルの決定
     context.fillStyle = "rgb(0, 0, 0)";
     context.textAlign = "center";

@@ -32,7 +32,7 @@ export function enableButtonQuestion(canvas, context, confirmation_button, quest
             gameParams.question_number = Math.floor(Math.random() * questions.length);
             if(gameParams.question_number == questions.length) gameParams.question_number -= 1;
             // お題の描画
-            draw_question(questions[gameParams.question_number][0], questions[gameParams.question_number][1], canvas, context);
+            draw_question(questions[gameParams.question_number][0], questions[gameParams.question_number][1]);
 
             confirmation_button.draw();
             question_reset_button.draw();
