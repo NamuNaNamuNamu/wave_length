@@ -287,8 +287,8 @@ export function draw_point(areas, canvas, context){
 }
 
 // 設定画面での各種設定テキストの描画
-export function draw_text_on_option(text, y, canvas, context){
-    // スタイルの決定
+export function draw_text_on_option(text, y){
+    let context = canvasReplaced.getContext();
     context.fillStyle = "rgb(0, 0, 0)";
     context.textAlign = "left";
     context.font = canvasReplaced.getHeight() * 0.05 + "px serif";

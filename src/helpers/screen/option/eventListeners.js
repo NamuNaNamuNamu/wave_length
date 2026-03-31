@@ -66,23 +66,23 @@ export function enableButtonOption(canvas, context, buttons) {
         }
 
         canvasReplaced.reset();
-        draw_text_on_option("プレイヤー数", 0.1, canvas, context);
+        draw_text_on_option("プレイヤー数", 0.1);
         draw_number_on_option(gameSettings.num_of_player, 0.7, 0.1, canvas, context);
         buttons.left.numPlayers.draw();
         buttons.right.numPlayers.draw();
-        draw_text_on_option("得点ゾーン１つの大きさ(度)", 0.27, canvas, context);
+        draw_text_on_option("得点ゾーン１つの大きさ(度)", 0.27);
         draw_number_on_option(gameSettings.area_size, 0.7, 0.37, canvas, context);
         buttons.left.pointZoneWidth.draw();
         buttons.right.pointZoneWidth.draw();
-        draw_text_on_option("得点ゾーン１の得点", 0.55, canvas, context);
+        draw_text_on_option("得点ゾーン１の得点", 0.55);
         draw_number_on_option(gameSettings.points[0], 0.7, 0.55, canvas, context);
         buttons.left.pointZone1.draw();
         buttons.right.pointZone1.draw();
-        draw_text_on_option("得点ゾーン２の得点", 0.65, canvas, context);
+        draw_text_on_option("得点ゾーン２の得点", 0.65);
         draw_number_on_option(gameSettings.points[1], 0.7, 0.65, canvas, context);
         buttons.left.pointZone2.draw();
         buttons.right.pointZone2.draw();
-        draw_text_on_option("得点ゾーン３の得点", 0.75, canvas, context);
+        draw_text_on_option("得点ゾーン３の得点", 0.75);
         draw_number_on_option(gameSettings.points[2], 0.7, 0.75, canvas, context);
         buttons.left.pointZone3.draw();
         buttons.right.pointZone3.draw();

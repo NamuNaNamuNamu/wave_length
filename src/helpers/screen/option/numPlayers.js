@@ -5,7 +5,7 @@ import { ImageButton } from "../../Button.js";
 import { canvasReplaced } from "../../Canvas.js";
 
 export function numPlayers(canvas, context) {
-    draw_text_on_option("プレイヤー数", 0.1, canvas, context);
+    draw_text_on_option("プレイヤー数", 0.1);
     draw_number_on_option(gameSettings.num_of_player, 0.7, 0.1, canvas, context);
     let triangle_left1 = new Image();
     let triangle_right1 = new Image();

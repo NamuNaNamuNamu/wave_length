@@ -8,7 +8,6 @@ import { questions } from "./main.js";
 import { draw_question } from "./function.js";
 import { draw_needle } from "./function.js";
 import { draw_point } from "./function.js";
-import { draw_text_on_option } from "./function.js";
 import { draw_number_on_option } from "./function.js";
 import { enableButtonTitle } from "./helpers/screen/title/eventListeners.js";
 import { numPlayers } from "./helpers/screen/option/numPlayers.js";
