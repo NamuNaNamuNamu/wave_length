@@ -178,7 +178,7 @@ export function answer(canvas, context){
     // 半円形の用意
     draw_half_circle();
     // 針の描画
-    draw_needle(gameParams.theta, canvas, context);
+    draw_needle(gameParams.theta);
     // お題の描画
     draw_question(questions[gameParams.question_number][0], questions[gameParams.question_number][1], canvas, context);
 
@@ -227,7 +227,7 @@ export function result(canvas, context){
     // 得点ゾーンの描画
     draw_point_zone(gameParams.answer_degree);
     // 針の描画
-    draw_needle(gameParams.theta, canvas, context);
+    draw_needle(gameParams.theta);
     // お題の描画
     draw_question(questions[gameParams.question_number][0], questions[gameParams.question_number][1], canvas, context);
 

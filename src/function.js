@@ -42,7 +42,8 @@ export function draw_point_zone(degree){
 }
 
 // 針の描画
-export function draw_needle(degrees, canvas, context){
+export function draw_needle(degrees){
+    let context = canvasReplaced.getContext();
     const COLORS = ["rgb(200, 0, 0)", "rgb(0, 0, 200)", "rgb(0, 200, 0)"];
     for(let i = degrees.length; i >= 0; i--){
         // パスの開始

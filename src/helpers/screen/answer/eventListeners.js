@@ -54,7 +54,7 @@ export function enableMousedownListener(canvas, context, determination_button) {
         // 半円形の用意
         draw_half_circle();
         // 針の描画
-        draw_needle(gameParams.theta, canvas, context);
+        draw_needle(gameParams.theta);
         // お題の描画
         draw_question(questions[gameParams.question_number][0], questions[gameParams.question_number][1], canvas, context);
         // 操作プレイヤー変更ボタンの描画
@@ -97,7 +97,7 @@ export function enableMousemoveListener(canvas, context, determination_button) {
             // 半円形の用意
             draw_half_circle();
             // 針の描画
-            draw_needle(gameParams.theta, canvas, context);
+            draw_needle(gameParams.theta);
             // お題の描画
             draw_question(questions[gameParams.question_number][0], questions[gameParams.question_number][1], canvas, context);
             // 操作プレイヤー変更ボタンの描画
@@ -138,7 +138,7 @@ export function enableTouchmoveListener(canvas, context, determination_button) {
             // 半円形の用意
             draw_half_circle();
             // 針の描画
-            draw_needle(gameParams.theta, canvas, context);
+            draw_needle(gameParams.theta);
             // お題の描画
             draw_question(questions[gameParams.question_number][0], questions[gameParams.question_number][1], canvas, context);
             // 操作プレイヤー変更ボタンの描画
