@@ -4,7 +4,8 @@ import { degree_to_rad } from "./utils/degree.js";
 import { canvasReplaced } from "./helpers/Canvas.js";
 
 // 半円形の描画
-export function draw_half_circle(canvas, context){
+export function draw_half_circle(){
+    let context = canvasReplaced.getContext();
     // パスの開始
     context.beginPath();
     // 弧を指定

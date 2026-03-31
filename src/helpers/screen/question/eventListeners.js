@@ -23,7 +23,7 @@ export function enableButtonQuestion(canvas, context, confirmation_button, quest
             // 画面上部のテキストを表示
             draw_text_of_the_top("正解の得点ゾーンを表示中...");
             // 半円形の用意
-            draw_half_circle(canvas, context);
+            draw_half_circle();
             // 得点ゾーンをランダムで設定
             gameParams.answer_degree = -Math.random() * 180;
             // 得点ゾーンの描画
