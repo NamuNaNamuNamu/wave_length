@@ -3,6 +3,7 @@
 /////////////
 
 import { title } from "./game.js";
+import { canvasReplaced } from "./helpers/Canvas.js";
 
 //// お題 ////
 export const questions = [
@@ -90,14 +91,7 @@ export function main(){
     let canvas = document.getElementById("canvas");
     let context = canvas.getContext("2d");
     // ウィンドウに合わせてゲーム画面の大きさ合わせ
-    if(document.documentElement.clientWidth > document.documentElement.clientHeight){
-        canvas.width = document.documentElement.clientHeight * 0.95;
-        canvas.height = document.documentElement.clientHeight * 0.95;
-    }
-    else{
-        canvas.width = document.documentElement.clientWidth * 0.95;
-        canvas.height = document.documentElement.clientWidth * 0.95;
-    }
+    canvasReplaced.resizeAdjustToWindowSize();
 
     // 半円の中心の x, y 座標
     center_of_arc_x = canvas.width * 0.5;
