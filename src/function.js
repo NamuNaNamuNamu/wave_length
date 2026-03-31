@@ -295,8 +295,8 @@ export function draw_text_on_option(text, y){
     context.fillText(text, canvasReplaced.getWidth() * 0.03, canvasReplaced.getWidth() * y);
 }
 
-export function draw_number_on_option(num, x, y, canvas, context){
-    // スタイルの決定
+export function draw_number_on_option(num, x, y){
+    let context = canvasReplaced.getContext();
     context.fillStyle = "rgb(0, 0, 0)";
     context.textAlign = "center";
     context.font = canvasReplaced.getHeight() * 0.05 + "px serif";

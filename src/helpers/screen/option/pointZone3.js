@@ -6,7 +6,7 @@ import { canvasReplaced } from "../../Canvas.js";
 
 export function pointZone3(canvas, context) {
     draw_text_on_option("得点ゾーン３の得点", 0.75);
-    draw_number_on_option(gameSettings.points[2], 0.7, 0.75, canvas, context);
+    draw_number_on_option(gameSettings.points[2], 0.7, 0.75);
     let triangle_left5 = new Image();
     let triangle_right5 = new Image();
     triangle_left5.src = "img/triangle_left.png";

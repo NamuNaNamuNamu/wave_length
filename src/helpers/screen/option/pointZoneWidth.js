@@ -6,7 +6,7 @@ import { canvasReplaced } from "../../Canvas.js";
 
 export function pointZoneWidth(canvas, context) {
     draw_text_on_option("得点ゾーン１つの大きさ(度)", 0.27);
-    draw_number_on_option(gameSettings.area_size, 0.7, 0.37, canvas, context);
+    draw_number_on_option(gameSettings.area_size, 0.7, 0.37);
     let triangle_left2 = new Image();
     let triangle_right2 = new Image();
     triangle_left2.src = "img/triangle_left.png";
