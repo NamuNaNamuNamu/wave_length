@@ -129,7 +129,7 @@ export function question(canvas, context){
     canvasReplaced.reset();
     
     // 画面上部のテキストを表示
-    draw_text_of_the_top("正解の得点ゾーンを表示中...", canvas, context);
+    draw_text_of_the_top("正解の得点ゾーンを表示中...");
     // 半円形の用意
     draw_half_circle(canvas, context);
     // 得点ゾーンをランダムで設定
@@ -171,7 +171,7 @@ export function answer(canvas, context){
     canvasReplaced.reset();
 
     // 画面上部のテキストを表示
-    draw_text_of_the_top("出題者は具体例を出してください", canvas, context);
+    draw_text_of_the_top("出題者は具体例を出してください");
     // 現在の針の角度
     gameParams.theta = [];
     for(let i = 0; i < gameSettings.num_of_player - 1; i++){

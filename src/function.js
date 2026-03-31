@@ -98,8 +98,8 @@ export function draw_caution(canvas, context){
 }
 
 // 画面上部のテキストの描画
-export function draw_text_of_the_top(text, canvas, context){
-    // スタイルの決定
+export function draw_text_of_the_top(text){
+    let context = canvasReplaced.getContext();
     context.fillStyle = "rgb(200, 0, 0)";
     context.textAlign = "left";
     context.font = canvasReplaced.getHeight() * 0.05 + "px serif";

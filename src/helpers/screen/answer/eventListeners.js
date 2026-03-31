@@ -50,7 +50,7 @@ export function enableMousedownListener(canvas, context, determination_button) {
         // canvas のリセット
         canvasReplaced.reset();
         // 画面上部のテキストを表示
-        draw_text_of_the_top("回答中...", canvas, context);
+        draw_text_of_the_top("回答中...");
         // 半円形の用意
         draw_half_circle(canvas, context);
         // 針の描画
@@ -93,7 +93,7 @@ export function enableMousemoveListener(canvas, context, determination_button) {
             // canvas のリセット
             canvasReplaced.reset();
             // 画面上部のテキストを表示
-            draw_text_of_the_top("回答中...", canvas, context);
+            draw_text_of_the_top("回答中...");
             // 半円形の用意
             draw_half_circle(canvas, context);
             // 針の描画
@@ -134,7 +134,7 @@ export function enableTouchmoveListener(canvas, context, determination_button) {
             // canvas のリセット
             canvasReplaced.reset();
             // 画面上部のテキストを表示
-            draw_text_of_the_top("回答中...", canvas, context);
+            draw_text_of_the_top("回答中...");
             // 半円形の用意
             draw_half_circle(canvas, context);
             // 針の描画
