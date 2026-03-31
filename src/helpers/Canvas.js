@@ -1,4 +1,5 @@
 import { reset } from "./canvas/reset.js";
+import { resizeAdjustToWindowSize } from "./canvas/resizeAdjustToWindowSize.js";
 
 class Canvas {
     #canvas;
@@ -15,8 +16,16 @@ class Canvas {
         return this.#canvas.width;
     }
 
+    setWidth(width) {
+        this.#canvas.width = width;
+    }
+
     getHeight() {
         return this.#canvas.height;
+    }
+
+    setHeight(height) {
+        this.#canvas.height = height;
     }
 
     reset() {
@@ -24,14 +33,7 @@ class Canvas {
     }
 
     resizeAdjustToWindowSize() {
-        if(document.documentElement.clientWidth > document.documentElement.clientHeight){
-            this.#canvas.width = document.documentElement.clientHeight * 0.95;
-            this.#canvas.height = document.documentElement.clientHeight * 0.95;
-        }
-        else{
-            this.#canvas.width = document.documentElement.clientWidth * 0.95;
-            this.#canvas.height = document.documentElement.clientWidth * 0.95;
-        }
+        resizeAdjustToWindowSize(this);
     }
 }
 
