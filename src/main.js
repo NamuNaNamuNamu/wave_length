@@ -94,10 +94,10 @@ export function main(){
     canvasReplaced.resizeAdjustToWindowSize();
 
     // 半円の中心の x, y 座標
-    center_of_arc_x = canvas.width * 0.5;
+    center_of_arc_x = canvasReplaced.getWidth() * 0.5;
     center_of_arc_y = canvas.height * 0.6;
     // 半円の半径
-    radius = canvas.width * 0.45;
+    radius = canvasReplaced.getWidth() * 0.45;
 
     //// タイトル画面を表示 ////
     title(canvas, context);

@@ -2,6 +2,7 @@ import { draw_text_on_option } from "../../../function.js";
 import { draw_number_on_option } from "../../../function.js";
 import { gameSettings } from "../../gameSettings.js";
 import { ImageButton } from "../../Button.js";
+import { canvasReplaced } from "../../Canvas.js";
 
 export function pointZone2(canvas, context){
     draw_text_on_option("得点ゾーン２の得点", 0.65, canvas, context);
@@ -11,16 +12,16 @@ export function pointZone2(canvas, context){
     triangle_left4.src = "img/triangle_left.png";
     triangle_right4.src = "img/triangle_right.png";
     let left_button4 = new ImageButton(
-        canvas.width * 0.6,     // x座標
+        canvasReplaced.getWidth() * 0.6,     // x座標
         canvas.height * 0.63,    // y座標
-        canvas.width * 0.1,     // 横幅
+        canvasReplaced.getWidth() * 0.1,     // 横幅
         canvas.height * 0.1,   // 縦幅
         triangle_left4, // 画像
     );
     let right_button4 = new ImageButton(
-        canvas.width * 0.8,     // x座標
+        canvasReplaced.getWidth() * 0.8,     // x座標
         canvas.height * 0.63,    // y座標
-        canvas.width * 0.1,     // 横幅
+        canvasReplaced.getWidth() * 0.1,     // 横幅
         canvas.height * 0.1,   // 縦幅
         triangle_right4, // 画像
     );
