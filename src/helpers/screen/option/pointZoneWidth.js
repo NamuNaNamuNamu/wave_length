@@ -2,7 +2,7 @@ import { draw_text_on_option } from "../../../function.js";
 import { draw_number_on_option } from "../../../function.js";
 import { gameSettings } from "../../gameSettings.js";
 import { ImageButton } from "../../Button.js";
-import { canvasReplaced } from "../../Canvas.js";
+import { canvas } from "../../Canvas.js";
 
 export function pointZoneWidth() {
     draw_text_on_option("得点ゾーン１つの大きさ(度)", 0.27);
@@ -12,17 +12,17 @@ export function pointZoneWidth() {
     triangle_left2.src = "img/triangle_left.png";
     triangle_right2.src = "img/triangle_right.png";
     let left_button2 = new ImageButton(
-        canvasReplaced.getWidth() * 0.6,     // x座標
-        canvasReplaced.getHeight() * 0.35,    // y座標
-        canvasReplaced.getWidth() * 0.1,     // 横幅
-        canvasReplaced.getHeight() * 0.1,   // 縦幅
+        canvas.getWidth() * 0.6,     // x座標
+        canvas.getHeight() * 0.35,    // y座標
+        canvas.getWidth() * 0.1,     // 横幅
+        canvas.getHeight() * 0.1,   // 縦幅
         triangle_left2, // 画像
     );
     let right_button2 = new ImageButton(
-        canvasReplaced.getWidth() * 0.8,     // x座標
-        canvasReplaced.getHeight() * 0.35,    // y座標
-        canvasReplaced.getWidth() * 0.1,     // 横幅
-        canvasReplaced.getHeight() * 0.1,   // 縦幅
+        canvas.getWidth() * 0.8,     // x座標
+        canvas.getHeight() * 0.35,    // y座標
+        canvas.getWidth() * 0.1,     // 横幅
+        canvas.getHeight() * 0.1,   // 縦幅
         triangle_right2, // 画像
     );
     triangle_left2.onload = function(){

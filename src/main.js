@@ -3,7 +3,7 @@
 /////////////
 
 import { title } from "./game.js";
-import { canvasReplaced } from "./helpers/Canvas.js";
+import { canvas } from "./helpers/Canvas.js";
 
 //// お題 ////
 export const questions = [
@@ -88,13 +88,13 @@ export let radius;
 
 export function main(){
     // ウィンドウに合わせてゲーム画面の大きさ合わせ
-    canvasReplaced.resizeAdjustToWindowSize();
+    canvas.resizeAdjustToWindowSize();
 
     // 半円の中心の x, y 座標
-    center_of_arc_x = canvasReplaced.getWidth() * 0.5;
-    center_of_arc_y = canvasReplaced.getHeight() * 0.6;
+    center_of_arc_x = canvas.getWidth() * 0.5;
+    center_of_arc_y = canvas.getHeight() * 0.6;
     // 半円の半径
-    radius = canvasReplaced.getWidth() * 0.45;
+    radius = canvas.getWidth() * 0.45;
 
     //// タイトル画面を表示 ////
     title();

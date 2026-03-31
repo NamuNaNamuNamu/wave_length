@@ -3,21 +3,20 @@ import { draw_point_zone, draw_question, draw_text_of_the_top } from "../../../f
 import { draw_half_circle } from "../../../function.js";
 import { gameParams } from "../../shared/gameParams.js";
 import { questions } from "../../../main.js";
-import { canvasReplaced } from "../../Canvas.js";
+import { canvas } from "../../Canvas.js";
 
 export function enableButtonQuestion(confirmation_button, question_reset_button) {
-    canvasReplaced.addEventListener("mousedown", mousedownListener, false);
+    canvas.addEventListener("mousedown", mousedownListener, false);
     function mousedownListener(event){
         event.preventDefault();
         // スタートボタンがクリックされたらお題出題フェーズに移行するß
-        let canvas_rectangle = canvasReplaced.getBoundingClientRect();
+        let canvas_rectangle = canvas.getBoundingClientRect();
         if(confirmation_button.clicked(event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top)){
-            canvasReplaced.removeEventListener("mousedown", mousedownListener, false);
+            canvas.removeEventListener("mousedown", mousedownListener, false);
             answer();
         }
         if(question_reset_button.clicked(event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top)){
-            // canvas のリセット
-            canvasReplaced.reset();
+            canvas.reset();
             
             // 画面上部のテキストを表示
             draw_text_of_the_top("正解の得点ゾーンを表示中...");

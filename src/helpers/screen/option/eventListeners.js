@@ -2,13 +2,13 @@ import { gameSettings } from "../../gameSettings.js";
 import { draw_text_on_option } from "../../../function.js";
 import { draw_number_on_option } from "../../../function.js";
 import { title } from "../../../game.js";
-import { canvasReplaced } from "../../Canvas.js";
+import { canvas } from "../../Canvas.js";
 
 export function enableButtonOption(buttons) {
-    canvasReplaced.addEventListener("mousedown", mousedownListener, false);
+    canvas.addEventListener("mousedown", mousedownListener, false);
     function mousedownListener(event){
         event.preventDefault();
-        let canvas_rectangle = canvasReplaced.getBoundingClientRect();
+        let canvas_rectangle = canvas.getBoundingClientRect();
         // 左右ボタン1
         if(buttons.left.numPlayers.clicked(event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top)){
             if(gameSettings.num_of_player > 2){
@@ -65,7 +65,7 @@ export function enableButtonOption(buttons) {
             }
         }
 
-        canvasReplaced.reset();
+        canvas.reset();
         draw_text_on_option("プレイヤー数", 0.1);
         draw_number_on_option(gameSettings.num_of_player, 0.7, 0.1);
         buttons.left.numPlayers.draw();
@@ -90,7 +90,7 @@ export function enableButtonOption(buttons) {
 
         // スタートボタンがクリックされたらお題出題フェーズに移行する
         if(buttons.back_to_title.clicked(event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top)){
-            canvasReplaced.removeEventListener("mousedown", mousedownListener, false);
+            canvas.removeEventListener("mousedown", mousedownListener, false);
             title();
         }
     }

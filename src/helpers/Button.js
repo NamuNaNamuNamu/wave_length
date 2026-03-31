@@ -1,4 +1,4 @@
-import { canvasReplaced } from "./Canvas.js";
+import { canvas } from "./Canvas.js";
 
 export class Button{
     constructor(x, y, width, height, text, button_color, text_color){
@@ -14,7 +14,7 @@ export class Button{
     }
 
     draw(){
-        let context = canvasReplaced.getContext();
+        let context = canvas.getContext();
         context.fillStyle = this.button_color;
         context.fillRect(this.x - this.width * 0.5, this.y - this.height * 0.5, this.width, this.height);
 
@@ -41,7 +41,7 @@ export class ImageButton extends Button{
     }
 
     draw(){
-        canvasReplaced.getContext().drawImage(
+        canvas.getContext().drawImage(
             this.img,
             this.x - this.width * 0.5,
             this.y - this.height * 0.5,

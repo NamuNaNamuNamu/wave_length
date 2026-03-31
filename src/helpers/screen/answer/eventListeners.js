@@ -5,7 +5,7 @@ import { center_of_arc_x, center_of_arc_y, questions } from "../../../main.js";
 import { change_player_button, result, x, y } from "../../../game.js";
 import { gameSettings } from "../../gameSettings.js";
 import { get_degree } from "../../../utils/degree.js";
-import { canvasReplaced } from "../../Canvas.js";
+import { canvas } from "../../Canvas.js";
 
 //// 針のドラッグアンドドロップ機能 ////
 let clicked = false; // クリックされているかどうか
@@ -18,13 +18,13 @@ let mouseupListener;
 export function enableMousedownListener(determination_button) {
     mousedownListener = (event) => {
         event.preventDefault();
-        let canvas_rectangle = canvasReplaced.getBoundingClientRect();
+        let canvas_rectangle = canvas.getBoundingClientRect();
         // もし「決定ボタン」で左クリックされた場合, 答え合わせフェーズに移行する
         if(determination_button.clicked(event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top)){
-            canvasReplaced.removeEventListener("mousedown", mousedownListener, false);
-            canvasReplaced.removeEventListener("mousemove", mousemoveListener, false);
-            canvasReplaced.removeEventListener("touchmove", touchmoveListener, false);
-            canvasReplaced.removeEventListener("mouseup", mouseupListener, false);
+            canvas.removeEventListener("mousedown", mousedownListener, false);
+            canvas.removeEventListener("mousemove", mousemoveListener, false);
+            canvas.removeEventListener("touchmove", touchmoveListener, false);
+            canvas.removeEventListener("mouseup", mouseupListener, false);
             result();
             return;
         }
@@ -47,8 +47,7 @@ export function enableMousedownListener(determination_button) {
             gameParams.theta[answerGameParams.current_player - 1] = previous;
         }
         //// 各パーツの描画 ////
-        // canvas のリセット
-        canvasReplaced.reset();
+        canvas.reset();
         // 画面上部のテキストを表示
         draw_text_of_the_top("回答中...");
         // 半円形の用意
@@ -68,14 +67,14 @@ export function enableMousedownListener(determination_button) {
         // 決定ボタンの描画
         determination_button.draw();
     }
-    canvasReplaced.addEventListener("mousedown", mousedownListener, false);
+    canvas.addEventListener("mousedown", mousedownListener, false);
 }
 
 export function enableMousemoveListener(determination_button) {
     mousemoveListener = (event) => {
         event.preventDefault();
         if(clicked){
-            let canvas_rectangle = canvasReplaced.getBoundingClientRect();
+            let canvas_rectangle = canvas.getBoundingClientRect();
             // もしもし 操作プレイヤー変更ボタン でマウスがドラッグされた場合, 何もしない
             if(change_player_button.clicked(event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top)){
                 return;
@@ -90,8 +89,7 @@ export function enableMousemoveListener(determination_button) {
                 gameParams.theta[answerGameParams.current_player - 1] = 0;
             }
             //// 各パーツの描画 ////
-            // canvas のリセット
-            canvasReplaced.reset();
+            canvas.reset();
             // 画面上部のテキストを表示
             draw_text_of_the_top("回答中...");
             // 半円形の用意
@@ -106,14 +104,14 @@ export function enableMousemoveListener(determination_button) {
             determination_button.draw();
         }
     }
-    canvasReplaced.addEventListener("mousemove", mousemoveListener, false);
+    canvas.addEventListener("mousemove", mousemoveListener, false);
 }
 
 export function enableTouchmoveListener(determination_button) {
     touchmoveListener = (event) => {
         event.preventDefault();
         for (let i = 0; i < event.changedTouches.length; i++) {
-            let canvas_rectangle = canvasReplaced.getBoundingClientRect();
+            let canvas_rectangle = canvas.getBoundingClientRect();
             x[i] = event.changedTouches[i].pageX - (canvas_rectangle.left + window.pageXOffset);
             y[i] = event.changedTouches[i].pageY - (canvas_rectangle.top + window.pageYOffset);
 
@@ -131,8 +129,7 @@ export function enableTouchmoveListener(determination_button) {
                 gameParams.theta[answerGameParams.current_player - 1] = 0;
             }
             //// 各パーツの描画 ////
-            // canvas のリセット
-            canvasReplaced.reset();
+            canvas.reset();
             // 画面上部のテキストを表示
             draw_text_of_the_top("回答中...");
             // 半円形の用意
@@ -147,7 +144,7 @@ export function enableTouchmoveListener(determination_button) {
             determination_button.draw();
         }
     }
-    canvasReplaced.addEventListener("touchmove", touchmoveListener, false);
+    canvas.addEventListener("touchmove", touchmoveListener, false);
 }
 
 export function enableMouseupListener() {
@@ -155,5 +152,5 @@ export function enableMouseupListener() {
         event.preventDefault();
         clicked = false;
     }
-    canvasReplaced.addEventListener("mouseup", mouseupListener, false);
+    canvas.addEventListener("mouseup", mouseupListener, false);
 }

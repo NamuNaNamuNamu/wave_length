@@ -23,7 +23,7 @@ import { answerGameParams } from "./helpers/screen/answer/answerGameParams.js";
 import { enableMousedownListener, enableMousemoveListener, enableMouseupListener, enableTouchmoveListener } from "./helpers/screen/answer/eventListeners.js";
 import { judge } from "./helpers/screen/result/judge.js";
 import { enableButtonResult } from "./helpers/screen/result/eventListeners.js";
-import { canvasReplaced } from "./helpers/Canvas.js";
+import { canvas } from "./helpers/Canvas.js";
 
 export let x = new Array(1000);    // 指の数だけx座標を格納するための配列 (余裕を持って1000要素用意) 
 export let y = new Array(1000);    // 指の数だけy座標を格納するための配列 (余裕を持って1000要素用意)
@@ -32,15 +32,14 @@ export let change_player_button;
 
 //// タイトル画面 ////
 export function title(){
-    // canvas のリセット
-    canvasReplaced.reset();
+    canvas.reset();
 
     // スタートボタンの描画
     let start_button = new Button(
-        canvasReplaced.getWidth() * 0.5,     // x座標
-        canvasReplaced.getHeight() * 0.3,    // y座標
-        canvasReplaced.getWidth() * 0.6,     // 横幅
-        canvasReplaced.getHeight() * 0.15,   // 縦幅
+        canvas.getWidth() * 0.5,     // x座標
+        canvas.getHeight() * 0.3,    // y座標
+        canvas.getWidth() * 0.6,     // 横幅
+        canvas.getHeight() * 0.15,   // 縦幅
         "スタート",              // テキスト
         "rgb(250, 200, 200)",   // ボタンカラー
     );
@@ -48,10 +47,10 @@ export function title(){
 
     // オプションボタンの描画
     let option_button = new Button(
-        canvasReplaced.getWidth() * 0.5,     // x座標
-        canvasReplaced.getHeight() * 0.7,    // y座標
-        canvasReplaced.getWidth() * 0.6,     // 横幅
-        canvasReplaced.getHeight() * 0.15,   // 縦幅
+        canvas.getWidth() * 0.5,     // x座標
+        canvas.getHeight() * 0.7,    // y座標
+        canvas.getWidth() * 0.6,     // 横幅
+        canvas.getHeight() * 0.15,   // 縦幅
         "設定",              // テキスト
         "rgb(250, 200, 200)",   // ボタンカラー
     );
@@ -62,8 +61,7 @@ export function title(){
 
 //// 設定画面 ////
 export function option(){
-    // canvas のリセット
-    canvasReplaced.reset();
+    canvas.reset();
     let [left_button1, right_button1] = numPlayers();
     let [left_button2, right_button2] = pointZoneWidth();
     let [left_button3, right_button3] = pointZone1();
@@ -72,10 +70,10 @@ export function option(){
 
     // タイトルに戻るボタンの描画
     let back_to_title_button = new Button(
-        canvasReplaced.getWidth() * 0.5,     // x座標
-        canvasReplaced.getHeight() * 0.9,    // y座標
-        canvasReplaced.getWidth() * 0.7,     // 横幅
-        canvasReplaced.getHeight() * 0.15,   // 縦幅
+        canvas.getWidth() * 0.5,     // x座標
+        canvas.getHeight() * 0.9,    // y座標
+        canvas.getWidth() * 0.7,     // 横幅
+        canvas.getHeight() * 0.15,   // 縦幅
         "戻る",              // テキスト
         "rgb(250, 200, 200)",   // ボタンカラー
     );
@@ -102,17 +100,16 @@ export function option(){
 
 //// 注意書きの画面 ////
 export function ready(){
-    // canvas のリセット
-    canvasReplaced.reset();
+    canvas.reset();
 
     // 注意書き
     draw_caution();
     // 得点ゾーン表示ボタン
     let display_point_zone_button = new Button(
-        canvasReplaced.getWidth() * 0.5,     // x座標
-        canvasReplaced.getHeight() * 0.7,    // y座標
-        canvasReplaced.getWidth() * 0.85,     // 横幅
-        canvasReplaced.getHeight() * 0.15,   // 縦幅
+        canvas.getWidth() * 0.5,     // x座標
+        canvas.getHeight() * 0.7,    // y座標
+        canvas.getWidth() * 0.85,     // 横幅
+        canvas.getHeight() * 0.15,   // 縦幅
         "得点ゾーン表示",        // テキスト
         "rgb(250, 200, 200)",   // ボタンカラー
     );
@@ -123,8 +120,7 @@ export function ready(){
 
 //// お題出題フェーズ ////
 export function question(){
-    // canvas のリセット
-    canvasReplaced.reset();
+    canvas.reset();
     
     // 画面上部のテキストを表示
     draw_text_of_the_top("正解の得点ゾーンを表示中...");
@@ -141,20 +137,20 @@ export function question(){
     draw_question(questions[gameParams.question_number][0], questions[gameParams.question_number][1]);
     // 「確認しました」ボタンの描画
     let confirmation_button = new Button(
-        canvasReplaced.getWidth() * 0.5,     // x座標
-        canvasReplaced.getHeight() * 0.85,    // y座標
-        canvasReplaced.getWidth() * 0.8,     // 横幅
-        canvasReplaced.getHeight() * 0.15,   // 縦幅
+        canvas.getWidth() * 0.5,     // x座標
+        canvas.getHeight() * 0.85,    // y座標
+        canvas.getWidth() * 0.8,     // 横幅
+        canvas.getHeight() * 0.15,   // 縦幅
         "確認しました",              // テキスト
         "rgb(250, 200, 200)",   // ボタンカラー
     );
     confirmation_button.draw();
 
     let question_reset_button = new Button(
-        canvasReplaced.getWidth() * 0.9,     // x座標
-        canvasReplaced.getHeight() * 0.08,    // y座標
-        canvasReplaced.getWidth() * 0.1,     // 横幅
-        canvasReplaced.getHeight() * 0.08,   // 縦幅
+        canvas.getWidth() * 0.9,     // x座標
+        canvas.getHeight() * 0.08,    // y座標
+        canvas.getWidth() * 0.1,     // 横幅
+        canvas.getHeight() * 0.08,   // 縦幅
         "⟲",              // テキスト
         "rgb(250, 200, 200)",   // ボタンカラー
     );
@@ -165,8 +161,7 @@ export function question(){
 
 //// 回答フェーズ ////
 export function answer(){
-    // canvas のリセット
-    canvasReplaced.reset();
+    canvas.reset();
 
     // 画面上部のテキストを表示
     draw_text_of_the_top("出題者は具体例を出してください");
@@ -190,10 +185,10 @@ export function answer(){
     if(answerGameParams.current_player == 2) text_color = "rgb(0, 200, 0)";
     if(answerGameParams.current_player == 3) text_color = "rgb(0, 0, 200)";
     change_player_button = new Button(
-        canvasReplaced.getWidth() * 0.3,     // x座標
-        canvasReplaced.getHeight() * 0.85,    // y座標
-        canvasReplaced.getWidth() * 0.5,     // 横幅
-        canvasReplaced.getHeight() * 0.15,   // 縦幅
+        canvas.getWidth() * 0.3,     // x座標
+        canvas.getHeight() * 0.85,    // y座標
+        canvas.getWidth() * 0.5,     // 横幅
+        canvas.getHeight() * 0.15,   // 縦幅
         "P" + answerGameParams.current_player,   // テキスト
         "rgb(250, 200, 200)",   // ボタンカラー
         text_color,             // テキストカラー
@@ -202,10 +197,10 @@ export function answer(){
 
     // 「答え合わせ (決定)」ボタンの描画
     let determination_button = new Button(
-        canvasReplaced.getWidth() * 0.8,     // x座標
-        canvasReplaced.getHeight() * 0.85,    // y座標
-        canvasReplaced.getWidth() * 0.3,     // 横幅
-        canvasReplaced.getHeight() * 0.15,   // 縦幅
+        canvas.getWidth() * 0.8,     // x座標
+        canvas.getHeight() * 0.85,    // y座標
+        canvas.getWidth() * 0.3,     // 横幅
+        canvas.getHeight() * 0.15,   // 縦幅
         "決定",              // テキスト
         "rgb(250, 200, 200)",   // ボタンカラー
     );
@@ -219,8 +214,7 @@ export function answer(){
 
 //// 答え合わせフェーズ ////
 export function result(){
-    // canvas のリセット
-    canvasReplaced.reset();
+    canvas.reset();
 
     // 半円形の用意
     draw_half_circle();
@@ -239,10 +233,10 @@ export function result(){
 
     // 「タイトルに戻る」ボタンの描画
     let go_back_to_title_button = new Button(
-        canvasReplaced.getWidth() * 0.5,     // x座標
-        canvasReplaced.getHeight() * 0.85,    // y座標
-        canvasReplaced.getWidth() * 0.85,     // 横幅
-        canvasReplaced.getHeight() * 0.15,   // 縦幅
+        canvas.getWidth() * 0.5,     // x座標
+        canvas.getHeight() * 0.85,    // y座標
+        canvas.getWidth() * 0.85,     // 横幅
+        canvas.getHeight() * 0.15,   // 縦幅
         "タイトルに戻る",         // テキスト
         "rgb(250, 200, 200)",   // ボタンカラー
     );
