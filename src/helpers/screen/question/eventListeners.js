@@ -27,7 +27,7 @@ export function enableButtonQuestion(canvas, context, confirmation_button, quest
             // 得点ゾーンをランダムで設定
             gameParams.answer_degree = -Math.random() * 180;
             // 得点ゾーンの描画
-            draw_point_zone(gameParams.answer_degree, canvas, context);
+            draw_point_zone(gameParams.answer_degree);
             // お題をランダムで設定
             gameParams.question_number = Math.floor(Math.random() * questions.length);
             if(gameParams.question_number == questions.length) gameParams.question_number -= 1;

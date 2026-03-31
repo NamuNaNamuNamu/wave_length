@@ -20,7 +20,8 @@ export function draw_half_circle(){
 }
 
 // 得点ゾーンの描画
-export function draw_point_zone(degree, canvas, context){
+export function draw_point_zone(degree){
+    let context = canvasReplaced.getContext();
     const COLORS = ["rgb(225, 225, 200)", "rgb(250, 175, 80)", "rgb(240, 240, 80)", "rgb(250, 175, 80)", "rgb(225, 225, 200)"];
     for(let i = 0; i < 5; i++){
         // パスの開始

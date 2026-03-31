@@ -133,7 +133,7 @@ export function question(canvas, context){
     // 得点ゾーンをランダムで設定
     gameParams.answer_degree = -Math.random() * 180;
     // 得点ゾーンの描画
-    draw_point_zone(gameParams.answer_degree, canvas, context);
+    draw_point_zone(gameParams.answer_degree);
     // お題をランダムで設定
     gameParams.question_number = Math.floor(Math.random() * questions.length);
     if(gameParams.question_number == questions.length) gameParams.question_number -= 1;
@@ -225,7 +225,7 @@ export function result(canvas, context){
     // 半円形の用意
     draw_half_circle();
     // 得点ゾーンの描画
-    draw_point_zone(gameParams.answer_degree, canvas, context);
+    draw_point_zone(gameParams.answer_degree);
     // 針の描画
     draw_needle(gameParams.theta, canvas, context);
     // お題の描画
