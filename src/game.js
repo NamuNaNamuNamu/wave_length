@@ -212,8 +212,8 @@ export function answer(canvas, context){
     determination_button.draw();
 
     enableMousedownListener(canvas, context, determination_button);
-    enableMousemoveListener(canvas, context, determination_button);
-    enableTouchmoveListener(canvas, context, determination_button);
+    enableMousemoveListener(determination_button);
+    enableTouchmoveListener(determination_button);
     enableMouseupListener();
 }
 

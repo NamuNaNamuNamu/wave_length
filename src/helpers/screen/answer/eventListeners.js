@@ -71,7 +71,7 @@ export function enableMousedownListener(canvas, context, determination_button) {
     canvasReplaced.addEventListener("mousedown", mousedownListener, false);
 }
 
-export function enableMousemoveListener(canvas, context, determination_button) {
+export function enableMousemoveListener(determination_button) {
     mousemoveListener = (event) => {
         event.preventDefault();
         if(clicked){
@@ -109,7 +109,7 @@ export function enableMousemoveListener(canvas, context, determination_button) {
     canvasReplaced.addEventListener("mousemove", mousemoveListener, false);
 }
 
-export function enableTouchmoveListener(canvas, context, determination_button) {
+export function enableTouchmoveListener(determination_button) {
     touchmoveListener = (event) => {
         event.preventDefault();
         for (let i = 0; i < event.changedTouches.length; i++) {
