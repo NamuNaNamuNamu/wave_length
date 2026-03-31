@@ -64,7 +64,7 @@ export function title(canvas, context){
 export function option(canvas, context){
     // canvas のリセット
     canvasReplaced.reset();
-    let [left_button1, right_button1] = numPlayers(canvas, context);
+    let [left_button1, right_button1] = numPlayers();
     let [left_button2, right_button2] = pointZoneWidth(canvas, context);
     let [left_button3, right_button3] = pointZone1(canvas, context);
     let [left_button4, right_button4] = pointZone2(canvas, context);
