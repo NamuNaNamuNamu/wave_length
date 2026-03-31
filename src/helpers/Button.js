@@ -1,4 +1,4 @@
-import { canvas } from "./Canvas.js";
+import { canvas } from "./canvas/Canvas.js";
 
 export class Button{
     constructor(x, y, width, height, text, button_color, text_color){

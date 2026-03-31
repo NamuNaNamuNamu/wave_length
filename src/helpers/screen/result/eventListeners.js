@@ -1,5 +1,5 @@
 import { title } from "../../../game.js";
-import { canvas } from "../../Canvas.js";
+import { canvas } from "../../canvas/Canvas.js";
 
 export function enableButtonResult(go_back_to_title_button) {
     canvas.addEventListener("mousedown", mousedownListener, false);

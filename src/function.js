@@ -1,7 +1,7 @@
 import { center_of_arc_x, center_of_arc_y, radius } from "./main.js";
 import { gameSettings } from "./helpers/gameSettings.js";
 import { degree_to_rad } from "./utils/degree.js";
-import { canvas } from "./helpers/Canvas.js";
+import { canvas } from "./helpers/canvas/Canvas.js";
 
 // 半円形の描画
 export function draw_half_circle(){

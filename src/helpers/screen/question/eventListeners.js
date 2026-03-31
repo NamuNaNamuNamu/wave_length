@@ -3,7 +3,7 @@ import { draw_point_zone, draw_question, draw_text_of_the_top } from "../../../f
 import { draw_half_circle } from "../../../function.js";
 import { gameParams } from "../../shared/gameParams.js";
 import { questions } from "../../../main.js";
-import { canvas } from "../../Canvas.js";
+import { canvas } from "../../canvas/Canvas.js";
 
 export function enableButtonQuestion(confirmation_button, question_reset_button) {
     canvas.addEventListener("mousedown", mousedownListener, false);

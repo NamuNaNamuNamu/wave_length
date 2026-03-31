@@ -23,7 +23,7 @@ import { answerGameParams } from "./helpers/screen/answer/answerGameParams.js";
 import { enableMousedownListener, enableMousemoveListener, enableMouseupListener, enableTouchmoveListener } from "./helpers/screen/answer/eventListeners.js";
 import { judge } from "./helpers/screen/result/judge.js";
 import { enableButtonResult } from "./helpers/screen/result/eventListeners.js";
-import { canvas } from "./helpers/Canvas.js";
+import { canvas } from "./helpers/canvas/Canvas.js";
 
 export let x = new Array(1000);    // 指の数だけx座標を格納するための配列 (余裕を持って1000要素用意) 
 export let y = new Array(1000);    // 指の数だけy座標を格納するための配列 (余裕を持って1000要素用意)

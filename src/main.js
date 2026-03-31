@@ -3,7 +3,7 @@
 /////////////
 
 import { title } from "./game.js";
-import { canvas } from "./helpers/Canvas.js";
+import { canvas } from "./helpers/canvas/Canvas.js";
 
 //// お題 ////
 export const questions = [
