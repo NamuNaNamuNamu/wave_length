@@ -235,7 +235,7 @@ export function result(canvas, context){
     let areas = judge();
     
     // 点数の描画
-    draw_point(areas, canvas, context);
+    draw_point(areas);
 
     // 「タイトルに戻る」ボタンの描画
     let go_back_to_title_button = new Button(

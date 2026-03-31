@@ -111,7 +111,8 @@ export function draw_text_of_the_top(text){
 }
 
 // 結果画面での得点の描画
-export function draw_point(areas, canvas, context){
+export function draw_point(areas){
+    let context = canvasReplaced.getContext();
     let texts = [];
     // 参加プレイヤーが2人の場合
     if(areas.length == 1){
