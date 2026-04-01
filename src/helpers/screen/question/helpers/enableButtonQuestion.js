@@ -1,4 +1,4 @@
-import { answer } from "../../../../game.js";
+import { answer } from "../../answer/answer.js";
 import { draw_point_zone, draw_question, draw_text_of_the_top } from "../../../../function.js";
 import { draw_half_circle } from "../../../../function.js";
 import { gameParams } from "../../../shared/gameParams.js";
