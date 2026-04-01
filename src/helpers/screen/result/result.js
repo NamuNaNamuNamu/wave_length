@@ -5,7 +5,7 @@ import { canvas } from "../../canvas/Canvas.js";
 import { gameParams } from "../../shared/gameParams.js";
 import { enableButtonResult } from "./helpers/enableButtonResult.js";
 import { halfCircle } from "../../../main.js";
-import { PointZone } from "../../shared/PointZone.js";
+import { pointZone } from "../../shared/PointZone.js";
 
 //// 答え合わせフェーズ ////
 export function result(){
@@ -14,7 +14,6 @@ export function result(){
     // 半円形の用意
     halfCircle.draw(canvas.getContext());
     // 得点ゾーンの描画
-    const pointZone = new PointZone({answerDegree: gameParams.answer_degree});
     pointZone.draw(canvas.getContext());
     // 針の描画
     draw_needle(gameParams.theta);

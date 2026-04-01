@@ -4,7 +4,7 @@ import { Button } from "../../Button.js";
 import { canvas } from "../../canvas/Canvas.js";
 import { questionManager } from "../../question/QuestionManager.js";
 import { gameParams } from "../../shared/gameParams.js";
-import { PointZone } from "../../shared/PointZone.js";
+import { pointZone } from "../../shared/PointZone.js";
 import { enableButtonQuestion } from "./helpers/enableButtonQuestion.js";
 
 //// お題出題フェーズ ////
@@ -16,9 +16,7 @@ export function question(){
     // 半円形の用意
     halfCircle.draw(canvas.getContext());
     // 得点ゾーンをランダムで設定
-    gameParams.answer_degree = -Math.random() * 180;
-    // 得点ゾーンの描画
-    const pointZone = new PointZone({answerDegree: gameParams.answer_degree});
+    pointZone.setRandom();
     pointZone.draw(canvas.getContext());
     // お題をランダムで設定
     gameParams.question = questionManager.pickRandom();
