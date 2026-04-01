@@ -1,5 +1,5 @@
 import { gameSettings } from "../../gameSettings.js";
-import { needlesManager } from "../../shared/NeedlesManager.js";
+import { needlesManager } from "../../shared/needle/NeedlesManager.js";
 import { pointZone } from "../../shared/PointZone.js";
 
 export function judge() {

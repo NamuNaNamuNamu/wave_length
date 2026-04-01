@@ -1,4 +1,4 @@
-import { halfCircle } from "./HalfCircle.js";
+import { halfCircle } from "../../HalfCircle.js";
 
 
 export class Needle {

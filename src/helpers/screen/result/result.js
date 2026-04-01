@@ -6,7 +6,7 @@ import { gameParams } from "../../shared/gameParams.js";
 import { enableButtonResult } from "./helpers/enableButtonResult.js";
 import { halfCircle } from "../../shared/HalfCircle.js";
 import { pointZone } from "../../shared/PointZone.js";
-import { needlesManager } from "../../shared/NeedlesManager.js";
+import { needlesManager } from "../../shared/needle/NeedlesManager.js";
 
 //// 答え合わせフェーズ ////
 export function result(){

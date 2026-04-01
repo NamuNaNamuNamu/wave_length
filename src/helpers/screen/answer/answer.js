@@ -3,7 +3,7 @@ import { halfCircle } from "../../shared/HalfCircle.js";
 import { Button } from "../../Button.js";
 import { canvas } from "../../canvas/Canvas.js";
 import { gameParams } from "../../shared/gameParams.js";
-import { needlesManager } from "../../shared/NeedlesManager.js";
+import { needlesManager } from "../../shared/needle/NeedlesManager.js";
 import { answerGameParams } from "./answerGameParams.js";
 import { enableMousedownListener, enableMousemoveListener, enableMouseupListener, enableTouchmoveListener } from "./helpers/eventListeners.js";
 
