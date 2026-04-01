@@ -50,4 +50,4 @@ class Canvas {
     }
 }
 
-export const canvas = new Canvas(); // TODO: canvas 要素をすべて置き換えたら canvas にリネーム。
+export const canvas = new Canvas();
