@@ -1,4 +1,4 @@
-import { question } from "../../../../game.js";
+import { question } from "../../question/question.js";
 import { canvas } from "../../../canvas/Canvas.js";
 
 export function enableButtonReady(display_point_zone_button) {
