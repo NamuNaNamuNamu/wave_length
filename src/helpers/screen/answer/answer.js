@@ -1,4 +1,5 @@
-import { draw_half_circle, draw_needle, draw_question, draw_text_of_the_top } from "../../../function.js";
+import { draw_needle, draw_question, draw_text_of_the_top } from "../../../function.js";
+import { halfCircle } from "../../../main.js";
 import { Button } from "../../Button.js";
 import { canvas } from "../../canvas/Canvas.js";
 import { gameSettings } from "../../gameSettings.js";
@@ -20,7 +21,7 @@ export function answer(){
         gameParams.theta[i] = -90;
     }
     // 半円形の用意
-    draw_half_circle();
+    halfCircle.draw(canvas.getContext());
     // 針の描画
     draw_needle(gameParams.theta);
     // お題の描画

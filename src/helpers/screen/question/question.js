@@ -1,4 +1,5 @@
-import { draw_half_circle, draw_point_zone, draw_question, draw_text_of_the_top } from "../../../function.js";
+import { draw_point_zone, draw_question, draw_text_of_the_top } from "../../../function.js";
+import { halfCircle } from "../../../main.js";
 import { Button } from "../../Button.js";
 import { canvas } from "../../canvas/Canvas.js";
 import { questionManager } from "../../question/QuestionManager.js";
@@ -12,7 +13,7 @@ export function question(){
     // 画面上部のテキストを表示
     draw_text_of_the_top("正解の得点ゾーンを表示中...");
     // 半円形の用意
-    draw_half_circle();
+    halfCircle.draw(canvas.getContext());
     // 得点ゾーンをランダムで設定
     gameParams.answer_degree = -Math.random() * 180;
     // 得点ゾーンの描画

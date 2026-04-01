@@ -1,23 +1,7 @@
-import { center_of_arc_x, center_of_arc_y, radius } from "./main.js";
+import { halfCircle } from "./main.js";
 import { gameSettings } from "./helpers/gameSettings.js";
 import { degree_to_rad } from "./utils/degree.js";
 import { canvas } from "./helpers/canvas/Canvas.js";
-
-// 半円形の描画
-export function draw_half_circle(){
-    let context = canvas.getContext();
-    // パスの開始
-    context.beginPath();
-    // 弧を指定
-    context.arc(center_of_arc_x, center_of_arc_y, radius, degree_to_rad(-180), degree_to_rad(0), false); // 引数: (円弧の中心の x 座標, 円弧の中心の y 座標, 半径, 始まりの角度[rad], 終わりの角度[rad], 反時計回り{true} or 時計回り{false})
-    // 枠線を描画
-    context.strokeStyle = "rgb(0, 0, 0)";
-    context.lineWidth = canvas.getWidth() * 0.02;
-    context.stroke();
-    // 塗りつぶし
-    context.fillStyle = "rgb(255, 255, 255)";
-    context.fill();
-}
 
 // 得点ゾーンの描画
 export function draw_point_zone(degree){
@@ -27,9 +11,9 @@ export function draw_point_zone(degree){
         // パスの開始
         context.beginPath();
         // 起点
-        context.moveTo(center_of_arc_x, center_of_arc_y);
+        context.moveTo(halfCircle.centerX, halfCircle.centerY);
         // 弧を指定
-        context.arc(center_of_arc_x, center_of_arc_y, radius, degree_to_rad(degree - gameSettings.area_size * 2.5 + i * gameSettings.area_size), degree_to_rad(degree - gameSettings.area_size * 1.5 + i * gameSettings.area_size), false); // 引数: (円弧の中心の x 座標, 円弧の中心の y 座標, 半径, 始まりの角度[rad], 終わりの角度[rad], 反時計回り{true} or 時計回り{false})
+        context.arc(halfCircle.centerX, halfCircle.centerY, halfCircle.radius, degree_to_rad(degree - gameSettings.area_size * 2.5 + i * gameSettings.area_size), degree_to_rad(degree - gameSettings.area_size * 1.5 + i * gameSettings.area_size), false); // 引数: (円弧の中心の x 座標, 円弧の中心の y 座標, 半径, 始まりの角度[rad], 終わりの角度[rad], 反時計回り{true} or 時計回り{false})
         // 塗りつぶし
         context.fillStyle = COLORS[i];
         context.fill();
@@ -37,7 +21,7 @@ export function draw_point_zone(degree){
         // はみ出した部分を抜き出す
         // 灰色で染める
         context.fillStyle = "rgb(230, 230, 230)";
-        context.fillRect(0, center_of_arc_y, canvas.getWidth(), canvas.getHeight() - center_of_arc_y);
+        context.fillRect(0, halfCircle.centerY, canvas.getWidth(), canvas.getHeight() - halfCircle.centerY);
     }
 }
 
@@ -49,9 +33,9 @@ export function draw_needle(degrees){
         // パスの開始
         context.beginPath();
         // 起点
-        context.moveTo(center_of_arc_x, center_of_arc_y);
+        context.moveTo(halfCircle.centerX, halfCircle.centerY);
         // 終点
-        context.lineTo(center_of_arc_x + Math.cos(degrees[i] * Math.PI / 180) * radius * 0.8, center_of_arc_y + Math.sin(degrees[i] * Math.PI / 180) * radius * 0.8);
+        context.lineTo(halfCircle.centerX + Math.cos(degrees[i] * Math.PI / 180) * halfCircle.radius * 0.8, halfCircle.centerY + Math.sin(degrees[i] * Math.PI / 180) * halfCircle.radius * 0.8);
         // 描画
         context.strokeStyle = COLORS[i];
         context.lineWidth = canvas.getWidth() * 0.01;

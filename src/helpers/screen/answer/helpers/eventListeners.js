@@ -1,7 +1,7 @@
-import { draw_half_circle, draw_needle, draw_question, draw_text_of_the_top } from "../../../../function.js";
+import { draw_needle, draw_question, draw_text_of_the_top } from "../../../../function.js";
 import { gameParams } from "../../../shared/gameParams.js";
 import { answerGameParams } from "../answerGameParams.js";
-import { center_of_arc_x, center_of_arc_y } from "../../../../main.js";
+import { halfCircle } from "../../../../main.js";
 import { gameSettings } from "../../../gameSettings.js";
 import { get_degree } from "../../../../utils/degree.js";
 import { canvas } from "../../../canvas/Canvas.js";
@@ -45,7 +45,7 @@ export function enableMousedownListener(determination_button) {
         clicked = true;
         // クリックされた時点でのマウスの場所の角度を算出
         let previous = gameParams.theta[answerGameParams.current_player - 1]; // 一つ前の角度を保存しておく
-        gameParams.theta[answerGameParams.current_player - 1] = get_degree(center_of_arc_x, center_of_arc_y, event.clientX, event.clientY);
+        gameParams.theta[answerGameParams.current_player - 1] = get_degree(halfCircle.centerX, halfCircle.centerY, event.clientX, event.clientY);
         // 決定ボタン以外で画面下半分がクリックされたら, 針は動かさない 
         if(gameParams.theta[answerGameParams.current_player - 1] > 0){
             gameParams.theta[answerGameParams.current_player - 1] = previous;
@@ -55,7 +55,7 @@ export function enableMousedownListener(determination_button) {
         // 画面上部のテキストを表示
         draw_text_of_the_top("回答中...");
         // 半円形の用意
-        draw_half_circle();
+        halfCircle.draw(canvas.getContext());
         // 針の描画
         draw_needle(gameParams.theta);
         // お題の描画
@@ -84,7 +84,7 @@ export function enableMousemoveListener(determination_button) {
                 return;
             }
             // ドラッグされた時点でのマウスの場所の角度を算出
-            gameParams.theta[answerGameParams.current_player - 1] = get_degree(center_of_arc_x, center_of_arc_y, event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top);
+            gameParams.theta[answerGameParams.current_player - 1] = get_degree(halfCircle.centerX, halfCircle.centerY, event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top);
             // 針が半円の下半分に行かないようにする
             if(gameParams.theta[answerGameParams.current_player - 1] > 90){
                 gameParams.theta[answerGameParams.current_player - 1] = -180;
@@ -97,7 +97,7 @@ export function enableMousemoveListener(determination_button) {
             // 画面上部のテキストを表示
             draw_text_of_the_top("回答中...");
             // 半円形の用意
-            draw_half_circle();
+            halfCircle.draw(canvas.getContext());
             // 針の描画
             draw_needle(gameParams.theta);
             // お題の描画
@@ -124,7 +124,7 @@ export function enableTouchmoveListener(determination_button) {
                 return;
             }
             // ドラッグされた時点での指の場所の角度を算出
-            gameParams.theta[answerGameParams.current_player - 1] = get_degree(center_of_arc_x, center_of_arc_y, x[0], y[0]);
+            gameParams.theta[answerGameParams.current_player - 1] = get_degree(halfCircle.centerX, halfCircle.centerY, x[0], y[0]);
             // 針が半円の下半分に行かないようにする
             if(gameParams.theta[answerGameParams.current_player - 1] > 90){
                 gameParams.theta[answerGameParams.current_player - 1] = -180;
@@ -137,7 +137,7 @@ export function enableTouchmoveListener(determination_button) {
             // 画面上部のテキストを表示
             draw_text_of_the_top("回答中...");
             // 半円形の用意
-            draw_half_circle();
+            halfCircle.draw(canvas.getContext());
             // 針の描画
             draw_needle(gameParams.theta);
             // お題の描画

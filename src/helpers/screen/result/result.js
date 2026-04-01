@@ -1,16 +1,17 @@
-import { draw_half_circle, draw_needle, draw_point, draw_point_zone, draw_question } from "../../../function.js";
+import { draw_needle, draw_point, draw_point_zone, draw_question } from "../../../function.js";
 import { judge } from "./judge.js";
 import { Button } from "../../Button.js";
 import { canvas } from "../../canvas/Canvas.js";
 import { gameParams } from "../../shared/gameParams.js";
 import { enableButtonResult } from "./helpers/enableButtonResult.js";
+import { halfCircle } from "../../../main.js";
 
 //// 答え合わせフェーズ ////
 export function result(){
     canvas.reset();
 
     // 半円形の用意
-    draw_half_circle();
+    halfCircle.draw(canvas.getContext());
     // 得点ゾーンの描画
     draw_point_zone(gameParams.answer_degree);
     // 針の描画
