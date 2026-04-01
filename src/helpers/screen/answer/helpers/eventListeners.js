@@ -45,7 +45,7 @@ export function enableMousedownListener(determination_button) {
         clicked = true;
         // クリックされた時点でのマウスの場所の角度を算出
         let previous = gameParams.theta[answerGameParams.current_player - 1]; // 一つ前の角度を保存しておく
-        gameParams.theta[answerGameParams.current_player - 1] = get_degree(halfCircle.centerX, halfCircle.centerY, event.clientX, event.clientY);
+        gameParams.theta[answerGameParams.current_player - 1] = get_degree(halfCircle.getCenterX(), halfCircle.getCenterY(), event.clientX, event.clientY);
         // 決定ボタン以外で画面下半分がクリックされたら, 針は動かさない 
         if(gameParams.theta[answerGameParams.current_player - 1] > 0){
             gameParams.theta[answerGameParams.current_player - 1] = previous;
@@ -84,7 +84,7 @@ export function enableMousemoveListener(determination_button) {
                 return;
             }
             // ドラッグされた時点でのマウスの場所の角度を算出
-            gameParams.theta[answerGameParams.current_player - 1] = get_degree(halfCircle.centerX, halfCircle.centerY, event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top);
+            gameParams.theta[answerGameParams.current_player - 1] = get_degree(halfCircle.getCenterX(), halfCircle.getCenterY(), event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top);
             // 針が半円の下半分に行かないようにする
             if(gameParams.theta[answerGameParams.current_player - 1] > 90){
                 gameParams.theta[answerGameParams.current_player - 1] = -180;
@@ -124,7 +124,7 @@ export function enableTouchmoveListener(determination_button) {
                 return;
             }
             // ドラッグされた時点での指の場所の角度を算出
-            gameParams.theta[answerGameParams.current_player - 1] = get_degree(halfCircle.centerX, halfCircle.centerY, x[0], y[0]);
+            gameParams.theta[answerGameParams.current_player - 1] = get_degree(halfCircle.getCenterX(), halfCircle.getCenterY(), x[0], y[0]);
             // 針が半円の下半分に行かないようにする
             if(gameParams.theta[answerGameParams.current_player - 1] > 90){
                 gameParams.theta[answerGameParams.current_player - 1] = -180;

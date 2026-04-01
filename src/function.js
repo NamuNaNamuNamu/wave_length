@@ -10,9 +10,9 @@ export function draw_needle(degrees){
         // パスの開始
         context.beginPath();
         // 起点
-        context.moveTo(halfCircle.centerX, halfCircle.centerY);
+        context.moveTo(halfCircle.getCenterX(), halfCircle.getCenterY());
         // 終点
-        context.lineTo(halfCircle.centerX + Math.cos(degrees[i] * Math.PI / 180) * halfCircle.radius * 0.8, halfCircle.centerY + Math.sin(degrees[i] * Math.PI / 180) * halfCircle.radius * 0.8);
+        context.lineTo(halfCircle.getCenterX() + Math.cos(degrees[i] * Math.PI / 180) * halfCircle.getRadius() * 0.8, halfCircle.getCenterY() + Math.sin(degrees[i] * Math.PI / 180) * halfCircle.getRadius() * 0.8);
         // 描画
         context.strokeStyle = COLORS[i];
         context.lineWidth = canvas.getWidth() * 0.01;
