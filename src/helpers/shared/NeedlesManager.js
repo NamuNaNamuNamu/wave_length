@@ -38,12 +38,12 @@ export class NeedlesManager {
             }),
             new Needle({
                 color: "rgb(0, 0, 200)",
-                degree: -90,
+                degree: -135,
                 lineWidth: canvas.getWidth() * 0.01
             }),
             new Needle({
                 color: "rgb(0, 200, 0)",
-                degree: -90,
+                degree: -45,
                 lineWidth: canvas.getWidth() * 0.01
             })
         ];
