@@ -1,4 +1,5 @@
-import { halfCircle } from "../../main.js";
+import { halfCircle } from "./HalfCircle.js";
+
 
 export class Needle {
     #color;

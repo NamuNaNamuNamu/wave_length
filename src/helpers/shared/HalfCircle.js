@@ -25,6 +25,13 @@ export class HalfCircle {
         return this.#radius;
     }
 
+    adjustToCanvas(canvas) {
+        this.#centerX = canvas.getWidth() * 0.5;
+        this.#centerY = canvas.getHeight() * 0.6;
+        this.#radius = canvas.getWidth() * 0.45;
+        this.#lineWidth = canvas.getWidth() * 0.02;
+    }
+
     draw(context) {
         // パスの開始
         context.beginPath();
@@ -39,3 +46,10 @@ export class HalfCircle {
         context.fill();
     }
 }
+
+export const halfCircle = new HalfCircle({
+    centerX: null,
+    centerY: null,
+    radius: null,
+    lineWidth: null
+});

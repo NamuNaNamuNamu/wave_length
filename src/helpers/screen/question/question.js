@@ -1,5 +1,5 @@
 import { draw_question, draw_text_of_the_top } from "../../../function.js";
-import { halfCircle } from "../../../main.js";
+import { halfCircle } from "../../shared/HalfCircle.js";
 import { Button } from "../../Button.js";
 import { canvas } from "../../canvas/Canvas.js";
 import { questionManager } from "../../question/QuestionManager.js";

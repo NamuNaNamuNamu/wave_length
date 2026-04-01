@@ -3,7 +3,7 @@ import { draw_question, draw_text_of_the_top } from "../../../../function.js";
 import { gameParams } from "../../../shared/gameParams.js";
 import { canvas } from "../../../canvas/Canvas.js";
 import { questionManager } from "../../../question/QuestionManager.js";
-import { halfCircle } from "../../../../main.js";
+import { halfCircle } from "../../../shared/HalfCircle.js";
 import { pointZone, PointZone } from "../../../shared/PointZone.js";
 
 export function enableButtonQuestion(confirmation_button, question_reset_button) {

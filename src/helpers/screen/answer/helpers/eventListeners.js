@@ -1,7 +1,7 @@
 import { draw_question, draw_text_of_the_top } from "../../../../function.js";
 import { gameParams } from "../../../shared/gameParams.js";
 import { answerGameParams } from "../answerGameParams.js";
-import { halfCircle } from "../../../../main.js";
+import { halfCircle } from "../../../shared/HalfCircle.js";
 import { gameSettings } from "../../../gameSettings.js";
 import { get_degree } from "../../../../utils/degree.js";
 import { canvas } from "../../../canvas/Canvas.js";

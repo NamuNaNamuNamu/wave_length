@@ -4,7 +4,7 @@ import { Button } from "../../Button.js";
 import { canvas } from "../../canvas/Canvas.js";
 import { gameParams } from "../../shared/gameParams.js";
 import { enableButtonResult } from "./helpers/enableButtonResult.js";
-import { halfCircle } from "../../../main.js";
+import { halfCircle } from "../../shared/HalfCircle.js";
 import { pointZone } from "../../shared/PointZone.js";
 import { needlesManager } from "../../shared/NeedlesManager.js";
 
