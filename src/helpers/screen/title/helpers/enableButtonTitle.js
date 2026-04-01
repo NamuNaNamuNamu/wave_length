@@ -1,4 +1,4 @@
-import { ready } from "../../../../game.js";
+import { ready } from "../../ready/ready.js";
 import { option } from "../../option/option.js";
 import { canvas } from "../../../canvas/Canvas.js";
 
