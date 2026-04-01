@@ -2,8 +2,8 @@ import { answer } from "../../../game.js";
 import { draw_point_zone, draw_question, draw_text_of_the_top } from "../../../function.js";
 import { draw_half_circle } from "../../../function.js";
 import { gameParams } from "../../shared/gameParams.js";
-import { questions } from "../../../main.js";
 import { canvas } from "../../canvas/Canvas.js";
+import { questionManager } from "../../question/QuestionManager.js";
 
 export function enableButtonQuestion(confirmation_button, question_reset_button) {
     canvas.addEventListener("mousedown", mousedownListener, false);
@@ -27,10 +27,10 @@ export function enableButtonQuestion(confirmation_button, question_reset_button)
             // 得点ゾーンの描画
             draw_point_zone(gameParams.answer_degree);
             // お題をランダムで設定
-            gameParams.question_number = Math.floor(Math.random() * questions.length);
-            if(gameParams.question_number == questions.length) gameParams.question_number -= 1;
+            gameParams.question_number = Math.floor(Math.random() * questionManager.getAll().length);
+            if(gameParams.question_number == questionManager.getAll().length) gameParams.question_number -= 1;
             // お題の描画
-            draw_question(questions[gameParams.question_number][0], questions[gameParams.question_number][1]);
+            draw_question(questionManager.getAll()[gameParams.question_number][0], questionManager.getAll()[gameParams.question_number][1]);
 
             confirmation_button.draw();
             question_reset_button.draw();

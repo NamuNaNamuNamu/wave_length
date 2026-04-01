@@ -4,7 +4,6 @@ import { draw_text_of_the_top } from "./function.js";
 import { draw_half_circle } from "./function.js";
 import { center_of_arc_x, center_of_arc_y } from "./main.js";
 import { draw_point_zone } from "./function.js";
-import { questions } from "./main.js";
 import { draw_question } from "./function.js";
 import { draw_needle } from "./function.js";
 import { draw_point } from "./function.js";
@@ -24,6 +23,7 @@ import { enableMousedownListener, enableMousemoveListener, enableMouseupListener
 import { judge } from "./helpers/screen/result/judge.js";
 import { enableButtonResult } from "./helpers/screen/result/eventListeners.js";
 import { canvas } from "./helpers/canvas/Canvas.js";
+import { questionManager } from "./helpers/question/QuestionManager.js";
 
 export let x = new Array(1000);    // 指の数だけx座標を格納するための配列 (余裕を持って1000要素用意) 
 export let y = new Array(1000);    // 指の数だけy座標を格納するための配列 (余裕を持って1000要素用意)
@@ -131,10 +131,10 @@ export function question(){
     // 得点ゾーンの描画
     draw_point_zone(gameParams.answer_degree);
     // お題をランダムで設定
-    gameParams.question_number = Math.floor(Math.random() * questions.length);
-    if(gameParams.question_number == questions.length) gameParams.question_number -= 1;
+    gameParams.question_number = Math.floor(Math.random() * questionManager.getAll().length);
+    if(gameParams.question_number == questionManager.getAll().length) gameParams.question_number -= 1;
     // お題の描画
-    draw_question(questions[gameParams.question_number][0], questions[gameParams.question_number][1]);
+    draw_question(questionManager.getAll()[gameParams.question_number][0], questionManager.getAll()[gameParams.question_number][1]);
     // 「確認しました」ボタンの描画
     let confirmation_button = new Button(
         canvas.getWidth() * 0.5,     // x座標
@@ -175,7 +175,7 @@ export function answer(){
     // 針の描画
     draw_needle(gameParams.theta);
     // お題の描画
-    draw_question(questions[gameParams.question_number][0], questions[gameParams.question_number][1]);
+    draw_question(questionManager.getAll()[gameParams.question_number][0], questionManager.getAll()[gameParams.question_number][1]);
 
     answerGameParams.current_player = 1;
 
@@ -223,7 +223,7 @@ export function result(){
     // 針の描画
     draw_needle(gameParams.theta);
     // お題の描画
-    draw_question(questions[gameParams.question_number][0], questions[gameParams.question_number][1]);
+    draw_question(questionManager.getAll()[gameParams.question_number][0], questionManager.getAll()[gameParams.question_number][1]);
 
     // 点数の判定
     let areas = judge();
