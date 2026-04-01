@@ -6,7 +6,6 @@ import { change_player_button, result, x, y } from "../../../game.js";
 import { gameSettings } from "../../gameSettings.js";
 import { get_degree } from "../../../utils/degree.js";
 import { canvas } from "../../canvas/Canvas.js";
-import { questionManager } from "../../question/QuestionManager.js";
 
 //// 針のドラッグアンドドロップ機能 ////
 let clicked = false; // クリックされているかどうか
@@ -56,7 +55,7 @@ export function enableMousedownListener(determination_button) {
         // 針の描画
         draw_needle(gameParams.theta);
         // お題の描画
-        draw_question(questionManager.getAll()[gameParams.question_number][0], questionManager.getAll()[gameParams.question_number][1]);
+        draw_question(gameParams.question[0], gameParams.question[1]);
         // 操作プレイヤー変更ボタンの描画
         let text_color = "";
         if(answerGameParams.current_player == 1) text_color = "rgb(200, 0, 0)";
@@ -98,7 +97,7 @@ export function enableMousemoveListener(determination_button) {
             // 針の描画
             draw_needle(gameParams.theta);
             // お題の描画
-            draw_question(questionManager.getAll()[gameParams.question_number][0], questionManager.getAll()[gameParams.question_number][1]);
+            draw_question(gameParams.question[0], gameParams.question[1]);
             // 操作プレイヤー変更ボタンの描画
             change_player_button.draw();
             // 決定ボタンの描画
@@ -138,7 +137,7 @@ export function enableTouchmoveListener(determination_button) {
             // 針の描画
             draw_needle(gameParams.theta);
             // お題の描画
-            draw_question(questionManager.getAll()[gameParams.question_number][0], questionManager.getAll()[gameParams.question_number][1]);
+            draw_question(gameParams.question[0], gameParams.question[1]);
             // 操作プレイヤー変更ボタンの描画
             change_player_button.draw();
             // 決定ボタンの描画

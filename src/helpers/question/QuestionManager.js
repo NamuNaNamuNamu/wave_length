@@ -10,6 +10,14 @@ export class QuestionManager {
     getAll() {
         return [...this.#questions];
     }
+
+    getCount() {
+        return this.#questions.length;
+    }
+
+    pickRandom() {
+        return this.#questions[Math.floor(Math.random() * this.getCount())];
+    }
 }
 
 export const questionManager = new QuestionManager();

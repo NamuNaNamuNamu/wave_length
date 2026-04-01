@@ -131,10 +131,9 @@ export function question(){
     // 得点ゾーンの描画
     draw_point_zone(gameParams.answer_degree);
     // お題をランダムで設定
-    gameParams.question_number = Math.floor(Math.random() * questionManager.getAll().length);
-    if(gameParams.question_number == questionManager.getAll().length) gameParams.question_number -= 1;
+    gameParams.question = questionManager.pickRandom();
     // お題の描画
-    draw_question(questionManager.getAll()[gameParams.question_number][0], questionManager.getAll()[gameParams.question_number][1]);
+    draw_question(gameParams.question[0], gameParams.question[1]);
     // 「確認しました」ボタンの描画
     let confirmation_button = new Button(
         canvas.getWidth() * 0.5,     // x座標
@@ -175,7 +174,7 @@ export function answer(){
     // 針の描画
     draw_needle(gameParams.theta);
     // お題の描画
-    draw_question(questionManager.getAll()[gameParams.question_number][0], questionManager.getAll()[gameParams.question_number][1]);
+    draw_question(gameParams.question[0], gameParams.question[1]);
 
     answerGameParams.current_player = 1;
 
@@ -223,7 +222,7 @@ export function result(){
     // 針の描画
     draw_needle(gameParams.theta);
     // お題の描画
-    draw_question(questionManager.getAll()[gameParams.question_number][0], questionManager.getAll()[gameParams.question_number][1]);
+    draw_question(gameParams.question[0], gameParams.question[1]);
 
     // 点数の判定
     let areas = judge();

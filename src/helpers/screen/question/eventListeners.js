@@ -27,10 +27,9 @@ export function enableButtonQuestion(confirmation_button, question_reset_button)
             // 得点ゾーンの描画
             draw_point_zone(gameParams.answer_degree);
             // お題をランダムで設定
-            gameParams.question_number = Math.floor(Math.random() * questionManager.getAll().length);
-            if(gameParams.question_number == questionManager.getAll().length) gameParams.question_number -= 1;
+            gameParams.question = questionManager.pickRandom();
             // お題の描画
-            draw_question(questionManager.getAll()[gameParams.question_number][0], questionManager.getAll()[gameParams.question_number][1]);
+            draw_question(gameParams.question[0], gameParams.question[1]);
 
             confirmation_button.draw();
             question_reset_button.draw();
