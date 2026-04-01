@@ -1,9 +1,9 @@
-import { draw_needle, draw_question, draw_text_of_the_top } from "../../../function.js";
+import { draw_question, draw_text_of_the_top } from "../../../function.js";
 import { halfCircle } from "../../../main.js";
 import { Button } from "../../Button.js";
 import { canvas } from "../../canvas/Canvas.js";
-import { gameSettings } from "../../gameSettings.js";
 import { gameParams } from "../../shared/gameParams.js";
+import { needlesManager } from "../../shared/NeedlesManager.js";
 import { answerGameParams } from "./answerGameParams.js";
 import { enableMousedownListener, enableMousemoveListener, enableMouseupListener, enableTouchmoveListener } from "./helpers/eventListeners.js";
 
@@ -12,18 +12,14 @@ export let change_player_button;
 //// 回答フェーズ ////
 export function answer(){
     canvas.reset();
+    needlesManager.initialize();
 
     // 画面上部のテキストを表示
     draw_text_of_the_top("出題者は具体例を出してください");
-    // 現在の針の角度
-    gameParams.theta = [];
-    for(let i = 0; i < gameSettings.num_of_player - 1; i++){
-        gameParams.theta[i] = -90;
-    }
     // 半円形の用意
     halfCircle.draw(canvas.getContext());
     // 針の描画
-    draw_needle(gameParams.theta);
+    needlesManager.drawAll(canvas.getContext());
     // お題の描画
     draw_question(gameParams.question[0], gameParams.question[1]);
 

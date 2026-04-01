@@ -1,4 +1,4 @@
-import { draw_needle, draw_question, draw_text_of_the_top } from "../../../../function.js";
+import { draw_question, draw_text_of_the_top } from "../../../../function.js";
 import { gameParams } from "../../../shared/gameParams.js";
 import { answerGameParams } from "../answerGameParams.js";
 import { halfCircle } from "../../../../main.js";
@@ -7,6 +7,7 @@ import { get_degree } from "../../../../utils/degree.js";
 import { canvas } from "../../../canvas/Canvas.js";
 import { change_player_button } from "../answer.js";
 import { result } from "../../result/result.js";
+import { needlesManager } from "../../../shared/NeedlesManager.js";
 
 let x = new Array(1000);    // 指の数だけx座標を格納するための配列 (余裕を持って1000要素用意) 
 let y = new Array(1000);    // 指の数だけy座標を格納するための配列 (余裕を持って1000要素用意)
@@ -44,11 +45,17 @@ export function enableMousedownListener(determination_button) {
         // ボタンが押されてなければ, 針を移動させる
         clicked = true;
         // クリックされた時点でのマウスの場所の角度を算出
-        let previous = gameParams.theta[answerGameParams.current_player - 1]; // 一つ前の角度を保存しておく
-        gameParams.theta[answerGameParams.current_player - 1] = get_degree(halfCircle.getCenterX(), halfCircle.getCenterY(), event.clientX, event.clientY);
+        let previous = needlesManager.getDegree(answerGameParams.current_player); // 一つ前の角度を保存しておく
+        needlesManager.setDegree({
+            player: answerGameParams.current_player,
+            degree: get_degree(halfCircle.getCenterX(), halfCircle.getCenterY(), event.clientX, event.clientY)
+        });
         // 決定ボタン以外で画面下半分がクリックされたら, 針は動かさない 
-        if(gameParams.theta[answerGameParams.current_player - 1] > 0){
-            gameParams.theta[answerGameParams.current_player - 1] = previous;
+        if(needlesManager.getDegree(answerGameParams.current_player) > 0){
+            needlesManager.setDegree({
+                player: answerGameParams.current_player,
+                degree: previous
+            });
         }
         //// 各パーツの描画 ////
         canvas.reset();
@@ -57,7 +64,7 @@ export function enableMousedownListener(determination_button) {
         // 半円形の用意
         halfCircle.draw(canvas.getContext());
         // 針の描画
-        draw_needle(gameParams.theta);
+        needlesManager.drawAll(canvas.getContext());
         // お題の描画
         draw_question(gameParams.question[0], gameParams.question[1]);
         // 操作プレイヤー変更ボタンの描画
@@ -84,13 +91,22 @@ export function enableMousemoveListener(determination_button) {
                 return;
             }
             // ドラッグされた時点でのマウスの場所の角度を算出
-            gameParams.theta[answerGameParams.current_player - 1] = get_degree(halfCircle.getCenterX(), halfCircle.getCenterY(), event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top);
+            needlesManager.setDegree({
+                player: answerGameParams.current_player,
+                degree: get_degree(halfCircle.getCenterX(), halfCircle.getCenterY(), event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top)
+            });
             // 針が半円の下半分に行かないようにする
-            if(gameParams.theta[answerGameParams.current_player - 1] > 90){
-                gameParams.theta[answerGameParams.current_player - 1] = -180;
+            if(needlesManager.getDegree(answerGameParams.current_player) > 90){
+                needlesManager.setDegree({
+                    player: answerGameParams.current_player,
+                    degree: -180
+                });
             }
-            else if(gameParams.theta[answerGameParams.current_player - 1] > 0){
-                gameParams.theta[answerGameParams.current_player - 1] = 0;
+            else if(needlesManager.getDegree(answerGameParams.current_player) > 0){
+                needlesManager.setDegree({
+                    player: answerGameParams.current_player,
+                    degree: 0
+                });
             }
             //// 各パーツの描画 ////
             canvas.reset();
@@ -99,7 +115,7 @@ export function enableMousemoveListener(determination_button) {
             // 半円形の用意
             halfCircle.draw(canvas.getContext());
             // 針の描画
-            draw_needle(gameParams.theta);
+            needlesManager.drawAll(canvas.getContext());
             // お題の描画
             draw_question(gameParams.question[0], gameParams.question[1]);
             // 操作プレイヤー変更ボタンの描画
@@ -124,13 +140,22 @@ export function enableTouchmoveListener(determination_button) {
                 return;
             }
             // ドラッグされた時点での指の場所の角度を算出
-            gameParams.theta[answerGameParams.current_player - 1] = get_degree(halfCircle.getCenterX(), halfCircle.getCenterY(), x[0], y[0]);
+            needlesManager.setDegree({
+                player: answerGameParams.current_player,
+                degree: get_degree(halfCircle.getCenterX(), halfCircle.getCenterY(), x[0], y[0])
+            });
             // 針が半円の下半分に行かないようにする
-            if(gameParams.theta[answerGameParams.current_player - 1] > 90){
-                gameParams.theta[answerGameParams.current_player - 1] = -180;
+            if(needlesManager.getDegree(answerGameParams.current_player) > 90){
+                needlesManager.setDegree({
+                    player: answerGameParams.current_player,
+                    degree: -180
+                });
             }
-            else if(gameParams.theta[answerGameParams.current_player - 1] > 0){
-                gameParams.theta[answerGameParams.current_player - 1] = 0;
+            else if(needlesManager.getDegree(answerGameParams.current_player) > 0){
+                needlesManager.setDegree({
+                    player: answerGameParams.current_player,
+                    degree: 0
+                });
             }
             //// 各パーツの描画 ////
             canvas.reset();
@@ -139,7 +164,7 @@ export function enableTouchmoveListener(determination_button) {
             // 半円形の用意
             halfCircle.draw(canvas.getContext());
             // 針の描画
-            draw_needle(gameParams.theta);
+            needlesManager.drawAll(canvas.getContext());
             // お題の描画
             draw_question(gameParams.question[0], gameParams.question[1]);
             // 操作プレイヤー変更ボタンの描画

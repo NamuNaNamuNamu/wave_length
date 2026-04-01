@@ -1,4 +1,4 @@
-import { draw_needle, draw_point, draw_question } from "../../../function.js";
+import { draw_point, draw_question } from "../../../function.js";
 import { judge } from "./judge.js";
 import { Button } from "../../Button.js";
 import { canvas } from "../../canvas/Canvas.js";
@@ -6,6 +6,7 @@ import { gameParams } from "../../shared/gameParams.js";
 import { enableButtonResult } from "./helpers/enableButtonResult.js";
 import { halfCircle } from "../../../main.js";
 import { pointZone } from "../../shared/PointZone.js";
+import { needlesManager } from "../../shared/NeedlesManager.js";
 
 //// 答え合わせフェーズ ////
 export function result(){
@@ -16,7 +17,7 @@ export function result(){
     // 得点ゾーンの描画
     pointZone.draw(canvas.getContext());
     // 針の描画
-    draw_needle(gameParams.theta);
+    needlesManager.drawAll(canvas.getContext());
     // お題の描画
     draw_question(gameParams.question[0], gameParams.question[1]);
 
