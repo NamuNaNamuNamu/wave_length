@@ -4,7 +4,7 @@ import { canvas } from "../canvas/Canvas.js";
 import { gameSettings } from "../gameSettings.js";
 
 
-export class PointZone {
+class PointZone {
     #answerDegree;
 
     constructor({ answerDegree }) {

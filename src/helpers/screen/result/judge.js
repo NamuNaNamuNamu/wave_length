@@ -1,5 +1,4 @@
 import { gameSettings } from "../../gameSettings.js";
-import { gameParams } from "../../shared/gameParams.js";
 import { needlesManager } from "../../shared/NeedlesManager.js";
 import { pointZone } from "../../shared/PointZone.js";
 
