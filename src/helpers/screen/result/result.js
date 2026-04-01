@@ -1,10 +1,11 @@
-import { draw_needle, draw_point, draw_point_zone, draw_question } from "../../../function.js";
+import { draw_needle, draw_point, draw_question } from "../../../function.js";
 import { judge } from "./judge.js";
 import { Button } from "../../Button.js";
 import { canvas } from "../../canvas/Canvas.js";
 import { gameParams } from "../../shared/gameParams.js";
 import { enableButtonResult } from "./helpers/enableButtonResult.js";
 import { halfCircle } from "../../../main.js";
+import { PointZone } from "../../shared/PointZone.js";
 
 //// 答え合わせフェーズ ////
 export function result(){
@@ -13,7 +14,8 @@ export function result(){
     // 半円形の用意
     halfCircle.draw(canvas.getContext());
     // 得点ゾーンの描画
-    draw_point_zone(gameParams.answer_degree);
+    const pointZone = new PointZone({answerDegree: gameParams.answer_degree});
+    pointZone.draw(canvas.getContext());
     // 針の描画
     draw_needle(gameParams.theta);
     // お題の描画

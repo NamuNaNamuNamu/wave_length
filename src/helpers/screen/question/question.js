@@ -1,9 +1,10 @@
-import { draw_point_zone, draw_question, draw_text_of_the_top } from "../../../function.js";
+import { draw_question, draw_text_of_the_top } from "../../../function.js";
 import { halfCircle } from "../../../main.js";
 import { Button } from "../../Button.js";
 import { canvas } from "../../canvas/Canvas.js";
 import { questionManager } from "../../question/QuestionManager.js";
 import { gameParams } from "../../shared/gameParams.js";
+import { PointZone } from "../../shared/PointZone.js";
 import { enableButtonQuestion } from "./helpers/enableButtonQuestion.js";
 
 //// お題出題フェーズ ////
@@ -17,7 +18,8 @@ export function question(){
     // 得点ゾーンをランダムで設定
     gameParams.answer_degree = -Math.random() * 180;
     // 得点ゾーンの描画
-    draw_point_zone(gameParams.answer_degree);
+    const pointZone = new PointZone({answerDegree: gameParams.answer_degree});
+    pointZone.draw(canvas.getContext());
     // お題をランダムで設定
     gameParams.question = questionManager.pickRandom();
     // お題の描画
