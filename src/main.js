@@ -2,7 +2,7 @@
 // main関数 //
 /////////////
 
-import { title } from "./game.js";
+import { title } from "./helpers/screen/title/title.js";
 import { canvas } from "./helpers/canvas/Canvas.js";
 
 // 半円の中心の x, y 座標
