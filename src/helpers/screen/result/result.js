@@ -1,16 +1,9 @@
-import { Button } from "./helpers/Button.js";
-import { draw_half_circle } from "./function.js";
-import { draw_point_zone } from "./function.js";
-import { draw_question } from "./function.js";
-import { draw_needle } from "./function.js";
-import { draw_point } from "./function.js";
-import { gameParams } from "./helpers/shared/gameParams.js";
-import { judge } from "./helpers/screen/result/judge.js";
-import { enableButtonResult } from "./helpers/screen/result/eventListeners.js";
-import { canvas } from "./helpers/canvas/Canvas.js";
-
-export let x = new Array(1000);    // 指の数だけx座標を格納するための配列 (余裕を持って1000要素用意) 
-export let y = new Array(1000);    // 指の数だけy座標を格納するための配列 (余裕を持って1000要素用意)
+import { draw_half_circle, draw_needle, draw_point, draw_point_zone, draw_question } from "../../../function.js";
+import { judge } from "./judge.js";
+import { Button } from "../../Button.js";
+import { canvas } from "../../canvas/Canvas.js";
+import { gameParams } from "../../shared/gameParams.js";
+import { enableButtonResult } from "./helpers/enableButtonResult.js";
 
 //// 答え合わせフェーズ ////
 export function result(){

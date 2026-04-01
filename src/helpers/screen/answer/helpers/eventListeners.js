@@ -2,11 +2,14 @@ import { draw_half_circle, draw_needle, draw_question, draw_text_of_the_top } fr
 import { gameParams } from "../../../shared/gameParams.js";
 import { answerGameParams } from "../answerGameParams.js";
 import { center_of_arc_x, center_of_arc_y } from "../../../../main.js";
-import { result, x, y } from "../../../../game.js";
 import { gameSettings } from "../../../gameSettings.js";
 import { get_degree } from "../../../../utils/degree.js";
 import { canvas } from "../../../canvas/Canvas.js";
 import { change_player_button } from "../answer.js";
+import { result } from "../../result/result.js";
+
+let x = new Array(1000);    // 指の数だけx座標を格納するための配列 (余裕を持って1000要素用意) 
+let y = new Array(1000);    // 指の数だけy座標を格納するための配列 (余裕を持って1000要素用意)
 
 //// 針のドラッグアンドドロップ機能 ////
 let clicked = false; // クリックされているかどうか
