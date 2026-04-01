@@ -1,8 +1,8 @@
-import { gameSettings } from "../../gameSettings.js";
-import { draw_text_on_option } from "../../../function.js";
-import { draw_number_on_option } from "../../../function.js";
-import { title } from "../title/title.js";
-import { canvas } from "../../canvas/Canvas.js";
+import { gameSettings } from "../../../gameSettings.js";
+import { draw_text_on_option } from "../../../../function.js";
+import { draw_number_on_option } from "../../../../function.js";
+import { title } from "../../title/title.js";
+import { canvas } from "../../../canvas/Canvas.js";
 
 export function enableButtonOption(buttons) {
     canvas.addEventListener("mousedown", mousedownListener, false);

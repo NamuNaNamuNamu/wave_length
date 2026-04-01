@@ -1,5 +1,5 @@
 import { ready } from "../../../../game.js";
-import { option } from "../../../../game.js";
+import { option } from "../../option/option.js";
 import { canvas } from "../../../canvas/Canvas.js";
 
 export function enableButtonTitle(start_button, option_button) {
