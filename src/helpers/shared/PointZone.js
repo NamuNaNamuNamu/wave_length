@@ -11,6 +11,14 @@ export class PointZone {
         this.#answerDegree = answerDegree;
     }
 
+    getAnswerDegree() {
+        return this.#answerDegree;
+    }
+
+    setRandom() {
+        this.#answerDegree = -Math.random() * 180;
+    }
+
     draw(context) {
         const COLORS = ["rgb(225, 225, 200)", "rgb(250, 175, 80)", "rgb(240, 240, 80)", "rgb(250, 175, 80)", "rgb(225, 225, 200)"];
         for(let i = 0; i < 5; i++){
@@ -29,14 +37,6 @@ export class PointZone {
             context.fillStyle = "rgb(230, 230, 230)";
             context.fillRect(0, halfCircle.centerY, canvas.getWidth(), canvas.getHeight() - halfCircle.centerY);
         }
-    }
-
-    getAnswerDegree() {
-        return this.#answerDegree;
-    }
-
-    setRandom() {
-        this.#answerDegree = -Math.random() * 180;
     }
 }
 
