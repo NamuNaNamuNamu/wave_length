@@ -1,5 +1,5 @@
 import { draw_point } from "../../../function.js";
-import { judge } from "./judge.js";
+import { judge } from "./internal/judge.js";
 import { Button } from "../../Button.js";
 import { canvas } from "../../canvas/Canvas.js";
 import { gameParams } from "../../shared/gameParams.js";
