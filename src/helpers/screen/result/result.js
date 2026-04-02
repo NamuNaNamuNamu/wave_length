@@ -6,7 +6,7 @@ import { gameParams } from "../../../game/states/gameParams.js";
 import { enableButtonResult } from "./internal/enableButtonResult.js";
 import { halfCircle } from "../../../ui/components/HalfCircle.js";
 import { pointZone } from "../../shared/PointZone.js";
-import { needlesManager } from "../../shared/needle/NeedlesManager.js";
+import { needlesManager } from "../../../game/needle/NeedlesManager.js";
 import { questionRenderer } from "../../question/renderer/QuestionRenderer.js";
 
 //// 答え合わせフェーズ ////

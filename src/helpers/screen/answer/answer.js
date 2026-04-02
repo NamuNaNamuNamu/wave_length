@@ -3,7 +3,7 @@ import { halfCircle } from "../../../ui/components/HalfCircle.js";
 import { Button } from "../../../ui/components/Button.js";
 import { canvas } from "../../../core/canvas/Canvas.js";
 import { gameParams } from "../../../game/states/gameParams.js";
-import { needlesManager } from "../../shared/needle/NeedlesManager.js";
+import { needlesManager } from "../../../game/needle/NeedlesManager.js";
 import { answerGameParams } from "../../../game/states/answerGameParams.js";
 import { enableMousedownListener, enableMousemoveListener, enableMouseupListener, enableTouchmoveListener } from "./internal/eventListeners.js";
 import { questionRenderer } from "../../question/renderer/QuestionRenderer.js";

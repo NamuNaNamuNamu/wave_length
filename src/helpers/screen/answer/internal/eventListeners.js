@@ -7,7 +7,7 @@ import { get_degree } from "../../../../core/utils/degree.js";
 import { canvas } from "../../../../core/canvas/Canvas.js";
 import { change_player_button } from "../answer.js";
 import { result } from "../../result/result.js";
-import { needlesManager } from "../../../shared/needle/NeedlesManager.js";
+import { needlesManager } from "../../../../game/needle/NeedlesManager.js";
 import { questionRenderer } from "../../../question/renderer/QuestionRenderer.js";
 
 let x = new Array(1000);    // 指の数だけx座標を格納するための配列 (余裕を持って1000要素用意) 
