@@ -1,7 +1,7 @@
-import { halfCircle } from "../../ui/components/HalfCircle.js";
-import { degree_to_rad } from "../../core/utils/degree.js";
-import { canvas } from "../../core/canvas/Canvas.js";
-import { gameSettings } from "../../game/states/gameSettings.js";
+import { halfCircle } from "../ui/components/HalfCircle.js";
+import { degree_to_rad } from "../core/utils/degree.js";
+import { canvas } from "../core/canvas/Canvas.js";
+import { gameSettings } from "./states/gameSettings.js";
 
 
 class PointZone {

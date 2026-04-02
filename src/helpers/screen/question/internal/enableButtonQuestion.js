@@ -4,7 +4,7 @@ import { gameParams } from "../../../../game/states/gameParams.js";
 import { canvas } from "../../../../core/canvas/Canvas.js";
 import { questionPicker } from "../../../../game/questionPicker/QuestionPicker.js";
 import { halfCircle } from "../../../../ui/components/HalfCircle.js";
-import { pointZone } from "../../../shared/PointZone.js";
+import { pointZone } from "../../../../game/PointZone.js";
 import { questionRenderer } from "../../../../ui/components/questionRenderer/QuestionRenderer.js";
 
 export function enableButtonQuestion(confirmation_button, question_reset_button) {

@@ -4,7 +4,7 @@ import { Button } from "../../../ui/components/Button.js";
 import { canvas } from "../../../core/canvas/Canvas.js";
 import { questionPicker } from "../../../game/questionPicker/QuestionPicker.js";
 import { gameParams } from "../../../game/states/gameParams.js";
-import { pointZone } from "../../shared/PointZone.js";
+import { pointZone } from "../../../game/PointZone.js";
 import { enableButtonQuestion } from "./internal/enableButtonQuestion.js";
 import { questionRenderer } from "../../../ui/components/questionRenderer/QuestionRenderer.js";
 

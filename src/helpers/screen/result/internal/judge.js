@@ -1,6 +1,6 @@
 import { gameSettings } from "../../../../game/states/gameSettings.js";
 import { needlesManager } from "../../../../game/needle/NeedlesManager.js";
-import { pointZone } from "../../../shared/PointZone.js";
+import { pointZone } from "../../../../game/PointZone.js";
 
 export function judge() {
     let areas = [];

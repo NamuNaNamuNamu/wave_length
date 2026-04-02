@@ -5,7 +5,7 @@ import { canvas } from "../../../core/canvas/Canvas.js";
 import { gameParams } from "../../../game/states/gameParams.js";
 import { enableButtonResult } from "./internal/enableButtonResult.js";
 import { halfCircle } from "../../../ui/components/HalfCircle.js";
-import { pointZone } from "../../shared/PointZone.js";
+import { pointZone } from "../../../game/PointZone.js";
 import { needlesManager } from "../../../game/needle/NeedlesManager.js";
 import { questionRenderer } from "../../../ui/components/questionRenderer/QuestionRenderer.js";
 
