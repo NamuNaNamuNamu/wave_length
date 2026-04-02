@@ -1,5 +1,5 @@
 import { textRenderer } from "../../shared/renderer/TextRenderer.js";
-import { halfCircle } from "../../shared/HalfCircle.js";
+import { halfCircle } from "../../../ui/components/HalfCircle.js";
 import { Button } from "../../../ui/components/Button.js";
 import { canvas } from "../../../core/canvas/Canvas.js";
 import { questionManager } from "../../question/manager/QuestionManager.js";

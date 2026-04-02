@@ -1,4 +1,4 @@
-import { halfCircle } from "../../HalfCircle.js";
+import { halfCircle } from "../../../../ui/components/HalfCircle.js";
 
 
 export class Needle {

@@ -1,7 +1,7 @@
 import { textRenderer } from "../../../shared/renderer/TextRenderer.js";
 import { gameParams } from "../../../../game/phases/gamePlay/gameParams.js";
 import { answerGameParams } from "../../../../game/phases/answer/answerGameParams.js";
-import { halfCircle } from "../../../shared/HalfCircle.js";
+import { halfCircle } from "../../../../ui/components/HalfCircle.js";
 import { gameSettings } from "../../../../game/gameSettings.js";
 import { get_degree } from "../../../../core/utils/degree.js";
 import { canvas } from "../../../../core/canvas/Canvas.js";
