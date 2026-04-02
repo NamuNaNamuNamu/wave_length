@@ -1,5 +1,5 @@
 import { question } from "../../question/question.js";
-import { canvas } from "../../../canvas/Canvas.js";
+import { canvas } from "../../../../core/canvas/Canvas.js";
 
 export function enableButtonReady(display_point_zone_button) {
     canvas.addEventListener("mousedown", mousedownListener, false);

@@ -1,5 +1,5 @@
 import { Button } from "../../Button.js";
-import { canvas } from "../../canvas/Canvas.js";
+import { canvas } from "../../../core/canvas/Canvas.js";
 import { enableButtonOption } from "./internal/enableButtonOption.js";
 import { numPlayers } from "./internal/numPlayers.js";
 import { pointZone1 } from "./internal/pointZone1.js";

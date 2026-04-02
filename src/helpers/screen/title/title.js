@@ -1,5 +1,5 @@
 import { Button } from "../../Button.js";
-import { canvas } from "../../canvas/Canvas.js";
+import { canvas } from "../../../core/canvas/Canvas.js";
 import { enableButtonTitle } from "./internal/enableButtonTitle.js";
 
 //// タイトル画面 ////

@@ -1,4 +1,4 @@
-import { canvas } from "../../../canvas/Canvas.js";
+import { canvas } from "../../../../core/canvas/Canvas.js";
 
 // 準備画面のテキストの描画
 export function drawCaution(context){

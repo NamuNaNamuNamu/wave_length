@@ -3,7 +3,7 @@
 /////////////
 
 import { title } from "./helpers/screen/title/title.js";
-import { canvas } from "./helpers/canvas/Canvas.js";
+import { canvas } from "./core/canvas/Canvas.js";
 import { halfCircle } from "./helpers/shared/HalfCircle.js";
 
 

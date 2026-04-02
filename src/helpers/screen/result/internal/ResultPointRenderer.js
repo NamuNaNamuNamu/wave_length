@@ -1,4 +1,4 @@
-import { canvas } from "../../../canvas/Canvas.js";
+import { canvas } from "../../../../core/canvas/Canvas.js";
 import { gameSettings } from "../../../gameSettings.js";
 
 class ResultPointRenderer {

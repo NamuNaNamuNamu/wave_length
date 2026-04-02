@@ -1,4 +1,4 @@
-import { canvas } from "../../canvas/Canvas.js";
+import { canvas } from "../../../core/canvas/Canvas.js";
 import { insertNewline } from "./internal/insertNewline.js";
 
 class QuestionRenderer {

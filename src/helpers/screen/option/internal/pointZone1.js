@@ -1,7 +1,7 @@
 import { textRenderer } from "./TextRenderer.js";
 import { gameSettings } from "../../../gameSettings.js";
 import { ImageButton } from "../../../Button.js";
-import { canvas } from "../../../canvas/Canvas.js";
+import { canvas } from "../../../../core/canvas/Canvas.js";
 
 export function pointZone1() {
     textRenderer.drawGameSetting({
