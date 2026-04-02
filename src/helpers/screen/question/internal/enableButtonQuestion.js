@@ -5,7 +5,7 @@ import { canvas } from "../../../../core/canvas/Canvas.js";
 import { questionPicker } from "../../../../game/question/QuestionPicker.js";
 import { halfCircle } from "../../../../ui/components/HalfCircle.js";
 import { pointZone } from "../../../shared/PointZone.js";
-import { questionRenderer } from "../../../question/renderer/QuestionRenderer.js";
+import { questionRenderer } from "../../../../ui/components/questionRenderer/QuestionRenderer.js";
 
 export function enableButtonQuestion(confirmation_button, question_reset_button) {
     canvas.addEventListener("mousedown", mousedownListener, false);

@@ -6,7 +6,7 @@ import { questionPicker } from "../../../game/question/QuestionPicker.js";
 import { gameParams } from "../../../game/states/gameParams.js";
 import { pointZone } from "../../shared/PointZone.js";
 import { enableButtonQuestion } from "./internal/enableButtonQuestion.js";
-import { questionRenderer } from "../../question/renderer/QuestionRenderer.js";
+import { questionRenderer } from "../../../ui/components/questionRenderer/QuestionRenderer.js";
 
 //// お題出題フェーズ ////
 export function question(){
