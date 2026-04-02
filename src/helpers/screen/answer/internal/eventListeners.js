@@ -1,6 +1,6 @@
 import { textRenderer } from "../../../shared/renderer/TextRenderer.js";
 import { gameParams } from "../../../shared/gameParams.js";
-import { answerGameParams } from "../answerGameParams.js";
+import { answerGameParams } from "../../../../game/phases/answer/answerGameParams.js";
 import { halfCircle } from "../../../shared/HalfCircle.js";
 import { gameSettings } from "../../../../game/gameSettings.js";
 import { get_degree } from "../../../../core/utils/degree.js";
