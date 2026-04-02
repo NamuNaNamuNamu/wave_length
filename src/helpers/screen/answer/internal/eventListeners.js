@@ -67,7 +67,7 @@ export function enableMousedownListener(determination_button) {
         // 針の描画
         needlesManager.drawAll(canvas.getContext());
         // お題の描画
-        questionRenderer.draw(gameParams.question);
+        questionRenderer.draw(canvas.getContext(), gameParams.question);
         // 操作プレイヤー変更ボタンの描画
         let text_color = "";
         if(answerGameParams.current_player == 1) text_color = "rgb(200, 0, 0)";
@@ -118,7 +118,7 @@ export function enableMousemoveListener(determination_button) {
             // 針の描画
             needlesManager.drawAll(canvas.getContext());
             // お題の描画
-            questionRenderer.draw(gameParams.question);
+            questionRenderer.draw(canvas.getContext(), gameParams.question);
             // 操作プレイヤー変更ボタンの描画
             change_player_button.draw();
             // 決定ボタンの描画
@@ -167,7 +167,7 @@ export function enableTouchmoveListener(determination_button) {
             // 針の描画
             needlesManager.drawAll(canvas.getContext());
             // お題の描画
-            questionRenderer.draw(gameParams.question);
+            questionRenderer.draw(canvas.getContext(), gameParams.question);
             // 操作プレイヤー変更ボタンの描画
             change_player_button.draw();
             // 決定ボタンの描画

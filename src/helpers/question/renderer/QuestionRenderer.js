@@ -7,8 +7,7 @@ class QuestionRenderer {
 
     }
 
-    draw(question){
-        let context = canvas.getContext();
+    draw(context, question){
         // スタイルの決定
         context.fillStyle = "rgb(0, 0, 0)";
         context.textAlign = "center";

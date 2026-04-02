@@ -20,7 +20,7 @@ export function result(){
     // 針の描画
     needlesManager.drawAll(canvas.getContext());
     // お題の描画
-    questionRenderer.draw(gameParams.question);
+    questionRenderer.draw(canvas.getContext(), gameParams.question);
 
     // 点数の判定
     let areas = judge();

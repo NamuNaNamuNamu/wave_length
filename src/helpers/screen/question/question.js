@@ -22,7 +22,7 @@ export function question(){
     // お題をランダムで設定
     gameParams.question = questionManager.pickRandom();
     // お題の描画
-    questionRenderer.draw(gameParams.question);
+    questionRenderer.draw(canvas.getContext(), gameParams.question);
     // 「確認しました」ボタンの描画
     let confirmation_button = new Button(
         canvas.getWidth() * 0.5,     // x座標
