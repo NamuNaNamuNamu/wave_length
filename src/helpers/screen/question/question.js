@@ -2,7 +2,7 @@ import { textRenderer } from "../../shared/renderer/TextRenderer.js";
 import { halfCircle } from "../../../ui/components/HalfCircle.js";
 import { Button } from "../../../ui/components/Button.js";
 import { canvas } from "../../../core/canvas/Canvas.js";
-import { questionPicker } from "../../question/manager/QuestionPicker.js";
+import { questionPicker } from "../../../game/question/QuestionPicker.js";
 import { gameParams } from "../../../game/phases/gamePlay/gameParams.js";
 import { pointZone } from "../../shared/PointZone.js";
 import { enableButtonQuestion } from "./internal/enableButtonQuestion.js";
