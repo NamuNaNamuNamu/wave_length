@@ -30,7 +30,7 @@ export function enableButtonQuestion(confirmation_button, question_reset_button)
             // お題をランダムで設定
             gameParams.question = questionManager.pickRandom();
             // お題の描画
-            questionRenderer.draw(gameParams.question[0], gameParams.question[1]);
+            questionRenderer.draw(gameParams.question);
 
             confirmation_button.draw();
             question_reset_button.draw();
