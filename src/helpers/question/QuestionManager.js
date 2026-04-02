@@ -1,6 +1,6 @@
 import { questions } from "./helpers/questions.js";
 
-export class QuestionManager {
+class QuestionManager {
     #questions;
 
     constructor() {
