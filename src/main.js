@@ -2,7 +2,7 @@
 // main関数 //
 /////////////
 
-import { title } from "./helpers/screen/title/title.js";
+import { title } from "./ui/screen/title/title.js";
 import { canvas } from "./core/canvas/Canvas.js";
 import { halfCircle } from "./ui/components/HalfCircle.js";
 

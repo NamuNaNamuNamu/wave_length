@@ -1,14 +1,14 @@
-import { textRenderer } from "../../../shared/renderer/TextRenderer.js";
+import { textRenderer } from "../../../../helpers/shared/renderer/TextRenderer.js";
 import { gameParams } from "../../../../game/states/gameParams.js";
 import { answerGameParams } from "../../../../game/states/answerGameParams.js";
-import { halfCircle } from "../../../../ui/components/HalfCircle.js";
+import { halfCircle } from "../../../components/HalfCircle.js";
 import { gameSettings } from "../../../../game/states/gameSettings.js";
 import { get_degree } from "../../../../core/utils/degree.js";
 import { canvas } from "../../../../core/canvas/Canvas.js";
 import { change_player_button } from "../answer.js";
 import { result } from "../../result/result.js";
 import { needlesManager } from "../../../../game/needle/NeedlesManager.js";
-import { questionRenderer } from "../../../../ui/components/questionRenderer/QuestionRenderer.js";
+import { questionRenderer } from "../../../components/questionRenderer/QuestionRenderer.js";
 
 let x = new Array(1000);    // 指の数だけx座標を格納するための配列 (余裕を持って1000要素用意) 
 let y = new Array(1000);    // 指の数だけy座標を格納するための配列 (余裕を持って1000要素用意)

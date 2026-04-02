@@ -1,12 +1,12 @@
-import { textRenderer } from "../../shared/renderer/TextRenderer.js";
-import { halfCircle } from "../../../ui/components/HalfCircle.js";
-import { Button } from "../../../ui/components/Button.js";
+import { textRenderer } from "../../../helpers/shared/renderer/TextRenderer.js";
+import { halfCircle } from "../../components/HalfCircle.js";
+import { Button } from "../../components/Button.js";
 import { canvas } from "../../../core/canvas/Canvas.js";
 import { gameParams } from "../../../game/states/gameParams.js";
 import { needlesManager } from "../../../game/needle/NeedlesManager.js";
 import { answerGameParams } from "../../../game/states/answerGameParams.js";
 import { enableMousedownListener, enableMousemoveListener, enableMouseupListener, enableTouchmoveListener } from "./internal/eventListeners.js";
-import { questionRenderer } from "../../../ui/components/questionRenderer/QuestionRenderer.js";
+import { questionRenderer } from "../../components/questionRenderer/QuestionRenderer.js";
 
 export let change_player_button;
 

@@ -1,13 +1,13 @@
 import { resultPointRenderer } from "./internal/ResultPointRenderer.js";
 import { judge } from "./internal/judge.js";
-import { Button } from "../../../ui/components/Button.js";
+import { Button } from "../../components/Button.js";
 import { canvas } from "../../../core/canvas/Canvas.js";
 import { gameParams } from "../../../game/states/gameParams.js";
 import { enableButtonResult } from "./internal/enableButtonResult.js";
-import { halfCircle } from "../../../ui/components/HalfCircle.js";
+import { halfCircle } from "../../components/HalfCircle.js";
 import { pointZone } from "../../../game/PointZone.js";
 import { needlesManager } from "../../../game/needle/NeedlesManager.js";
-import { questionRenderer } from "../../../ui/components/questionRenderer/QuestionRenderer.js";
+import { questionRenderer } from "../../components/questionRenderer/QuestionRenderer.js";
 
 //// 答え合わせフェーズ ////
 export function result(){
