@@ -181,20 +181,3 @@ export function draw_point(areas){
         context.fillText("P3", canvas.getWidth() * 0.83, canvas.getWidth() * 0.04);
     }
 }
-
-// 設定画面での各種設定テキストの描画
-export function draw_text_on_option(text, y){
-    let context = canvas.getContext();
-    context.fillStyle = "rgb(0, 0, 0)";
-    context.textAlign = "left";
-    context.font = canvas.getHeight() * 0.05 + "px serif";
-    context.fillText(text, canvas.getWidth() * 0.03, canvas.getWidth() * y);
-}
-
-export function draw_number_on_option(num, x, y){
-    let context = canvas.getContext();
-    context.fillStyle = "rgb(0, 0, 0)";
-    context.textAlign = "center";
-    context.font = canvas.getHeight() * 0.05 + "px serif";
-    context.fillText(num, canvas.getWidth() * x, canvas.getWidth() * y);
-}

@@ -1,12 +1,21 @@
-import { draw_text_on_option } from "../../../../function.js";
-import { draw_number_on_option } from "../../../../function.js";
+import { textRenderer } from "./TextRenderer.js";
 import { gameSettings } from "../../../gameSettings.js";
 import { ImageButton } from "../../../Button.js";
 import { canvas } from "../../../canvas/Canvas.js";
 
 export function pointZoneWidth() {
-    draw_text_on_option("得点ゾーン１つの大きさ(度)", 0.27);
-    draw_number_on_option(gameSettings.area_size, 0.7, 0.37);
+    textRenderer.drawGameSetting({
+        context: canvas.getContext(),
+        text: "得点ゾーン１つの大きさ(度)",
+        pos_x: canvas.getWidth() * 0.03,
+        pos_y: canvas.getWidth() * 0.27
+    });
+    textRenderer.drawGameSettingValue({
+        context: canvas.getContext(),
+        value: gameSettings.area_size,
+        pos_x: canvas.getWidth() * 0.7,
+        pos_y: canvas.getWidth() * 0.37
+    });
     let triangle_left2 = new Image();
     let triangle_right2 = new Image();
     triangle_left2.src = "img/triangle_left.png";

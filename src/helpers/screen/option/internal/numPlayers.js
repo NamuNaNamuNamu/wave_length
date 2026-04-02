@@ -1,12 +1,21 @@
-import { draw_text_on_option } from "../../../../function.js";
-import { draw_number_on_option } from "../../../../function.js";
+import { textRenderer } from "./TextRenderer.js";
 import { gameSettings } from "../../../gameSettings.js";
 import { ImageButton } from "../../../Button.js";
 import { canvas } from "../../../canvas/Canvas.js";
 
 export function numPlayers() {
-    draw_text_on_option("プレイヤー数", 0.1);
-    draw_number_on_option(gameSettings.num_of_player, 0.7, 0.1);
+    textRenderer.drawGameSetting({
+            context: canvas.getContext(),
+            text: "プレイヤー数",
+            pos_x: canvas.getWidth() * 0.03,
+            pos_y: canvas.getWidth() * 0.1
+        });
+    textRenderer.drawGameSettingValue({
+        context: canvas.getContext(),
+        value: gameSettings.num_of_player,
+        pos_x: canvas.getWidth() * 0.7,
+        pos_y: canvas.getWidth() * 0.1
+    });
     let triangle_left1 = new Image();
     let triangle_right1 = new Image();
     triangle_left1.src = "img/triangle_left.png";
