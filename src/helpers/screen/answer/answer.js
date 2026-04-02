@@ -2,9 +2,9 @@ import { textRenderer } from "../../shared/renderer/TextRenderer.js";
 import { halfCircle } from "../../../ui/components/HalfCircle.js";
 import { Button } from "../../../ui/components/Button.js";
 import { canvas } from "../../../core/canvas/Canvas.js";
-import { gameParams } from "../../../game/phases/gamePlay/gameParams.js";
+import { gameParams } from "../../../game/states/gameParams.js";
 import { needlesManager } from "../../shared/needle/NeedlesManager.js";
-import { answerGameParams } from "../../../game/phases/answer/answerGameParams.js";
+import { answerGameParams } from "../../../game/states/answerGameParams.js";
 import { enableMousedownListener, enableMousemoveListener, enableMouseupListener, enableTouchmoveListener } from "./internal/eventListeners.js";
 import { questionRenderer } from "../../question/renderer/QuestionRenderer.js";
 

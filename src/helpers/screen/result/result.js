@@ -2,7 +2,7 @@ import { resultPointRenderer } from "./internal/ResultPointRenderer.js";
 import { judge } from "./internal/judge.js";
 import { Button } from "../../../ui/components/Button.js";
 import { canvas } from "../../../core/canvas/Canvas.js";
-import { gameParams } from "../../../game/phases/gamePlay/gameParams.js";
+import { gameParams } from "../../../game/states/gameParams.js";
 import { enableButtonResult } from "./internal/enableButtonResult.js";
 import { halfCircle } from "../../../ui/components/HalfCircle.js";
 import { pointZone } from "../../shared/PointZone.js";

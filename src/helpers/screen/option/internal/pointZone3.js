@@ -1,5 +1,5 @@
 import { textRenderer } from "./TextRenderer.js";
-import { gameSettings } from "../../../../game/gameSettings.js";
+import { gameSettings } from "../../../../game/states/gameSettings.js";
 import { ImageButton } from "../../../../ui/components/Button.js";
 import { canvas } from "../../../../core/canvas/Canvas.js";
 

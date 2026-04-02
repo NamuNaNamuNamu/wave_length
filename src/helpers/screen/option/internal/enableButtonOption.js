@@ -1,4 +1,4 @@
-import { gameSettings } from "../../../../game/gameSettings.js";
+import { gameSettings } from "../../../../game/states/gameSettings.js";
 import { textRenderer } from "./TextRenderer.js";
 import { title } from "../../title/title.js";
 import { canvas } from "../../../../core/canvas/Canvas.js";
