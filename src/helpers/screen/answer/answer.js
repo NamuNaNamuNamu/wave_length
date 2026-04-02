@@ -1,4 +1,4 @@
-import { draw_text_of_the_top } from "../../../function.js";
+import { textRenderer } from "../../shared/renderer/TextRenderer.js";
 import { halfCircle } from "../../shared/HalfCircle.js";
 import { Button } from "../../Button.js";
 import { canvas } from "../../canvas/Canvas.js";
@@ -16,7 +16,7 @@ export function answer(){
     needlesManager.initialize();
 
     // 画面上部のテキストを表示
-    draw_text_of_the_top("出題者は具体例を出してください");
+    textRenderer.draw_on_the_top(canvas.getContext(), "出題者は具体例を出してください");
     // 半円形の用意
     halfCircle.draw(canvas.getContext());
     // 針の描画

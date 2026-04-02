@@ -1,15 +1,6 @@
 import { gameSettings } from "./helpers/gameSettings.js";
 import { canvas } from "./helpers/canvas/Canvas.js";
 
-// 画面上部のテキストの描画
-export function draw_text_of_the_top(text){
-    let context = canvas.getContext();
-    context.fillStyle = "rgb(200, 0, 0)";
-    context.textAlign = "left";
-    context.font = canvas.getHeight() * 0.05 + "px serif";
-    context.fillText(text, canvas.getWidth() * 0.01, canvas.getWidth() * 0.06);
-}
-
 // 結果画面での得点の描画
 export function draw_point(areas){
     let context = canvas.getContext();

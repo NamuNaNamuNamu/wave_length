@@ -1,5 +1,5 @@
 import { answer } from "../../answer/answer.js";
-import { draw_text_of_the_top } from "../../../../function.js";
+import { textRenderer } from "../../../shared/renderer/TextRenderer.js";
 import { gameParams } from "../../../shared/gameParams.js";
 import { canvas } from "../../../canvas/Canvas.js";
 import { questionManager } from "../../../question/manager/QuestionManager.js";
@@ -21,7 +21,7 @@ export function enableButtonQuestion(confirmation_button, question_reset_button)
             canvas.reset();
             
             // 画面上部のテキストを表示
-            draw_text_of_the_top("正解の得点ゾーンを表示中...");
+            textRenderer.draw_on_the_top(canvas.getContext(), "正解の得点ゾーンを表示中...");
             // 半円形の用意
             halfCircle.draw(canvas.getContext());
             // 得点ゾーンをランダムで設定
