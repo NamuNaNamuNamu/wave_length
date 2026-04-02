@@ -1,7 +1,7 @@
 import { draw_caution } from "../../../function.js";
 import { Button } from "../../Button.js";
 import { canvas } from "../../canvas/Canvas.js";
-import { enableButtonReady } from "./helpers/enableButtonReady.js";
+import { enableButtonReady } from "./internal/enableButtonReady.js";
 
 //// 注意書きの画面 ////
 export function ready(){

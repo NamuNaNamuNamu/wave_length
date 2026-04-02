@@ -1,11 +1,11 @@
 import { Button } from "../../Button.js";
 import { canvas } from "../../canvas/Canvas.js";
-import { enableButtonOption } from "./helpers/enableButtonOption.js";
-import { numPlayers } from "./helpers/numPlayers.js";
-import { pointZone1 } from "./helpers/pointZone1.js";
-import { pointZone2 } from "./helpers/pointZone2.js";
-import { pointZone3 } from "./helpers/pointZone3.js";
-import { pointZoneWidth } from "./helpers/pointZoneWidth.js";
+import { enableButtonOption } from "./internal/enableButtonOption.js";
+import { numPlayers } from "./internal/numPlayers.js";
+import { pointZone1 } from "./internal/pointZone1.js";
+import { pointZone2 } from "./internal/pointZone2.js";
+import { pointZone3 } from "./internal/pointZone3.js";
+import { pointZoneWidth } from "./internal/pointZoneWidth.js";
 
 //// 設定画面 ////
 export function option(){

@@ -3,7 +3,7 @@ import { judge } from "./judge.js";
 import { Button } from "../../Button.js";
 import { canvas } from "../../canvas/Canvas.js";
 import { gameParams } from "../../shared/gameParams.js";
-import { enableButtonResult } from "./helpers/enableButtonResult.js";
+import { enableButtonResult } from "./internal/enableButtonResult.js";
 import { halfCircle } from "../../shared/HalfCircle.js";
 import { pointZone } from "../../shared/PointZone.js";
 import { needlesManager } from "../../shared/needle/NeedlesManager.js";

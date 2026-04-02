@@ -1,5 +1,5 @@
-import { reset } from "./helpers/reset.js";
-import { resizeAdjustToWindowSize } from "./helpers/resizeAdjustToWindowSize.js";
+import { reset } from "./internal/reset.js";
+import { resizeAdjustToWindowSize } from "./internal/resizeAdjustToWindowSize.js";
 
 class Canvas {
     #canvas;

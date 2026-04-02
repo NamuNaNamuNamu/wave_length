@@ -1,6 +1,6 @@
 import { Button } from "../../Button.js";
 import { canvas } from "../../canvas/Canvas.js";
-import { enableButtonTitle } from "./helpers/enableButtonTitle.js";
+import { enableButtonTitle } from "./internal/enableButtonTitle.js";
 
 //// タイトル画面 ////
 export function title(){
