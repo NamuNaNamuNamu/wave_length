@@ -2,7 +2,7 @@ import { answer } from "../../answer/answer.js";
 import { textRenderer } from "../../../shared/renderer/TextRenderer.js";
 import { gameParams } from "../../../../game/phases/gamePlay/gameParams.js";
 import { canvas } from "../../../../core/canvas/Canvas.js";
-import { questionManager } from "../../../question/manager/QuestionManager.js";
+import { questionPicker } from "../../../question/manager/QuestionPicker.js";
 import { halfCircle } from "../../../../ui/components/HalfCircle.js";
 import { pointZone } from "../../../shared/PointZone.js";
 import { questionRenderer } from "../../../question/renderer/QuestionRenderer.js";
@@ -28,7 +28,7 @@ export function enableButtonQuestion(confirmation_button, question_reset_button)
             pointZone.setRandom();
             pointZone.draw(canvas.getContext());
             // お題をランダムで設定
-            gameParams.question = questionManager.pickRandom();
+            gameParams.question = questionPicker.pickRandom();
             // お題の描画
             questionRenderer.draw(canvas.getContext(), gameParams.question);
 

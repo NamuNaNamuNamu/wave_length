@@ -2,7 +2,7 @@ import { textRenderer } from "../../shared/renderer/TextRenderer.js";
 import { halfCircle } from "../../../ui/components/HalfCircle.js";
 import { Button } from "../../../ui/components/Button.js";
 import { canvas } from "../../../core/canvas/Canvas.js";
-import { questionManager } from "../../question/manager/QuestionManager.js";
+import { questionPicker } from "../../question/manager/QuestionPicker.js";
 import { gameParams } from "../../../game/phases/gamePlay/gameParams.js";
 import { pointZone } from "../../shared/PointZone.js";
 import { enableButtonQuestion } from "./internal/enableButtonQuestion.js";
@@ -20,7 +20,7 @@ export function question(){
     pointZone.setRandom();
     pointZone.draw(canvas.getContext());
     // お題をランダムで設定
-    gameParams.question = questionManager.pickRandom();
+    gameParams.question = questionPicker.pickRandom();
     // お題の描画
     questionRenderer.draw(canvas.getContext(), gameParams.question);
     // 「確認しました」ボタンの描画
