@@ -1,4 +1,4 @@
-import { draw_point } from "../../../function.js";
+import { resultPointRenderer } from "./internal/ResultPointRenderer.js";
 import { judge } from "./internal/judge.js";
 import { Button } from "../../Button.js";
 import { canvas } from "../../canvas/Canvas.js";
@@ -26,7 +26,7 @@ export function result(){
     let areas = judge();
     
     // 点数の描画
-    draw_point(areas);
+    resultPointRenderer.draw(canvas.getContext(), areas);
 
     // 「タイトルに戻る」ボタンの描画
     let go_back_to_title_button = new Button(
