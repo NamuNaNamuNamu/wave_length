@@ -2,7 +2,7 @@ import { textRenderer } from "../../../shared/renderer/TextRenderer.js";
 import { gameParams } from "../../../shared/gameParams.js";
 import { answerGameParams } from "../answerGameParams.js";
 import { halfCircle } from "../../../shared/HalfCircle.js";
-import { gameSettings } from "../../../gameSettings.js";
+import { gameSettings } from "../../../../game/gameSettings.js";
 import { get_degree } from "../../../../core/utils/degree.js";
 import { canvas } from "../../../../core/canvas/Canvas.js";
 import { change_player_button } from "../answer.js";

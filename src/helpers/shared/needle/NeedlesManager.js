@@ -1,5 +1,5 @@
 import { canvas } from "../../../core/canvas/Canvas.js";
-import { gameSettings } from "../../gameSettings.js";
+import { gameSettings } from "../../../game/gameSettings.js";
 import { Needle } from "./internal/Needle.js";
 
 export class NeedlesManager {
