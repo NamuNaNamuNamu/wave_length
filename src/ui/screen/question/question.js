@@ -1,4 +1,4 @@
-import { textRenderer } from "../../../helpers/shared/renderer/TextRenderer.js";
+import { textRenderer } from "../../components/TextRenderer.js";
 import { halfCircle } from "../../components/HalfCircle.js";
 import { Button } from "../../components/Button.js";
 import { canvas } from "../../../core/canvas/Canvas.js";

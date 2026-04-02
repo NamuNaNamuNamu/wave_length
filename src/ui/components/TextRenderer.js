@@ -1,4 +1,4 @@
-import { canvas } from "../../../core/canvas/Canvas.js";
+import { canvas } from "../../core/canvas/Canvas.js";
 
 class TextRenderer {
 

@@ -1,4 +1,4 @@
-import { textRenderer } from "../../../../helpers/shared/renderer/TextRenderer.js";
+import { textRenderer } from "../../../components/TextRenderer.js";
 import { gameParams } from "../../../../game/states/gameParams.js";
 import { answerGameParams } from "../../../../game/states/answerGameParams.js";
 import { halfCircle } from "../../../components/HalfCircle.js";

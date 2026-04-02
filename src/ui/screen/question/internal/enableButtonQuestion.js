@@ -1,5 +1,5 @@
 import { answer } from "../../answer/answer.js";
-import { textRenderer } from "../../../../helpers/shared/renderer/TextRenderer.js";
+import { textRenderer } from "../../../components/TextRenderer.js";
 import { gameParams } from "../../../../game/states/gameParams.js";
 import { canvas } from "../../../../core/canvas/Canvas.js";
 import { questionPicker } from "../../../../game/questionPicker/QuestionPicker.js";
