@@ -1,4 +1,4 @@
-import { draw_question, draw_text_of_the_top } from "../../../../function.js";
+import { draw_text_of_the_top } from "../../../../function.js";
 import { gameParams } from "../../../shared/gameParams.js";
 import { answerGameParams } from "../answerGameParams.js";
 import { halfCircle } from "../../../shared/HalfCircle.js";
@@ -8,6 +8,7 @@ import { canvas } from "../../../canvas/Canvas.js";
 import { change_player_button } from "../answer.js";
 import { result } from "../../result/result.js";
 import { needlesManager } from "../../../shared/needle/NeedlesManager.js";
+import { questionRenderer } from "../../../question/QuestionRenderer.js";
 
 let x = new Array(1000);    // 指の数だけx座標を格納するための配列 (余裕を持って1000要素用意) 
 let y = new Array(1000);    // 指の数だけy座標を格納するための配列 (余裕を持って1000要素用意)
@@ -66,7 +67,7 @@ export function enableMousedownListener(determination_button) {
         // 針の描画
         needlesManager.drawAll(canvas.getContext());
         // お題の描画
-        draw_question(gameParams.question[0], gameParams.question[1]);
+        questionRenderer.draw(gameParams.question[0], gameParams.question[1]);
         // 操作プレイヤー変更ボタンの描画
         let text_color = "";
         if(answerGameParams.current_player == 1) text_color = "rgb(200, 0, 0)";
@@ -117,7 +118,7 @@ export function enableMousemoveListener(determination_button) {
             // 針の描画
             needlesManager.drawAll(canvas.getContext());
             // お題の描画
-            draw_question(gameParams.question[0], gameParams.question[1]);
+            questionRenderer.draw(gameParams.question[0], gameParams.question[1]);
             // 操作プレイヤー変更ボタンの描画
             change_player_button.draw();
             // 決定ボタンの描画
@@ -166,7 +167,7 @@ export function enableTouchmoveListener(determination_button) {
             // 針の描画
             needlesManager.drawAll(canvas.getContext());
             // お題の描画
-            draw_question(gameParams.question[0], gameParams.question[1]);
+            questionRenderer.draw(gameParams.question[0], gameParams.question[1]);
             // 操作プレイヤー変更ボタンの描画
             change_player_button.draw();
             // 決定ボタンの描画

@@ -1,4 +1,4 @@
-import { draw_point, draw_question } from "../../../function.js";
+import { draw_point } from "../../../function.js";
 import { judge } from "./judge.js";
 import { Button } from "../../Button.js";
 import { canvas } from "../../canvas/Canvas.js";
@@ -7,6 +7,7 @@ import { enableButtonResult } from "./helpers/enableButtonResult.js";
 import { halfCircle } from "../../shared/HalfCircle.js";
 import { pointZone } from "../../shared/PointZone.js";
 import { needlesManager } from "../../shared/needle/NeedlesManager.js";
+import { questionRenderer } from "../../question/QuestionRenderer.js";
 
 //// 答え合わせフェーズ ////
 export function result(){
@@ -19,7 +20,7 @@ export function result(){
     // 針の描画
     needlesManager.drawAll(canvas.getContext());
     // お題の描画
-    draw_question(gameParams.question[0], gameParams.question[1]);
+    questionRenderer.draw(gameParams.question[0], gameParams.question[1]);
 
     // 点数の判定
     let areas = judge();

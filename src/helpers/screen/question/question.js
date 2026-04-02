@@ -1,4 +1,4 @@
-import { draw_question, draw_text_of_the_top } from "../../../function.js";
+import { draw_text_of_the_top } from "../../../function.js";
 import { halfCircle } from "../../shared/HalfCircle.js";
 import { Button } from "../../Button.js";
 import { canvas } from "../../canvas/Canvas.js";
@@ -6,6 +6,7 @@ import { questionManager } from "../../question/QuestionManager.js";
 import { gameParams } from "../../shared/gameParams.js";
 import { pointZone } from "../../shared/PointZone.js";
 import { enableButtonQuestion } from "./helpers/enableButtonQuestion.js";
+import { questionRenderer } from "../../question/QuestionRenderer.js";
 
 //// お題出題フェーズ ////
 export function question(){
@@ -21,7 +22,7 @@ export function question(){
     // お題をランダムで設定
     gameParams.question = questionManager.pickRandom();
     // お題の描画
-    draw_question(gameParams.question[0], gameParams.question[1]);
+    questionRenderer.draw(gameParams.question[0], gameParams.question[1]);
     // 「確認しました」ボタンの描画
     let confirmation_button = new Button(
         canvas.getWidth() * 0.5,     // x座標

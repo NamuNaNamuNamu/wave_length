@@ -1,4 +1,4 @@
-import { draw_question, draw_text_of_the_top } from "../../../function.js";
+import { draw_text_of_the_top } from "../../../function.js";
 import { halfCircle } from "../../shared/HalfCircle.js";
 import { Button } from "../../Button.js";
 import { canvas } from "../../canvas/Canvas.js";
@@ -6,6 +6,7 @@ import { gameParams } from "../../shared/gameParams.js";
 import { needlesManager } from "../../shared/needle/NeedlesManager.js";
 import { answerGameParams } from "./answerGameParams.js";
 import { enableMousedownListener, enableMousemoveListener, enableMouseupListener, enableTouchmoveListener } from "./helpers/eventListeners.js";
+import { questionRenderer } from "../../question/QuestionRenderer.js";
 
 export let change_player_button;
 
@@ -21,7 +22,7 @@ export function answer(){
     // 針の描画
     needlesManager.drawAll(canvas.getContext());
     // お題の描画
-    draw_question(gameParams.question[0], gameParams.question[1]);
+    questionRenderer.draw(gameParams.question[0], gameParams.question[1]);
 
     answerGameParams.current_player = 1;
 
