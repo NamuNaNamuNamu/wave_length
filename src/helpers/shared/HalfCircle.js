@@ -1,4 +1,4 @@
-import { degree_to_rad } from "../../utils/degree.js";
+import { degree_to_rad } from "../../core/utils/degree.js";
 
 export class HalfCircle {
     #centerX;

@@ -3,7 +3,7 @@ import { gameParams } from "../../../shared/gameParams.js";
 import { answerGameParams } from "../answerGameParams.js";
 import { halfCircle } from "../../../shared/HalfCircle.js";
 import { gameSettings } from "../../../gameSettings.js";
-import { get_degree } from "../../../../utils/degree.js";
+import { get_degree } from "../../../../core/utils/degree.js";
 import { canvas } from "../../../canvas/Canvas.js";
 import { change_player_button } from "../answer.js";
 import { result } from "../../result/result.js";

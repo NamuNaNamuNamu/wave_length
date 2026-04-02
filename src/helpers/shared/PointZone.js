@@ -1,5 +1,5 @@
 import { halfCircle } from "./HalfCircle.js";
-import { degree_to_rad } from "../../utils/degree.js";
+import { degree_to_rad } from "../../core/utils/degree.js";
 import { canvas } from "../canvas/Canvas.js";
 import { gameSettings } from "../gameSettings.js";
 
