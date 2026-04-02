@@ -1,6 +1,6 @@
 import { answer } from "../../answer/answer.js";
 import { textRenderer } from "../../../shared/renderer/TextRenderer.js";
-import { gameParams } from "../../../shared/gameParams.js";
+import { gameParams } from "../../../../game/phases/gamePlay/gameParams.js";
 import { canvas } from "../../../../core/canvas/Canvas.js";
 import { questionManager } from "../../../question/manager/QuestionManager.js";
 import { halfCircle } from "../../../shared/HalfCircle.js";

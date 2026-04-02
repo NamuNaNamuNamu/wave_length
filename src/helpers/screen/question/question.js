@@ -3,7 +3,7 @@ import { halfCircle } from "../../shared/HalfCircle.js";
 import { Button } from "../../../ui/components/Button.js";
 import { canvas } from "../../../core/canvas/Canvas.js";
 import { questionManager } from "../../question/manager/QuestionManager.js";
-import { gameParams } from "../../shared/gameParams.js";
+import { gameParams } from "../../../game/phases/gamePlay/gameParams.js";
 import { pointZone } from "../../shared/PointZone.js";
 import { enableButtonQuestion } from "./internal/enableButtonQuestion.js";
 import { questionRenderer } from "../../question/renderer/QuestionRenderer.js";
