@@ -1,16 +1,6 @@
 import { gameSettings } from "./helpers/gameSettings.js";
 import { canvas } from "./helpers/canvas/Canvas.js";
 
-// 準備画面のテキストの描画
-export function draw_caution(){
-    let context = canvas.getContext();
-    context.fillStyle = "rgb(0, 0, 0)";
-    context.textAlign = "center";
-    context.font = canvas.getHeight() * 0.05 + "px serif";
-    context.fillText("出題者にのみ画面が見えるようにして", canvas.getWidth() * 0.5, canvas.getWidth() * 0.3);
-    context.fillText("ボタンを押してください", canvas.getWidth() * 0.5, canvas.getWidth() * 0.4);
-}
-
 // 画面上部のテキストの描画
 export function draw_text_of_the_top(text){
     let context = canvas.getContext();

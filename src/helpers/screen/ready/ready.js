@@ -1,4 +1,4 @@
-import { draw_caution } from "../../../function.js";
+import { drawCaution } from "./internal/drawCaution.js";
 import { Button } from "../../Button.js";
 import { canvas } from "../../canvas/Canvas.js";
 import { enableButtonReady } from "./internal/enableButtonReady.js";
@@ -8,7 +8,7 @@ export function ready(){
     canvas.reset();
 
     // 注意書き
-    draw_caution();
+    drawCaution(canvas.getContext());
     // 得点ゾーン表示ボタン
     let display_point_zone_button = new Button(
         canvas.getWidth() * 0.5,     // x座標
