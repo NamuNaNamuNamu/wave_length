@@ -6,7 +6,7 @@ import { gameParams } from "../../shared/gameParams.js";
 import { needlesManager } from "../../shared/needle/NeedlesManager.js";
 import { answerGameParams } from "./answerGameParams.js";
 import { enableMousedownListener, enableMousemoveListener, enableMouseupListener, enableTouchmoveListener } from "./helpers/eventListeners.js";
-import { questionRenderer } from "../../question/QuestionRenderer.js";
+import { questionRenderer } from "../../question/renderer/QuestionRenderer.js";
 
 export let change_player_button;
 

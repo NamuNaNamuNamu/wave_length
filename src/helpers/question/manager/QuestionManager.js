@@ -1,4 +1,4 @@
-import { questions } from "./helpers/questions.js";
+import { questions } from "./internal/questions.js";
 
 class QuestionManager {
     #questions;

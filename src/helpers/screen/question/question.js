@@ -2,11 +2,11 @@ import { draw_text_of_the_top } from "../../../function.js";
 import { halfCircle } from "../../shared/HalfCircle.js";
 import { Button } from "../../Button.js";
 import { canvas } from "../../canvas/Canvas.js";
-import { questionManager } from "../../question/QuestionManager.js";
+import { questionManager } from "../../question/manager/QuestionManager.js";
 import { gameParams } from "../../shared/gameParams.js";
 import { pointZone } from "../../shared/PointZone.js";
 import { enableButtonQuestion } from "./helpers/enableButtonQuestion.js";
-import { questionRenderer } from "../../question/QuestionRenderer.js";
+import { questionRenderer } from "../../question/renderer/QuestionRenderer.js";
 
 //// お題出題フェーズ ////
 export function question(){

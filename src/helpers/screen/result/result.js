@@ -7,7 +7,7 @@ import { enableButtonResult } from "./helpers/enableButtonResult.js";
 import { halfCircle } from "../../shared/HalfCircle.js";
 import { pointZone } from "../../shared/PointZone.js";
 import { needlesManager } from "../../shared/needle/NeedlesManager.js";
-import { questionRenderer } from "../../question/QuestionRenderer.js";
+import { questionRenderer } from "../../question/renderer/QuestionRenderer.js";
 
 //// 答え合わせフェーズ ////
 export function result(){
