@@ -1,4 +1,5 @@
 import { canvas } from "../../canvas/Canvas.js";
+import { insertNewline } from "./internal/insertNewline.js";
 
 class QuestionRenderer {
 
@@ -6,8 +7,6 @@ class QuestionRenderer {
 
     }
 
-    // FIXME: とりあえず処理はまんま移管した。
-    // - 12文字ごとに改行を入れる処理は一般化したい。
     draw(question){
         let context = canvas.getContext();
         // スタイルの決定
@@ -18,14 +17,8 @@ class QuestionRenderer {
         context.fillText("←", canvas.getWidth() * 0.2, canvas.getWidth() * 0.65);
         context.fillText("→", canvas.getWidth() * 0.8, canvas.getWidth() * 0.65);
         //// 12文字ごとに改行を入れる
-        let sliced_question1 = [];
-        let sliced_question2 = [];
-        for (let i = 0; i < question[0].length; i += 12) {
-            sliced_question1.push(question[0].slice(i, i + 12));
-        }
-        for (let i = 0; i < question[1].length; i += 12) {
-            sliced_question2.push(question[1].slice(i, i + 12));
-        }
+        let sliced_question1 = insertNewline({ text: question[0], numChar: 12 });
+        let sliced_question2 = insertNewline({ text: question[1], numChar: 12 });     
     
         //// お題本体の描画
         context.font = canvas.getHeight() * 0.03 + "px serif";
