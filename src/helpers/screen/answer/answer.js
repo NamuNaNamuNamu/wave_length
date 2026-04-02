@@ -1,6 +1,6 @@
 import { textRenderer } from "../../shared/renderer/TextRenderer.js";
 import { halfCircle } from "../../shared/HalfCircle.js";
-import { Button } from "../../Button.js";
+import { Button } from "../../../ui/components/Button.js";
 import { canvas } from "../../../core/canvas/Canvas.js";
 import { gameParams } from "../../shared/gameParams.js";
 import { needlesManager } from "../../shared/needle/NeedlesManager.js";

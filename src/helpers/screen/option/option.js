@@ -1,4 +1,4 @@
-import { Button } from "../../Button.js";
+import { Button } from "../../../ui/components/Button.js";
 import { canvas } from "../../../core/canvas/Canvas.js";
 import { enableButtonOption } from "./internal/enableButtonOption.js";
 import { numPlayers } from "./internal/numPlayers.js";

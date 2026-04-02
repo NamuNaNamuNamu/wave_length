@@ -1,5 +1,5 @@
 import { drawCaution } from "./internal/drawCaution.js";
-import { Button } from "../../Button.js";
+import { Button } from "../../../ui/components/Button.js";
 import { canvas } from "../../../core/canvas/Canvas.js";
 import { enableButtonReady } from "./internal/enableButtonReady.js";
 

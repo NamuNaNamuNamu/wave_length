@@ -1,6 +1,6 @@
 import { textRenderer } from "./TextRenderer.js";
 import { gameSettings } from "../../../gameSettings.js";
-import { ImageButton } from "../../../Button.js";
+import { ImageButton } from "../../../../ui/components/Button.js";
 import { canvas } from "../../../../core/canvas/Canvas.js";
 
 export function pointZone1() {
