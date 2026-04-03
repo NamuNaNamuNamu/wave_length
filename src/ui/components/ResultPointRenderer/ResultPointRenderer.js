@@ -1,4 +1,5 @@
 import { canvas } from "../../../core/canvas/Canvas.js";
+import { PLAYERS } from "../../../game/players.js";
 import { JUDGES } from "../../../game/scoring/judges.js";
 import { drawBackGround, getBackGroundPosX } from "./internal/backGround.js";
 import { drawResultPointText } from "./internal/pointText.js";
@@ -47,7 +48,7 @@ class ResultPointRenderer {
                 drawResultPointText(context, JUDGES.MISS, canvas.getWidth() * 0.3, canvas.getWidth() * 0.1);
             }
             // どっちのプレイヤーか描画
-            context.fillStyle = "rgb(200, 0, 0)";
+            context.fillStyle = PLAYERS.PLAYER1.color;
             context.font = canvas.getHeight() * 0.03 + "px serif";
             context.fillText("P1", canvas.getWidth() * 0.3, canvas.getWidth() * 0.04);
 
@@ -68,7 +69,7 @@ class ResultPointRenderer {
                 drawResultPointText(context, JUDGES.MISS, canvas.getWidth() * 0.7, canvas.getWidth() * 0.1);
             }
             // どっちのプレイヤーか描画
-            context.fillStyle = "rgb(0, 0, 200)";
+            context.fillStyle = PLAYERS.PLAYER2.color;
             context.font = canvas.getHeight() * 0.03 + "px serif";
             context.fillText("P2", canvas.getWidth() * 0.7, canvas.getWidth() * 0.04);
         }
@@ -91,7 +92,7 @@ class ResultPointRenderer {
                 drawResultPointText(context, JUDGES.MISS, canvas.getWidth() * 0.17, canvas.getWidth() * 0.1);
             }
             // どっちのプレイヤーか描画
-            context.fillStyle = "rgb(200, 0, 0)";
+            context.fillStyle = PLAYERS.PLAYER1.color;
             context.font = canvas.getHeight() * 0.03 + "px serif";
             context.fillText("P1", canvas.getWidth() * 0.17, canvas.getWidth() * 0.04);
 
@@ -112,7 +113,7 @@ class ResultPointRenderer {
                 drawResultPointText(context, JUDGES.MISS, canvas.getWidth() * 0.5, canvas.getWidth() * 0.1);
             }
             // どっちのプレイヤーか描画
-            context.fillStyle = "rgb(0, 0, 200)";
+            context.fillStyle = PLAYERS.PLAYER2.color;
             context.font = canvas.getHeight() * 0.03 + "px serif";
             context.fillText("P2", canvas.getWidth() * 0.5, canvas.getWidth() * 0.04);
 
@@ -133,7 +134,7 @@ class ResultPointRenderer {
                 drawResultPointText(context, JUDGES.MISS, canvas.getWidth() * 0.83, canvas.getWidth() * 0.1);
             }
             // どっちのプレイヤーか描画
-            context.fillStyle = "rgb(0, 200, 0)";
+            context.fillStyle = PLAYERS.PLAYER3.color;
             context.font = canvas.getHeight() * 0.03 + "px serif";
             context.fillText("P3", canvas.getWidth() * 0.83, canvas.getWidth() * 0.04);
         }

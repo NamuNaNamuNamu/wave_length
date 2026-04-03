@@ -1,4 +1,5 @@
 import { canvas } from "../../core/canvas/Canvas.js";
+import { PLAYERS } from "../players.js";
 import { gameSettings } from "../states/gameSettings.js";
 import { Needle } from "./internal/Needle.js";
 
@@ -32,17 +33,17 @@ export class NeedlesManager {
     initialize() {
         this.#needles = [
             new Needle({
-                color: "rgb(200, 0, 0)",
+                color: PLAYERS.PLAYER1.color,
                 degree: -90,
                 lineWidth: canvas.getWidth() * 0.01
             }),
             new Needle({
-                color: "rgb(0, 0, 200)",
+                color: PLAYERS.PLAYER2.color,
                 degree: -135,
                 lineWidth: canvas.getWidth() * 0.01
             }),
             new Needle({
-                color: "rgb(0, 200, 0)",
+                color: PLAYERS.PLAYER3.color,
                 degree: -45,
                 lineWidth: canvas.getWidth() * 0.01
             })

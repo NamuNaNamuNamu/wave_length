@@ -7,6 +7,7 @@ import { needlesManager } from "../../../game/needle/NeedlesManager.js";
 import { answerGameParams } from "../../../game/states/answerGameParams.js";
 import { enableMousedownListener, enableMousemoveListener, enableMouseupListener, enableTouchmoveListener } from "./internal/eventListeners.js";
 import { questionRenderer } from "../../components/QuestionRenderer/QuestionRenderer.js";
+import { PLAYERS } from "../../../game/players.js";
 
 export let change_player_button;
 
@@ -28,9 +29,9 @@ export function answer(){
 
     // 操作プレイヤー変更ボタンの描画
     let text_color = "";
-    if(answerGameParams.current_player == 1) text_color = "rgb(200, 0, 0)";
-    if(answerGameParams.current_player == 2) text_color = "rgb(0, 200, 0)";
-    if(answerGameParams.current_player == 3) text_color = "rgb(0, 0, 200)";
+    if(answerGameParams.current_player == 1) text_color = PLAYERS.PLAYER1.color;
+    if(answerGameParams.current_player == 2) text_color = PLAYERS.PLAYER2.color;
+    if(answerGameParams.current_player == 3) text_color = PLAYERS.PLAYER3.color;
     change_player_button = new Button(
         canvas.getWidth() * 0.3,     // x座標
         canvas.getHeight() * 0.85,    // y座標

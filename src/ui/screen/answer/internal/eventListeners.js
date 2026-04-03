@@ -9,6 +9,7 @@ import { change_player_button } from "../answer.js";
 import { result } from "../../result/result.js";
 import { needlesManager } from "../../../../game/needle/NeedlesManager.js";
 import { questionRenderer } from "../../../components/QuestionRenderer/QuestionRenderer.js";
+import { PLAYERS } from "../../../../game/players.js";
 
 let x = new Array(1000);    // 指の数だけx座標を格納するための配列 (余裕を持って1000要素用意) 
 let y = new Array(1000);    // 指の数だけy座標を格納するための配列 (余裕を持って1000要素用意)
@@ -70,9 +71,9 @@ export function enableMousedownListener(determination_button) {
         questionRenderer.draw(canvas.getContext(), gameParams.question);
         // 操作プレイヤー変更ボタンの描画
         let text_color = "";
-        if(answerGameParams.current_player == 1) text_color = "rgb(200, 0, 0)";
-        if(answerGameParams.current_player == 2) text_color = "rgb(0, 0, 200)";
-        if(answerGameParams.current_player == 3) text_color = "rgb(0, 200, 0)";
+        if(answerGameParams.current_player == 1) text_color = PLAYERS.PLAYER1.color;
+        if(answerGameParams.current_player == 2) text_color = PLAYERS.PLAYER2.color;
+        if(answerGameParams.current_player == 3) text_color = PLAYERS.PLAYER3.color;
         change_player_button.text = "P" + answerGameParams.current_player;
         change_player_button.text_color = text_color;
         change_player_button.draw();
