@@ -2,7 +2,6 @@ import { textRenderer } from "../../../components/TextRenderer.js";
 import { gameParams } from "../../../../game/states/gameParams.js";
 import { answerGameParams } from "../../../../game/states/answerGameParams.js";
 import { halfCircle } from "../../../components/HalfCircle.js";
-import { gameSettings } from "../../../../game/states/gameSettings.js";
 import { get_degree } from "../../../../core/utils/degree.js";
 import { canvas } from "../../../../core/canvas/Canvas.js";
 import { change_player_button } from "../answer.js";
@@ -10,6 +9,7 @@ import { result } from "../../result/result.js";
 import { needlesManager } from "../../../../game/needle/NeedlesManager.js";
 import { questionRenderer } from "../../../components/QuestionRenderer/QuestionRenderer.js";
 import { PLAYERS } from "../../../../game/player/players.js";
+import { activePlayerChecker } from "../../../../game/player/ActivePlayerChecker.js";
 
 let x = new Array(1000);    // 指の数だけx座標を格納するための配列 (余裕を持って1000要素用意) 
 let y = new Array(1000);    // 指の数だけy座標を格納するための配列 (余裕を持って1000要素用意)
@@ -37,10 +37,10 @@ export function enableMousedownListener(determination_button) {
         }
         // もし 操作プレイヤー変更ボタン で左クリックされた場合, 針を操作するプレイヤーを変更する
         if(change_player_button.clicked(event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top)){
-            if(answerGameParams.current_player == gameSettings.num_of_player - 1){ // TODO: gameSettings.num_of_player - 1 を言語化したい。要は回答者の数。
+            if (answerGameParams.current_player === activePlayerChecker.getNumActivePlayer()) {
                 answerGameParams.current_player = PLAYERS.PLAYER1.number;
             }
-            else{
+            else {
                 answerGameParams.current_player++;
             }
         }

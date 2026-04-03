@@ -1,6 +1,6 @@
 import { canvas } from "../../core/canvas/Canvas.js";
+import { activePlayerChecker } from "../player/ActivePlayerChecker.js";
 import { PLAYERS } from "../player/players.js";
-import { gameSettings } from "../states/gameSettings.js";
 import { Needle } from "./internal/Needle.js";
 
 export class NeedlesManager {
@@ -8,10 +8,6 @@ export class NeedlesManager {
 
     constructor() {
         this.initialize();
-    }
-
-    getNumEnabledNeedles() {
-        return gameSettings.num_of_player - 1;
     }
 
     getDegree(player) {
@@ -51,7 +47,7 @@ export class NeedlesManager {
     }
 
     drawAll(context) {
-        for (let i = this.getNumEnabledNeedles() - 1; i >= 0; i--) {
+        for (let i = activePlayerChecker.getNumActivePlayer() - 1; i >= 0; i--) {
             this.#needles[i].draw(context);
         }
     }
