@@ -1,13 +1,12 @@
 import { halfCircle } from "../../../ui/components/HalfCircle.js";
 
-
 export class Needle {
-    #color;
+    #player;
     #degree;
     #lineWidth;
 
-    constructor({ color, degree, lineWidth }) {
-        this.#color = color;
+    constructor({ player, degree, lineWidth }) {
+        this.#player = player;
         this.#degree = degree;
         this.#lineWidth = lineWidth;
     }
@@ -32,7 +31,7 @@ export class Needle {
         // 終点
         context.lineTo(halfCircle.getCenterX() + Math.cos(this.#degree * Math.PI / 180) * halfCircle.getRadius() * 0.8, halfCircle.getCenterY() + Math.sin(this.#degree * Math.PI / 180) * halfCircle.getRadius() * 0.8);
         // 描画
-        context.strokeStyle = this.#color;
+        context.strokeStyle = this.#player.color;
         context.lineWidth = this.#lineWidth;
         context.stroke();
     }

@@ -33,17 +33,17 @@ export class NeedlesManager {
     initialize() {
         this.#needles = [
             new Needle({
-                color: PLAYERS.PLAYER1.color,
+                player: PLAYERS.PLAYER1,
                 degree: -90,
                 lineWidth: canvas.getWidth() * 0.01
             }),
             new Needle({
-                color: PLAYERS.PLAYER2.color,
+                player: PLAYERS.PLAYER2,
                 degree: -135,
                 lineWidth: canvas.getWidth() * 0.01
             }),
             new Needle({
-                color: PLAYERS.PLAYER3.color,
+                player: PLAYERS.PLAYER3,
                 degree: -45,
                 lineWidth: canvas.getWidth() * 0.01
             })
