@@ -2,11 +2,11 @@ import { textRenderer } from "../../components/TextRenderer.js";
 import { halfCircle } from "../../components/HalfCircle.js";
 import { Button } from "../../components/Button.js";
 import { canvas } from "../../../core/canvas/Canvas.js";
-import { questionPicker } from "../../../game/questionPicker/QuestionPicker.js";
+import { questionPicker } from "../../../game/QuestionPicker/QuestionPicker.js";
 import { gameParams } from "../../../game/states/gameParams.js";
 import { pointZone } from "../../../game/PointZone.js";
 import { enableButtonQuestion } from "./internal/enableButtonQuestion.js";
-import { questionRenderer } from "../../components/questionRenderer/QuestionRenderer.js";
+import { questionRenderer } from "../../components/QuestionRenderer/QuestionRenderer.js";
 
 //// お題出題フェーズ ////
 export function question(){

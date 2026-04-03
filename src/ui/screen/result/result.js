@@ -1,4 +1,4 @@
-import { resultPointRenderer } from "../../components/ResultPointRender/ResultPointRenderer.js";
+import { resultPointRenderer } from "../../components/ResultPointRenderer/ResultPointRenderer.js";
 import { resultPointCalculator } from "../../../game/scoring/ResultPointCalculator.js";
 import { Button } from "../../components/Button.js";
 import { canvas } from "../../../core/canvas/Canvas.js";
@@ -7,7 +7,7 @@ import { enableButtonResult } from "./internal/enableButtonResult.js";
 import { halfCircle } from "../../components/HalfCircle.js";
 import { pointZone } from "../../../game/PointZone.js";
 import { needlesManager } from "../../../game/needle/NeedlesManager.js";
-import { questionRenderer } from "../../components/questionRenderer/QuestionRenderer.js";
+import { questionRenderer } from "../../components/QuestionRenderer/QuestionRenderer.js";
 
 //// 答え合わせフェーズ ////
 export function result(){
