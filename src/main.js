@@ -2,9 +2,10 @@
 // main関数 //
 /////////////
 
-import { title } from "./ui/screen/title/title.js";
 import { canvas } from "./core/canvas/Canvas.js";
 import { halfCircle } from "./ui/components/HalfCircle.js";
+import { screenManager } from "./ui/screen/ScreenManager.js";
+import { titleScreen } from "./ui/screen/title/TitleScreen.js";
 
 
 export function main(){
@@ -13,5 +14,5 @@ export function main(){
     halfCircle.adjustToCanvas(canvas);
 
     //// タイトル画面を表示 ////
-    title();
+    screenManager.navigateTo(titleScreen);
 }

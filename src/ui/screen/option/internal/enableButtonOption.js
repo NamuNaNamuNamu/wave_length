@@ -1,7 +1,8 @@
 import { gameSettings } from "../../../../game/states/gameSettings.js";
 import { textRenderer } from "./TextRenderer.js";
-import { title } from "../../title/title.js";
 import { canvas } from "../../../../core/canvas/Canvas.js";
+import { screenManager } from "../../ScreenManager.js";
+import { titleScreen } from "../../title/TitleScreen.js";
 
 export function enableButtonOption(buttons) {
     canvas.addEventListener("mousedown", mousedownListener, false);
@@ -140,7 +141,7 @@ export function enableButtonOption(buttons) {
         // スタートボタンがクリックされたらお題出題フェーズに移行する
         if(buttons.back_to_title.clicked(event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top)){
             canvas.removeEventListener("mousedown", mousedownListener, false);
-            title();
+            screenManager.navigateTo(titleScreen);
         }
     }
 }

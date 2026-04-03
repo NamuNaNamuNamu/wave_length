@@ -1,5 +1,6 @@
-import { title } from "../../title/title.js";
 import { canvas } from "../../../../core/canvas/Canvas.js";
+import { screenManager } from "../../ScreenManager.js";
+import { titleScreen } from "../../title/TitleScreen.js";
 
 export function enableButtonResult(go_back_to_title_button) {
     canvas.addEventListener("mousedown", mousedownListener, false);
@@ -9,7 +10,7 @@ export function enableButtonResult(go_back_to_title_button) {
         let canvas_rectangle = canvas.getBoundingClientRect();
         if(go_back_to_title_button.clicked(event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top)){
             canvas.removeEventListener("mousedown", mousedownListener, false);
-            title();
+            screenManager.navigateTo(titleScreen);
         }
     }
 }
