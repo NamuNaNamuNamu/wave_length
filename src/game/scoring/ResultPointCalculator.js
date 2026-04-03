@@ -1,13 +1,7 @@
 import { gameSettings } from "../states/gameSettings.js";
 import { needlesManager } from "../needle/NeedlesManager.js";
 import { pointZone } from "../PointZone.js";
-
-const JUDGES = Object.freeze({
-    PERFECT: "perfect",
-    GREAT: "great",
-    GOOD: "good",
-    MISS: "miss"
-});
+import { JUDGES } from "./judges.js";
 
 class ResultPointCalculator {
 

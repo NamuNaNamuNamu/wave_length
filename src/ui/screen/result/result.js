@@ -1,4 +1,4 @@
-import { resultPointRenderer } from "./internal/ResultPointRenderer.js";
+import { resultPointRenderer } from "../../components/ResultPointRender/ResultPointRenderer.js";
 import { resultPointCalculator } from "../../../game/scoring/ResultPointCalculator.js";
 import { Button } from "../../components/Button.js";
 import { canvas } from "../../../core/canvas/Canvas.js";
