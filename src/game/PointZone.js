@@ -2,6 +2,7 @@ import { halfCircle } from "../ui/components/HalfCircle.js";
 import { degree_to_rad } from "../core/utils/degree.js";
 import { canvas } from "../core/canvas/Canvas.js";
 import { gameSettings } from "./states/gameSettings.js";
+import { JUDGES } from "./scoring/judges.js";
 
 
 class PointZone {
@@ -20,7 +21,7 @@ class PointZone {
     }
 
     draw(context) {
-        const COLORS = ["rgb(225, 225, 200)", "rgb(250, 175, 80)", "rgb(240, 240, 80)", "rgb(250, 175, 80)", "rgb(225, 225, 200)"];
+        const COLORS = [JUDGES.GOOD.color, JUDGES.GREAT.color, JUDGES.PERFECT.color, JUDGES.GREAT.color, JUDGES.GOOD.color];
         for(let i = 0; i < 5; i++){
             // パスの開始
             context.beginPath();
