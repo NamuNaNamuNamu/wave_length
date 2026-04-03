@@ -1,5 +1,5 @@
 import { resultPointRenderer } from "../../components/ResultPointRenderer/ResultPointRenderer.js";
-import { resultPointCalculator } from "../../../game/scoring/ResultPointCalculator.js";
+import { scoreZoneDetector } from "../../../game/scoring/ScoreZoneDetector.js";
 import { Button } from "../../components/Button.js";
 import { canvas } from "../../../core/canvas/Canvas.js";
 import { gameParams } from "../../../game/states/gameParams.js";
@@ -24,11 +24,11 @@ export function result(){
     questionRenderer.draw(canvas.getContext(), gameParams.question);
 
     // 点数の判定
-    const points = resultPointCalculator.calculateAll();
-    let areas = resultPointFormatter.format(points);
+    const judges = scoreZoneDetector.judgeAll();
+    const formattedJudges = resultPointFormatter.format(judges); // TODO: アウトプットを judges ではなく、scores にしたい。もっというと、renderer がアホになれる設計に組み替えたい。
     
     // 点数の描画
-    resultPointRenderer.draw(canvas.getContext(), areas);
+    resultPointRenderer.draw(canvas.getContext(), formattedJudges);
 
     // 「タイトルに戻る」ボタンの描画
     let go_back_to_title_button = new Button(

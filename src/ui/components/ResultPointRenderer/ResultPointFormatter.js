@@ -6,32 +6,16 @@ class ResultPointFormatter {
 
     }
 
-    pruneDisabledPlayerPoints(points) {
-        const prunedPoints = Object.fromEntries(
-            Object.entries(points).filter(([_key, value]) => value != null)
+    pruneDisabledPlayerJudges(judges) {
+        const prunedJudges = Object.fromEntries(
+            Object.entries(judges).filter(([_key, value]) => value != null)
         );
 
-        return prunedPoints;
+        return prunedJudges;
     }
 
-    format(points) {
-        let areas = [];
-
-        let prunedPoints = this.pruneDisabledPlayerPoints(points);
-
-        let i = 0;
-        for(let key of Object.keys(prunedPoints)) {
-            let point = prunedPoints[key];
-
-            if (point === gameSettings.points[0]) { areas[i] = 0; }
-            else if (point === gameSettings.points[1]) { areas[i] = 1; }
-            else if (point === gameSettings.points[2]) { areas[i] = 2; }
-            else { areas[i] = 3; }
-
-            i++;
-        }
-
-        return areas; // TODO: 返却値のやりとりをもう少し直感的にする。
+    format(judges) {
+        return this.pruneDisabledPlayerJudges(judges);
     }
 }
 

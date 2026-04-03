@@ -22,6 +22,10 @@ class ActivePlayerChecker {
             throw Error("設定のプレイヤー数が想定しない値になっています。想定しない値: " + gameSettings.num_of_player);
         }
     }
+
+    getNumActivePlayer() {
+        return this.getActivePlayer().length;
+    }
 }
 
 export const activePlayerChecker = new ActivePlayerChecker();
