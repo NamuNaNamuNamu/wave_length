@@ -1,5 +1,5 @@
 import { resultPointRenderer } from "./internal/ResultPointRenderer.js";
-import { judge } from "./internal/judge.js";
+import { resultPointCalculator } from "../../../game/scoring/ResultPointCalculator.js";
 import { Button } from "../../components/Button.js";
 import { canvas } from "../../../core/canvas/Canvas.js";
 import { gameParams } from "../../../game/states/gameParams.js";
@@ -23,7 +23,7 @@ export function result(){
     questionRenderer.draw(canvas.getContext(), gameParams.question);
 
     // 点数の判定
-    let areas = judge();
+    let areas = resultPointCalculator.calculateAll();
     
     // 点数の描画
     resultPointRenderer.draw(canvas.getContext(), areas);
