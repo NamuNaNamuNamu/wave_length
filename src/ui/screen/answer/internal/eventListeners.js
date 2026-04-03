@@ -37,8 +37,8 @@ export function enableMousedownListener(determination_button) {
         }
         // もし 操作プレイヤー変更ボタン で左クリックされた場合, 針を操作するプレイヤーを変更する
         if(change_player_button.clicked(event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top)){
-            if(answerGameParams.current_player == gameSettings.num_of_player - 1){
-                answerGameParams.current_player = 1;
+            if(answerGameParams.current_player == gameSettings.num_of_player - 1){ // TODO: gameSettings.num_of_player - 1 を言語化したい。要は回答者の数。
+                answerGameParams.current_player = PLAYERS.PLAYER1.number;
             }
             else{
                 answerGameParams.current_player++;
@@ -71,9 +71,9 @@ export function enableMousedownListener(determination_button) {
         questionRenderer.draw(canvas.getContext(), gameParams.question);
         // 操作プレイヤー変更ボタンの描画
         let text_color = "";
-        if(answerGameParams.current_player == 1) text_color = PLAYERS.PLAYER1.color;
-        if(answerGameParams.current_player == 2) text_color = PLAYERS.PLAYER2.color;
-        if(answerGameParams.current_player == 3) text_color = PLAYERS.PLAYER3.color;
+        if(answerGameParams.current_player == PLAYERS.PLAYER1.number) text_color = PLAYERS.PLAYER1.color;
+        if(answerGameParams.current_player == PLAYERS.PLAYER2.number) text_color = PLAYERS.PLAYER2.color;
+        if(answerGameParams.current_player == PLAYERS.PLAYER3.number) text_color = PLAYERS.PLAYER3.color;
         change_player_button.text = "P" + answerGameParams.current_player;
         change_player_button.text_color = text_color;
         change_player_button.draw();

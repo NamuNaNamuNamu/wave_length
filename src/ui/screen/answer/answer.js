@@ -25,13 +25,13 @@ export function answer(){
     // お題の描画
     questionRenderer.draw(canvas.getContext(), gameParams.question);
 
-    answerGameParams.current_player = 1;
+    answerGameParams.current_player = PLAYERS.PLAYER1.number;
 
     // 操作プレイヤー変更ボタンの描画
     let text_color = "";
-    if(answerGameParams.current_player == 1) text_color = PLAYERS.PLAYER1.color;
-    if(answerGameParams.current_player == 2) text_color = PLAYERS.PLAYER2.color;
-    if(answerGameParams.current_player == 3) text_color = PLAYERS.PLAYER3.color;
+    if(answerGameParams.current_player == PLAYERS.PLAYER1.number) { text_color = PLAYERS.PLAYER1.color; }
+    if(answerGameParams.current_player == PLAYERS.PLAYER2.number) { text_color = PLAYERS.PLAYER2.color; }
+    if(answerGameParams.current_player == PLAYERS.PLAYER3.number) { text_color = PLAYERS.PLAYER3.color; }
     change_player_button = new Button(
         canvas.getWidth() * 0.3,     // x座標
         canvas.getHeight() * 0.85,    // y座標

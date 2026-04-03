@@ -1,4 +1,5 @@
 import { canvas } from "../../../../core/canvas/Canvas.js";
+import { PLAYERS } from "../../../../game/players.js";
 
 export const drawBackGround = (context, color, backGroundPosX) => {
     const backGroundPosY = canvas.getWidth() * 0.05;
@@ -12,16 +13,16 @@ export const drawBackGround = (context, color, backGroundPosX) => {
 export const getBackGroundPosX = ({ numPlayers, playerNumber }) => {
     const backGroundPosX = {
         2: {
-            1: canvas.getWidth() * 0.35
+            [PLAYERS.PLAYER1.number]: canvas.getWidth() * 0.35
         },
         3: {
-            1: canvas.getWidth() * 0.15,
-            2: canvas.getWidth() * 0.55
+            [PLAYERS.PLAYER1.number]: canvas.getWidth() * 0.15,
+            [PLAYERS.PLAYER2.number]: canvas.getWidth() * 0.55
         },
         4: {
-            1: canvas.getWidth() * 0.02,
-            2: canvas.getWidth() * 0.35,
-            3: canvas.getWidth() * 0.68
+            [PLAYERS.PLAYER1.number]: canvas.getWidth() * 0.02,
+            [PLAYERS.PLAYER2.number]: canvas.getWidth() * 0.35,
+            [PLAYERS.PLAYER3.number]: canvas.getWidth() * 0.68
         }
     }
 
