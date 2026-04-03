@@ -10,6 +10,7 @@ import { needlesManager } from "../../../../game/needle/NeedlesManager.js";
 import { questionRenderer } from "../../../components/QuestionRenderer/QuestionRenderer.js";
 import { PLAYERS } from "../../../../game/player/players.js";
 import { activePlayerChecker } from "../../../../game/player/ActivePlayerChecker.js";
+import { eventListenerManager } from "../../EventListenerManager.js";
 
 let x = new Array(1000);    // 指の数だけx座標を格納するための配列 (余裕を持って1000要素用意) 
 let y = new Array(1000);    // 指の数だけy座標を格納するための配列 (余裕を持って1000要素用意)
@@ -28,10 +29,7 @@ export function enableMousedownListener(determination_button) {
         let canvas_rectangle = canvas.getBoundingClientRect();
         // もし「決定ボタン」で左クリックされた場合, 答え合わせフェーズに移行する
         if(determination_button.clicked(event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top)){
-            canvas.removeEventListener("mousedown", mousedownListener, false);
-            canvas.removeEventListener("mousemove", mousemoveListener, false);
-            canvas.removeEventListener("touchmove", touchmoveListener, false);
-            canvas.removeEventListener("mouseup", mouseupListener, false);
+            eventListenerManager.removeAllEventListener();
             result();
             return;
         }
@@ -80,7 +78,7 @@ export function enableMousedownListener(determination_button) {
         // 決定ボタンの描画
         determination_button.draw();
     }
-    canvas.addEventListener("mousedown", mousedownListener, false);
+    eventListenerManager.addEventListener("mousedown", mousedownListener, false);
 }
 
 export function enableMousemoveListener(determination_button) {
@@ -126,7 +124,7 @@ export function enableMousemoveListener(determination_button) {
             determination_button.draw();
         }
     }
-    canvas.addEventListener("mousemove", mousemoveListener, false);
+    eventListenerManager.addEventListener("mousemove", mousemoveListener, false);
 }
 
 export function enableTouchmoveListener(determination_button) {
@@ -175,7 +173,7 @@ export function enableTouchmoveListener(determination_button) {
             determination_button.draw();
         }
     }
-    canvas.addEventListener("touchmove", touchmoveListener, false);
+    eventListenerManager.addEventListener("touchmove", touchmoveListener, false);
 }
 
 export function enableMouseupListener() {
@@ -183,5 +181,5 @@ export function enableMouseupListener() {
         event.preventDefault();
         clicked = false;
     }
-    canvas.addEventListener("mouseup", mouseupListener, false);
+    eventListenerManager.addEventListener("mouseup", mouseupListener, false);
 }

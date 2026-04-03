@@ -6,15 +6,16 @@ import { questionPicker } from "../../../../game/QuestionPicker/QuestionPicker.j
 import { halfCircle } from "../../../components/HalfCircle.js";
 import { pointZone } from "../../../../game/PointZone.js";
 import { questionRenderer } from "../../../components/QuestionRenderer/QuestionRenderer.js";
+import { eventListenerManager } from "../../EventListenerManager.js";
 
 export function enableButtonQuestion(confirmation_button, question_reset_button) {
-    canvas.addEventListener("mousedown", mousedownListener, false);
+    eventListenerManager.addEventListener("mousedown", mousedownListener, false);
     function mousedownListener(event){
         event.preventDefault();
         // スタートボタンがクリックされたらお題出題フェーズに移行するß
         let canvas_rectangle = canvas.getBoundingClientRect();
         if(confirmation_button.clicked(event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top)){
-            canvas.removeEventListener("mousedown", mousedownListener, false);
+            eventListenerManager.removeAllEventListener();
             answer();
         }
         if(question_reset_button.clicked(event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top)){

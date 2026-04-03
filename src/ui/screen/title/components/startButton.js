@@ -1,4 +1,5 @@
 import { ButtonReplaced } from "../../../components/ButtonReplaced.js";
+import { ready } from "../../ready/ready.js";
 
 export const startButton = new ButtonReplaced({
     posX: 0.5,
@@ -6,4 +7,5 @@ export const startButton = new ButtonReplaced({
     width: 0.6,
     height: 0.15,
     text: "スタート",
+    onClick: ready
 });

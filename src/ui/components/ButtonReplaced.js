@@ -10,8 +10,9 @@ export class ButtonReplaced {
     #text
     #textColor
     #buttonColor
+    #onClick
 
-    constructor ({ posX, posY, width, height, text, textColor, buttonColor }) {
+    constructor ({ posX, posY, width, height, text, textColor, buttonColor, onClick }) {
         this.#posX = posX;
         this.#posY = posY;
         this.#width = width;
@@ -19,6 +20,7 @@ export class ButtonReplaced {
         this.#text = text ?? "名称未設定";
         this.#textColor = textColor ?? "rgb(0, 0, 0)";
         this.#buttonColor = buttonColor ?? "rgb(250, 200, 200)";
+        this.#onClick = onClick ?? (() => {});
     }
 
     draw(context) {
@@ -31,11 +33,15 @@ export class ButtonReplaced {
         context.fillText(this.#text, wScale(this.#posX), hScale(this.#posY + this.#height * 0.3));
     }
 
-    isClicked(x, y){
+    isClicked(x, y) {
         const isOverlappingX = x >= this.#posX - wScale(this.#width * 0.5) && x <= wScale(this.#posX + this.#width * 0.5);
         const isOverlappingY = y >= hScale(this.#posY - this.#height * 0.5) && y <= hScale(this.#posY + this.#height * 0.5);
 
         return isOverlappingX && isOverlappingY;
+    }
+
+    executeOnClick() {
+        this.#onClick();
     }
 }
 

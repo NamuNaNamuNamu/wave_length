@@ -1,4 +1,5 @@
 import { canvas } from "../../core/canvas/Canvas.js";
+import { eventListenerManager } from "./EventListenerManager.js";
 
 class ScreenManager {
     constructor() {
@@ -11,6 +12,7 @@ class ScreenManager {
 
     navigateTo(screen) {
         this.initialize();
+        eventListenerManager.removeAllEventListener();
         screen.draw(canvas.getContext());
         screen.activate();
     }
