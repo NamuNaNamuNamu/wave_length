@@ -8,6 +8,7 @@ import { halfCircle } from "../../components/HalfCircle.js";
 import { pointZone } from "../../../game/PointZone.js";
 import { needlesManager } from "../../../game/needle/NeedlesManager.js";
 import { questionRenderer } from "../../components/QuestionRenderer/QuestionRenderer.js";
+import { resultPointFormatter } from "../../components/ResultPointRenderer/ResultPointFormatter.js";
 
 //// 答え合わせフェーズ ////
 export function result(){
@@ -23,7 +24,8 @@ export function result(){
     questionRenderer.draw(canvas.getContext(), gameParams.question);
 
     // 点数の判定
-    let areas = resultPointCalculator.calculateAll();
+    const points = resultPointCalculator.calculateAll();
+    let areas = resultPointFormatter.format(points);
     
     // 点数の描画
     resultPointRenderer.draw(canvas.getContext(), areas);

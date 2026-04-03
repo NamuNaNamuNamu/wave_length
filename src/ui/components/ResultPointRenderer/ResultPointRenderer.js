@@ -1,5 +1,5 @@
 import { canvas } from "../../../core/canvas/Canvas.js";
-import { PLAYERS } from "../../../game/players.js";
+import { PLAYERS } from "../../../game/player/players.js";
 import { JUDGES } from "../../../game/scoring/judges.js";
 import { drawBackGround, getBackGroundPosX } from "./internal/backGround.js";
 import { drawResultPointText } from "./internal/pointText.js";

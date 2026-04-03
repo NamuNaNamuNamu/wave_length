@@ -1,5 +1,5 @@
 import { canvas } from "../../core/canvas/Canvas.js";
-import { PLAYERS } from "../players.js";
+import { PLAYERS } from "../player/players.js";
 import { gameSettings } from "../states/gameSettings.js";
 import { Needle } from "./internal/Needle.js";
 

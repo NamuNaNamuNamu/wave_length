@@ -9,7 +9,7 @@ import { change_player_button } from "../answer.js";
 import { result } from "../../result/result.js";
 import { needlesManager } from "../../../../game/needle/NeedlesManager.js";
 import { questionRenderer } from "../../../components/QuestionRenderer/QuestionRenderer.js";
-import { PLAYERS } from "../../../../game/players.js";
+import { PLAYERS } from "../../../../game/player/players.js";
 
 let x = new Array(1000);    // 指の数だけx座標を格納するための配列 (余裕を持って1000要素用意) 
 let y = new Array(1000);    // 指の数だけy座標を格納するための配列 (余裕を持って1000要素用意)

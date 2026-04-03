@@ -2,6 +2,8 @@ import { gameSettings } from "../states/gameSettings.js";
 import { needlesManager } from "../needle/NeedlesManager.js";
 import { pointZone } from "../PointZone.js";
 import { JUDGES } from "./judges.js";
+import { PLAYERS } from "../player/players.js";
+import { activePlayerChecker } from "../player/ActivePlayerChecker.js";
 
 class ResultPointCalculator {
 
@@ -17,23 +19,26 @@ class ResultPointCalculator {
     }
 
     calculateAll () { // TODO: 引数は右のようにする。 { needleDegrees, answerDegree, pointZoneAreaSize }
-        // TODO: 返却値のやりとりをもう少し直感的にする。
-        let areas = [];
-        for(let needleNumber = 1; needleNumber <= needlesManager.getNumEnabledNeedles(); needleNumber++){
-            let i = needleNumber - 1;
+        let points = {
+            [PLAYERS.PLAYER1.number]: null,
+            [PLAYERS.PLAYER2.number]: null,
+            [PLAYERS.PLAYER3.number]: null,
+        };
+
+        for (let player of activePlayerChecker.getActivePlayer()) {
             let judge = this.calculate({
-                needleDegree: needlesManager.getDegree(needleNumber),
+                needleDegree: needlesManager.getDegree(player.number),
                 answerDegree: pointZone.getAnswerDegree(),
                 pointZoneAreaSize: gameSettings.area_size
             });
 
-            if (judge === JUDGES.PERFECT) { areas[i] = 0; }
-            else if (judge === JUDGES.GREAT) { areas[i] = 1; }
-            else if (judge === JUDGES.GOOD) { areas[i] = 2; }
-            else { areas[i] = 3; }
+            if (judge === JUDGES.PERFECT) { points[player.number] = gameSettings.points[0]; }
+            else if (judge === JUDGES.GREAT) { points[player.number] = gameSettings.points[1]; }
+            else if (judge === JUDGES.GOOD) { points[player.number] = gameSettings.points[2]; }
+            else { points[player.number] = 0; }
         }
 
-        return areas;
+        return points;
     }
 }
 

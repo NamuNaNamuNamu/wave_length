@@ -1,5 +1,5 @@
 import { canvas } from "../../../../core/canvas/Canvas.js";
-import { PLAYERS } from "../../../../game/players.js";
+import { PLAYERS } from "../../../../game/player/players.js";
 
 export const drawBackGround = (context, color, backGroundPosX) => {
     const backGroundPosY = canvas.getWidth() * 0.05;
