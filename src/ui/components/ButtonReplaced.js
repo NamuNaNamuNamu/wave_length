@@ -40,8 +40,8 @@ export class ButtonReplaced {
         return isOverlappingX && isOverlappingY;
     }
 
-    executeOnClick() {
-        this.#onClick();
+    receiveClick(x, y) {
+        if(this.isClicked(x, y)) { this.#onClick(); }
     }
 }
 

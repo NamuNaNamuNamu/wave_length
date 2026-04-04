@@ -9,10 +9,7 @@ export function enableButtonTitle(buttons) {
         const posY = event.clientY - canvas.getBoundingClientRect().top;
         
         for(let button of buttons) {
-            if(button.isClicked(posX, posY)){
-                eventListenerManager.removeAllEventListener();
-                button.executeOnClick();
-            }
+            button.receiveClick(posX, posY);
         }
     }
 }
