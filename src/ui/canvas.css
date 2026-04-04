@@ -1,0 +1,6 @@
+/* 長押しによって canvas そのものが選択されちゃう現象を防ぐ */
+canvas {
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
+}
