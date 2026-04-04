@@ -1,0 +1,44 @@
+import { halfCircle } from "../ui/components/HalfCircle.js";
+import { degree_to_rad } from "../core/utils/degree.js";
+import { canvas } from "../core/canvas/Canvas.js";
+import { gameSettings } from "./states/gameSettings.js";
+import { JUDGES } from "./scoring/judges.js";
+
+
+class PointZone {
+    #answerDegree;
+
+    constructor({ answerDegree }) {
+        this.#answerDegree = answerDegree;
+    }
+
+    getAnswerDegree() {
+        return this.#answerDegree;
+    }
+
+    setRandom() {
+        this.#answerDegree = -Math.random() * 180;
+    }
+
+    draw(context) {
+        const COLORS = [JUDGES.GOOD.color, JUDGES.GREAT.color, JUDGES.PERFECT.color, JUDGES.GREAT.color, JUDGES.GOOD.color];
+        for(let i = 0; i < 5; i++){
+            // パスの開始
+            context.beginPath();
+            // 起点
+            context.moveTo(halfCircle.getCenterX(), halfCircle.getCenterY());
+            // 弧を指定
+            context.arc(halfCircle.getCenterX(), halfCircle.getCenterY(), halfCircle.getRadius(), degree_to_rad(this.#answerDegree - gameSettings.area_size * 2.5 + i * gameSettings.area_size), degree_to_rad(this.#answerDegree - gameSettings.area_size * 1.5 + i * gameSettings.area_size), false); // 引数: (円弧の中心の x 座標, 円弧の中心の y 座標, 半径, 始まりの角度[rad], 終わりの角度[rad], 反時計回り{true} or 時計回り{false})
+            // 塗りつぶし
+            context.fillStyle = COLORS[i];
+            context.fill();
+    
+            // はみ出した部分を抜き出す
+            // 灰色で染める
+            context.fillStyle = "rgb(230, 230, 230)";
+            context.fillRect(0, halfCircle.getCenterY(), canvas.getWidth(), canvas.getHeight() - halfCircle.getCenterY());
+        }
+    }
+}
+
+export const pointZone = new PointZone(-90);

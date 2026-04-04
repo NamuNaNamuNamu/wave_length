@@ -1,9 +1,6 @@
-//////////////
-// main関数 //
-/////////////
-
 //// お題 ////
-const questions = [
+
+export const questions = [
     //// もともとウェーブレングスにあるお題 ////
     // あ行
     ["熱い", "冷たい"],
@@ -76,37 +73,3 @@ const questions = [
     // わ行
 
 ];
-
-// 半円の中心の x, y 座標
-let center_of_arc_x;
-let center_of_arc_y;
-// 半円の半径
-let radius;
-
-function main(){
-    //// CANVASの用意 ////
-    let canvas = document.getElementById("canvas");
-    let context = canvas.getContext("2d");
-    // ウィンドウに合わせてゲーム画面の大きさ合わせ
-    if(document.documentElement.clientWidth > document.documentElement.clientHeight){
-        canvas.width = document.documentElement.clientHeight * 0.95;
-        canvas.height = document.documentElement.clientHeight * 0.95;
-    }
-    else{
-        canvas.width = document.documentElement.clientWidth * 0.95;
-        canvas.height = document.documentElement.clientWidth * 0.95;
-    }
-
-    // 半円の中心の x, y 座標
-    center_of_arc_x = canvas.width * 0.5;
-    center_of_arc_y = canvas.height * 0.6;
-    // 半円の半径
-    radius = canvas.width * 0.45;
-
-    //// タイトル画面を表示 ////
-    title(canvas, context);
-}
-
-
-// メイン関数実行
-main();
