@@ -13,7 +13,7 @@ class TitleScreen {
     }
 
     activate() {
-        enableButtonTitle(startButton, optionButton);
+        enableButtonTitle([startButton, optionButton]);
     }
 }
 
