@@ -1,6 +1,6 @@
 import { resultPointRenderer } from "../../components/ResultPointRenderer/ResultPointRenderer.js";
 import { scoreZoneDetector } from "../../../game/scoring/ScoreZoneDetector.js";
-import { Button } from "../../components/Button.js";
+import { Button } from "../../components/Button/Button.js";
 import { canvas } from "../../../core/canvas/Canvas.js";
 import { gameParams } from "../../../game/states/gameParams.js";
 import { enableButtonResult } from "./internal/enableButtonResult.js";
