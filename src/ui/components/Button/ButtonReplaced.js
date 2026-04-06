@@ -1,6 +1,7 @@
 // TODO: Button.js は後々これで置き換える。置き換えたら Button にリネーム。
 
-import { canvas } from "../../../core/canvas/Canvas.js";
+import { hScale, wScale } from "../../../core/canvas/utils/scale.js";
+import { isClicked } from "./internal/isClicked.js";
 
 export class ButtonReplaced {
     #posX
@@ -23,6 +24,22 @@ export class ButtonReplaced {
         this.#onClick = onClick ?? (() => {});
     }
 
+    getPosX () {
+        return this.#posX;
+    }
+
+    getPosY () {
+        return this.#posY;
+    }
+
+    getWidth () {
+        return this.#width;
+    }
+
+    getHeight () {
+        return this.#height;
+    }
+
     draw(context) {
         context.fillStyle = this.#buttonColor;
         context.fillRect(wScale(this.#posX - this.#width * 0.5), hScale(this.#posY - this.#height * 0.5), wScale(this.#width), hScale(this.#height));
@@ -34,21 +51,10 @@ export class ButtonReplaced {
     }
 
     isClicked(x, y) {
-        const isOverlappingX = x >= this.#posX - wScale(this.#width * 0.5) && x <= wScale(this.#posX + this.#width * 0.5);
-        const isOverlappingY = y >= hScale(this.#posY - this.#height * 0.5) && y <= hScale(this.#posY + this.#height * 0.5);
-
-        return isOverlappingX && isOverlappingY;
+        return isClicked(this, x, y);
     }
 
     receiveClick(x, y) {
         if(this.isClicked(x, y)) { this.#onClick(); }
     }
-}
-
-function wScale(width) {
-    return width * canvas.getWidth();
-}
-
-function hScale(height) {
-    return height * canvas.getHeight();
 }
