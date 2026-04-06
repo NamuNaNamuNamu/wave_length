@@ -1,6 +1,6 @@
 // TODO: Button.js は後々これで置き換える。置き換えたら Button にリネーム。
 
-import { canvas } from "../../core/canvas/Canvas.js";
+import { canvas } from "../../../core/canvas/Canvas.js";
 
 export class ButtonReplaced {
     #posX

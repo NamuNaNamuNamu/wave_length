@@ -1,4 +1,4 @@
-import { ButtonReplaced } from "../../../components/ButtonReplaced.js";
+import { ButtonReplaced } from "../../../components/Button/ButtonReplaced.js";
 import { eventListenerManager } from "../../EventListenerManager.js";
 import { ready } from "../../ready/ready.js";
 
