@@ -5,20 +5,20 @@ import { JUDGES } from "./judges.js";
 import { PLAYERS } from "../player/players.js";
 import { activePlayerChecker } from "../player/ActivePlayerChecker.js";
 
-class ScoreZoneDetector {
+class PointZoneDetector {
 
     constructor () {
 
     }
 
-    judge({ needleDegree, answerDegree, pointZoneAreaSize }) {
-        if (Math.abs(needleDegree - answerDegree) <= pointZoneAreaSize / 2) { return JUDGES.PERFECT; }
-        else if (Math.abs(needleDegree - answerDegree) <= pointZoneAreaSize / 2 * 3) { return JUDGES.GREAT; }
-        else if (Math.abs(needleDegree - answerDegree) <= pointZoneAreaSize / 2 * 5) { return JUDGES.GOOD; }
+    judge({ needleDegree, answerDegree, pointZoneSize }) {
+        if (Math.abs(needleDegree - answerDegree) <= pointZoneSize / 2) { return JUDGES.PERFECT; }
+        else if (Math.abs(needleDegree - answerDegree) <= pointZoneSize / 2 * 3) { return JUDGES.GREAT; }
+        else if (Math.abs(needleDegree - answerDegree) <= pointZoneSize / 2 * 5) { return JUDGES.GOOD; }
         else { return JUDGES.MISS; }
     }
 
-    judgeAll() { // TODO: 引数は右のようにする。 { needleDegrees, answerDegree, pointZoneAreaSize }
+    judgeAll() { // TODO: 引数は右のようにする。 { needleDegrees, answerDegree, pointZoneSize }
         let judges = {
             [PLAYERS.PLAYER1.number]: null,
             [PLAYERS.PLAYER2.number]: null,
@@ -29,7 +29,7 @@ class ScoreZoneDetector {
             let judge = this.judge({
                 needleDegree: needlesManager.getDegree(player.number),
                 answerDegree: pointZone.getAnswerDegree(),
-                pointZoneAreaSize: gameSettings.area_size
+                pointZoneSize: gameSettings.pointZoneSize
             });
 
             judges[player.number] = judge;
@@ -39,4 +39,4 @@ class ScoreZoneDetector {
     }
 }
 
-export const scoreZoneDetector = new ScoreZoneDetector();
+export const pointZoneDetector = new PointZoneDetector();

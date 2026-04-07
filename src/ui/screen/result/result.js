@@ -1,5 +1,5 @@
 import { resultPointRenderer } from "../../components/ResultPointRenderer/ResultPointRenderer.js";
-import { scoreZoneDetector } from "../../../game/scoring/ScoreZoneDetector.js";
+
 import { Button } from "../../components/Button/Button.js";
 import { canvas } from "../../../core/canvas/Canvas.js";
 import { gameParams } from "../../../game/states/gameParams.js";
@@ -9,6 +9,7 @@ import { pointZone } from "../../../game/PointZone.js";
 import { needlesManager } from "../../../game/needle/NeedlesManager.js";
 import { questionRenderer } from "../../components/QuestionRenderer/QuestionRenderer.js";
 import { resultPointFormatter } from "../../components/ResultPointRenderer/ResultPointFormatter.js";
+import { pointZoneDetector } from "../../../game/scoring/PointZoneDetector.js";
 
 //// 答え合わせフェーズ ////
 export function result(){
@@ -24,7 +25,7 @@ export function result(){
     questionRenderer.draw(canvas.getContext(), gameParams.question);
 
     // 点数の判定
-    const judges = scoreZoneDetector.judgeAll();
+    const judges = pointZoneDetector.judgeAll();
     const formattedJudges = resultPointFormatter.format(judges); // TODO: アウトプットを judges ではなく、scores にしたい。もっというと、renderer がアホになれる設計に組み替えたい。
     
     // 点数の描画

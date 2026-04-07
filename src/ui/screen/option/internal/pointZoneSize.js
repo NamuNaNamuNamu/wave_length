@@ -3,7 +3,7 @@ import { gameSettings } from "../../../../game/states/gameSettings.js";
 import { ImageButton } from "../../../components/Button/Button.js";
 import { canvas } from "../../../../core/canvas/Canvas.js";
 
-export function pointZoneWidth() {
+export function pointZoneSize() {
     textRenderer.drawGameSetting({
         context: canvas.getContext(),
         text: "得点ゾーン１つの大きさ(度)",
@@ -12,7 +12,7 @@ export function pointZoneWidth() {
     });
     textRenderer.drawGameSettingValue({
         context: canvas.getContext(),
-        value: gameSettings.area_size,
+        value: gameSettings.pointZoneSize,
         pos_x: canvas.getWidth() * 0.7,
         pos_y: canvas.getWidth() * 0.37
     });

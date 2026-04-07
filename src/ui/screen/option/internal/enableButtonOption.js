@@ -18,14 +18,14 @@ export function enableButtonOption(buttons) {
         buttons.left.numPlayers.receiveClick(posX, posY);
         buttons.right.numPlayers.receiveClick(posX, posY);
         // 左右ボタン2
-        if(buttons.left.pointZoneWidth.clicked(event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top)){
-            if(gameSettings.area_size > 5){
-                gameSettings.area_size -= 1;
+        if(buttons.left.pointZoneSize.clicked(event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top)){
+            if(gameSettings.pointZoneSize > 5){
+                gameSettings.pointZoneSize -= 1;
             }
         }
-        if(buttons.right.pointZoneWidth.clicked(event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top)){
-            if(gameSettings.area_size < 20){
-                gameSettings.area_size += 1;
+        if(buttons.right.pointZoneSize.clicked(event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top)){
+            if(gameSettings.pointZoneSize < 20){
+                gameSettings.pointZoneSize += 1;
             }
         }
         // 左右ボタン3
@@ -85,12 +85,12 @@ export function enableButtonOption(buttons) {
         });
         textRenderer.drawGameSettingValue({
             context: canvas.getContext(),
-            value: gameSettings.area_size,
+            value: gameSettings.pointZoneSize,
             pos_x: canvas.getWidth() * 0.7,
             pos_y: canvas.getWidth() * 0.37
         });
-        buttons.left.pointZoneWidth.draw();
-        buttons.right.pointZoneWidth.draw();
+        buttons.left.pointZoneSize.draw();
+        buttons.right.pointZoneSize.draw();
         textRenderer.drawGameSetting({
             context: canvas.getContext(),
             text: "得点ゾーン１の得点",
