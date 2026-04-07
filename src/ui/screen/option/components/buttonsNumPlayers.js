@@ -1,10 +1,11 @@
 import { gameSettings } from "../../../../game/states/gameSettings.js";
 import { ImageButtonReplaced } from "../../../components/Button/ImageButtonReplaced.js";
 import { screenManager } from "../../ScreenManager.js";
+import { controlNumPlayers } from "./controlNumPlayers.js";
 
 export const leftButtonNumPlayers = new ImageButtonReplaced({
-    posX: 0.6,
-    posY: 0.08,
+    posX: controlNumPlayers.getLeftButtonPosX(),
+    posY: controlNumPlayers.getLeftButtonPosY(),
     width: 0.1,
     height: 0.1,
     imageURL: "img/triangle_left.png",
@@ -17,8 +18,8 @@ export const leftButtonNumPlayers = new ImageButtonReplaced({
 });
 
 export const rightButtonNumPlayers = new ImageButtonReplaced({
-    posX: 0.8,
-    posY: 0.08,
+    posX: controlNumPlayers.getRightButtonPosX(),
+    posY: controlNumPlayers.getRightButtonPosY(),
     width: 0.1,
     height: 0.1,
     imageURL: "img/triangle_right.png",

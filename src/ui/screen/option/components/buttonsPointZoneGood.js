@@ -1,10 +1,11 @@
 import { gameSettings } from "../../../../game/states/gameSettings.js";
 import { ImageButtonReplaced } from "../../../components/Button/ImageButtonReplaced.js";
 import { screenManager } from "../../ScreenManager.js";
+import { controlPointZoneGood } from "./controlPointZoneGood.js";
 
 export const leftButtonPointZoneGood = new ImageButtonReplaced({
-    posX: 0.6,
-    posY: 0.73,
+    posX: controlPointZoneGood.getLeftButtonPosX(),
+    posY: controlPointZoneGood.getLeftButtonPosY(),
     width: 0.1,
     height: 0.1,
     imageURL: "img/triangle_left.png",
@@ -17,8 +18,8 @@ export const leftButtonPointZoneGood = new ImageButtonReplaced({
 });
 
 export const rightButtonPointZoneGood = new ImageButtonReplaced({
-    posX: 0.8,
-    posY: 0.73,
+    posX: controlPointZoneGood.getRightButtonPosX(),
+    posY: controlPointZoneGood.getRightButtonPosY(),
     width: 0.1,
     height: 0.1,
     imageURL: "img/triangle_right.png",
