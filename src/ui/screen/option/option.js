@@ -8,6 +8,7 @@ import { pointZoneGood } from "./internal/pointZoneGood.js";
 import { pointZoneSize } from "./internal/pointZoneSize.js";
 import { leftButtonNumPlayers, rightButtonNumPlayers } from "./components/buttonsNumPlayers.js";
 import { leftButtonPointZoneSize, rightButtonPointZoneSize } from "./components/buttonsPointZoneSize.js";
+import { leftButtonPointZonePerfect, rightButtonPointZonePerfect } from "./components/buttonsPointZonePerfect.js";
 
 //// 設定画面 ////
 export function option(){
@@ -22,7 +23,11 @@ export function option(){
     leftButtonPointZoneSize.draw(canvas.getContext());
     rightButtonPointZoneSize.draw(canvas.getContext());
     pointZoneSize();
-    let [left_button3, right_button3] = pointZonePerfect();
+    leftButtonPointZonePerfect.show();
+    rightButtonPointZonePerfect.show();
+    leftButtonPointZonePerfect.draw(canvas.getContext());
+    rightButtonPointZonePerfect.draw(canvas.getContext());
+    pointZonePerfect();
     let [left_button4, right_button4] = pointZoneGreat();
     let [left_button5, right_button5] = pointZoneGood();
 
@@ -45,8 +50,8 @@ export function option(){
     buttons.right.numPlayers = rightButtonNumPlayers;
     buttons.left.pointZoneSize = leftButtonPointZoneSize;
     buttons.right.pointZoneSize = rightButtonPointZoneSize;
-    buttons.left.pointZonePerfect = left_button3;
-    buttons.right.pointZonePerfect = right_button3;
+    buttons.left.pointZonePerfect = leftButtonPointZonePerfect;
+    buttons.right.pointZonePerfect = rightButtonPointZonePerfect;
     buttons.left.pointZoneGreat = left_button4;
     buttons.right.pointZoneGreat = right_button4;
     buttons.left.pointZoneGood = left_button5;

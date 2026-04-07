@@ -7,6 +7,7 @@ import { eventListenerManager } from "../../EventListenerManager.js";
 import { leftButtonNumPlayers, rightButtonNumPlayers } from "../components/buttonsNumPlayers.js";
 import { numPlayers } from "./numPlayers.js";
 import { pointZoneSize } from "./pointZoneSize.js";
+import { pointZonePerfect } from "./pointZonePerfect.js";
 
 export function enableButtonOption(buttons) {
     eventListenerManager.addEventListener("mousedown", mousedownListener, false);
@@ -23,16 +24,8 @@ export function enableButtonOption(buttons) {
         buttons.left.pointZoneSize.receiveClick(posX, posY);
         buttons.right.pointZoneSize.receiveClick(posX, posY);
         // 左右ボタン3
-        if(buttons.left.pointZonePerfect.clicked(event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top)){
-            if(gameSettings.points[0] > 1){
-                gameSettings.points[0] -= 1;
-            }
-        }
-        if(buttons.right.pointZonePerfect.clicked(event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top)){
-            if(gameSettings.points[0] < 10){
-                gameSettings.points[0] += 1;
-            }
-        }
+        buttons.left.pointZonePerfect.receiveClick(posX, posY);
+        buttons.right.pointZonePerfect.receiveClick(posX, posY);
         // 左右ボタン4
         if(buttons.left.pointZoneGreat.clicked(event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top)){
             if(gameSettings.points[1] > 1){
@@ -63,20 +56,9 @@ export function enableButtonOption(buttons) {
         pointZoneSize();
         buttons.left.pointZoneSize.draw(canvas.getContext());
         buttons.right.pointZoneSize.draw(canvas.getContext());
-        textRenderer.drawGameSetting({
-            context: canvas.getContext(),
-            text: "得点ゾーン１の得点",
-            pos_x: canvas.getWidth() * 0.03,
-            pos_y: canvas.getWidth() * 0.55
-        });
-        textRenderer.drawGameSettingValue({
-            context: canvas.getContext(),
-            value: gameSettings.points[0],
-            pos_x: canvas.getWidth() * 0.7,
-            pos_y: canvas.getWidth() * 0.55
-        });
-        buttons.left.pointZonePerfect.draw();
-        buttons.right.pointZonePerfect.draw();
+        pointZonePerfect();
+        buttons.left.pointZonePerfect.draw(canvas.getContext());
+        buttons.right.pointZonePerfect.draw(canvas.getContext());
         textRenderer.drawGameSetting({
             context: canvas.getContext(),
             text: "得点ゾーン２の得点",
