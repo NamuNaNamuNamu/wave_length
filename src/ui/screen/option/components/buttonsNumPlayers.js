@@ -1,5 +1,6 @@
 import { gameSettings } from "../../../../game/states/gameSettings.js";
 import { ImageButtonReplaced } from "../../../components/Button/ImageButtonReplaced.js";
+import { screenManager } from "../../ScreenManager.js";
 
 export const leftButtonNumPlayers = new ImageButtonReplaced({
     posX: 0.6,
@@ -10,6 +11,7 @@ export const leftButtonNumPlayers = new ImageButtonReplaced({
     onClick: () => {
         if(gameSettings.numPlayers > 2){
             gameSettings.numPlayers -= 1;
+            screenManager.reDraw();
         }
     }
 });
@@ -23,6 +25,7 @@ export const rightButtonNumPlayers = new ImageButtonReplaced({
     onClick: () => {
         if(gameSettings.numPlayers < 4){
             gameSettings.numPlayers += 1;
+            screenManager.reDraw();
         }
     }
 });

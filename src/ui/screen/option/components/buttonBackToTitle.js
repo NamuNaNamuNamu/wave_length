@@ -8,9 +8,5 @@ export const buttonBackToTitle = new ButtonReplaced({
     width: 0.7,
     height: 0.15,
     text: "戻る",
-    onClick: temp
+    onClick: () => { screenManager.navigateTo(titleScreen); }
 });
-
-function temp () {
-    screenManager.navigateTo(titleScreen);
-}

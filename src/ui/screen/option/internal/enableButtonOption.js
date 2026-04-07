@@ -35,25 +35,6 @@ export function enableButtonOption() {
         leftButtonPointZoneGood.receiveClick(posX, posY);
         rightButtonPointZoneGood.receiveClick(posX, posY);
 
-        canvas.reset();
-        numPlayers();
-        leftButtonNumPlayers.draw(canvas.getContext());
-        rightButtonNumPlayers.draw(canvas.getContext());
-        pointZoneSize();
-        leftButtonPointZoneSize.draw(canvas.getContext());
-        rightButtonPointZoneSize.draw(canvas.getContext());
-        pointZonePerfect();
-        leftButtonPointZonePerfect.draw(canvas.getContext());
-        rightButtonPointZonePerfect.draw(canvas.getContext());
-        pointZoneGreat();
-        leftButtonPointZoneGreat.draw(canvas.getContext());
-        rightButtonPointZoneGreat.draw(canvas.getContext());
-        pointZoneGood();
-        leftButtonPointZoneGood.draw(canvas.getContext());
-        rightButtonPointZoneGood.draw(canvas.getContext());
-
-        buttonBackToTitle.draw(canvas.getContext());
-
         buttonBackToTitle.receiveClick(posX, posY);
     }
 }

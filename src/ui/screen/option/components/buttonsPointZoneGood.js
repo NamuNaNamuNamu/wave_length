@@ -1,5 +1,6 @@
 import { gameSettings } from "../../../../game/states/gameSettings.js";
 import { ImageButtonReplaced } from "../../../components/Button/ImageButtonReplaced.js";
+import { screenManager } from "../../ScreenManager.js";
 
 export const leftButtonPointZoneGood = new ImageButtonReplaced({
     posX: 0.6,
@@ -10,6 +11,7 @@ export const leftButtonPointZoneGood = new ImageButtonReplaced({
     onClick: () => {
         if(gameSettings.points.good > 1){
             gameSettings.points.good -= 1;
+            screenManager.reDraw();
         }
     }
 });
@@ -23,6 +25,7 @@ export const rightButtonPointZoneGood = new ImageButtonReplaced({
     onClick: () => {
         if(gameSettings.points.good < 10){
             gameSettings.points.good += 1;
+            screenManager.reDraw();
         }
     }
 });

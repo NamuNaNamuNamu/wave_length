@@ -1,5 +1,6 @@
 import { gameSettings } from "../../../../game/states/gameSettings.js";
 import { ImageButtonReplaced } from "../../../components/Button/ImageButtonReplaced.js";
+import { screenManager } from "../../ScreenManager.js";
 
 export const leftButtonPointZoneSize = new ImageButtonReplaced({
     posX: 0.6,
@@ -10,6 +11,7 @@ export const leftButtonPointZoneSize = new ImageButtonReplaced({
     onClick: () => {
         if(gameSettings.pointZoneSize > 5){
             gameSettings.pointZoneSize -= 1;
+            screenManager.reDraw();
         }
     }
 });
@@ -23,6 +25,7 @@ export const rightButtonPointZoneSize = new ImageButtonReplaced({
     onClick: () => {
         if(gameSettings.pointZoneSize < 20){
             gameSettings.pointZoneSize += 1;
+            screenManager.reDraw();
         }
     }
 });
