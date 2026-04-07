@@ -50,11 +50,11 @@ export class ButtonReplaced {
         context.fillText(this.#text, wScale(this.#posX), hScale(this.#posY + this.#height * 0.3));
     }
 
-    isClicked(x, y) {
+    #isClicked(x, y) {
         return isClicked(this, x, y);
     }
 
     receiveClick(x, y) {
-        if(this.isClicked(x, y)) { this.#onClick(); }
+        if(this.#isClicked(x, y)) { this.#onClick(); }
     }
 }
