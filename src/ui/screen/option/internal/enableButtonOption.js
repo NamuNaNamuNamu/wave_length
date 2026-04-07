@@ -1,6 +1,4 @@
 import { canvas } from "../../../../core/canvas/Canvas.js";
-import { screenManager } from "../../ScreenManager.js";
-import { titleScreen } from "../../title/TitleScreen.js";
 import { eventListenerManager } from "../../EventListenerManager.js";
 import { numPlayers } from "./numPlayers.js";
 import { pointZoneSize } from "./pointZoneSize.js";
@@ -12,12 +10,12 @@ import { leftButtonPointZoneSize, rightButtonPointZoneSize } from "../components
 import { leftButtonPointZonePerfect, rightButtonPointZonePerfect } from "../components/buttonsPointZonePerfect.js";
 import { leftButtonPointZoneGreat, rightButtonPointZoneGreat } from "../components/buttonsPointZoneGreat.js";
 import { leftButtonPointZoneGood, rightButtonPointZoneGood } from "../components/buttonsPointZoneGood.js";
+import { buttonBackToTitle } from "../components/buttonBackToTitle.js";
 
-export function enableButtonOption(buttons) {
+export function enableButtonOption() {
     eventListenerManager.addEventListener("mousedown", mousedownListener, false);
     function mousedownListener(event){
         event.preventDefault();
-        let canvas_rectangle = canvas.getBoundingClientRect();
 
         const posX = event.clientX - canvas.getBoundingClientRect().left;
         const posY = event.clientY - canvas.getBoundingClientRect().top;
@@ -53,21 +51,9 @@ export function enableButtonOption(buttons) {
         pointZoneGood();
         leftButtonPointZoneGood.draw(canvas.getContext());
         rightButtonPointZoneGood.draw(canvas.getContext());
-        buttons.back_to_title.draw();
 
-        // スタートボタンがクリックされたらお題出題フェーズに移行する
-        if(buttons.back_to_title.clicked(event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top)){
-            leftButtonNumPlayers.hide();
-            rightButtonNumPlayers.hide();
-            leftButtonPointZoneSize.hide();
-            rightButtonPointZoneSize.hide();
-            leftButtonPointZonePerfect.hide();
-            rightButtonPointZonePerfect.hide();
-            leftButtonPointZoneGreat.hide();
-            rightButtonPointZoneGreat.hide();
-            leftButtonPointZoneGood.hide();
-            rightButtonPointZoneGood.hide();
-            screenManager.navigateTo(titleScreen);
-        }
+        buttonBackToTitle.draw(canvas.getContext());
+
+        buttonBackToTitle.receiveClick(posX, posY);
     }
 }

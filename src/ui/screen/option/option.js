@@ -1,4 +1,3 @@
-import { Button } from "../../components/Button/Button.js";
 import { canvas } from "../../../core/canvas/Canvas.js";
 import { enableButtonOption } from "./internal/enableButtonOption.js";
 import { numPlayers } from "./internal/numPlayers.js";
@@ -11,6 +10,7 @@ import { leftButtonPointZoneSize, rightButtonPointZoneSize } from "./components/
 import { leftButtonPointZonePerfect, rightButtonPointZonePerfect } from "./components/buttonsPointZonePerfect.js";
 import { leftButtonPointZoneGreat, rightButtonPointZoneGreat } from "./components/buttonsPointZoneGreat.js";
 import { leftButtonPointZoneGood, rightButtonPointZoneGood } from "./components/buttonsPointZoneGood.js";
+import { buttonBackToTitle } from "./components/buttonBackToTitle.js";
 
 //// 設定画面 ////
 export function option(){
@@ -42,22 +42,7 @@ export function option(){
     pointZoneGood();
 
     // タイトルに戻るボタンの描画
-    let back_to_title_button = new Button(
-        canvas.getWidth() * 0.5,     // x座標
-        canvas.getHeight() * 0.9,    // y座標
-        canvas.getWidth() * 0.7,     // 横幅
-        canvas.getHeight() * 0.15,   // 縦幅
-        "戻る",              // テキスト
-        "rgb(250, 200, 200)",   // ボタンカラー
-    );
-    back_to_title_button.draw();
+    buttonBackToTitle.draw(canvas.getContext());
 
-    let buttons = {
-        left: {},
-        right: {}
-    };
-
-    buttons.back_to_title = back_to_title_button;
-
-    enableButtonOption(buttons);
+    enableButtonOption();
 }
