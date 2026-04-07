@@ -17,28 +17,18 @@ class OptionScreen {
     }
 
     draw(context) {
-        leftButtonNumPlayers.show();
-        rightButtonNumPlayers.show();
         leftButtonNumPlayers.draw(context);
         rightButtonNumPlayers.draw(context);
         numPlayers();
-        leftButtonPointZoneSize.show();
-        rightButtonPointZoneSize.show();
         leftButtonPointZoneSize.draw(context);
         rightButtonPointZoneSize.draw(context);
         pointZoneSize();
-        leftButtonPointZonePerfect.show();
-        rightButtonPointZonePerfect.show();
         leftButtonPointZonePerfect.draw(context);
         rightButtonPointZonePerfect.draw(context);
         pointZonePerfect();
-        leftButtonPointZoneGreat.show();
-        rightButtonPointZoneGreat.show();
         leftButtonPointZoneGreat.draw(context);
         rightButtonPointZoneGreat.draw(context);
         pointZoneGreat();
-        leftButtonPointZoneGood.show();
-        rightButtonPointZoneGood.show();
         leftButtonPointZoneGood.draw(context);
         rightButtonPointZoneGood.draw(context);
         pointZoneGood();

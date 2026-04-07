@@ -7,7 +7,6 @@ export const leftButtonNumPlayers = new ImageButtonReplaced({
     width: 0.1,
     height: 0.1,
     imageURL: "img/triangle_left.png",
-    isVisible: false,
     onClick: () => {
         if(gameSettings.numPlayers > 2){
             gameSettings.numPlayers -= 1;
@@ -21,7 +20,6 @@ export const rightButtonNumPlayers = new ImageButtonReplaced({
     width: 0.1,
     height: 0.1,
     imageURL: "img/triangle_right.png",
-    isVisible: false,
     onClick: () => {
         if(gameSettings.numPlayers < 4){
             gameSettings.numPlayers += 1;

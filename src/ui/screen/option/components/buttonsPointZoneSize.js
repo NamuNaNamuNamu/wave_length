@@ -7,7 +7,6 @@ export const leftButtonPointZoneSize = new ImageButtonReplaced({
     width: 0.1,
     height: 0.1,
     imageURL: "img/triangle_left.png",
-    isVisible: false,
     onClick: () => {
         if(gameSettings.pointZoneSize > 5){
             gameSettings.pointZoneSize -= 1;
@@ -21,7 +20,6 @@ export const rightButtonPointZoneSize = new ImageButtonReplaced({
     width: 0.1,
     height: 0.1,
     imageURL: "img/triangle_right.png",
-    isVisible: false,
     onClick: () => {
         if(gameSettings.pointZoneSize < 20){
             gameSettings.pointZoneSize += 1;

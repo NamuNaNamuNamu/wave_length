@@ -1,6 +1,7 @@
 // TODO: Button.js の ImageButton は後々これで置き換える。置き換えたら ImageButton にリネーム。
 
 import { wScale, hScale } from "../../../core/canvas/utils/scale.js";
+import { screenManager } from "../../screen/ScreenManager.js";
 import { isClicked } from "./internal/isClicked.js";
 
 export class ImageButtonReplaced {
@@ -9,16 +10,14 @@ export class ImageButtonReplaced {
     #width;
     #height;
     #image;
-    #isVisible;
     #onClick;
 
-    constructor ({ posX, posY, width, height, imageURL, isVisible, onClick }) {
+    constructor ({ posX, posY, width, height, imageURL, onClick }) {
         this.#posX = posX;
         this.#posY = posY;
         this.#width = width;
         this.#height = height;
         this.#image = this.#load(imageURL);
-        this.#isVisible = isVisible;
         this.#onClick = onClick ?? (() => {});
     }
 
@@ -65,9 +64,7 @@ export class ImageButtonReplaced {
         }
 
         this.#image.onload = () => {
-            if (this.#isVisible) {
-                drawImage(context);
-            }
+            screenManager.reDraw();
         }
     }
 
@@ -77,13 +74,5 @@ export class ImageButtonReplaced {
     
     receiveClick (x, y) {
         if(this.#isClicked(x, y)) { this.#onClick(); }
-    }
-
-    show () {
-        this.#isVisible = true;
-    }
-
-    hide () {
-        this.#isVisible = false;
     }
 }
