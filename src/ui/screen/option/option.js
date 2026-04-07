@@ -10,6 +10,7 @@ import { leftButtonNumPlayers, rightButtonNumPlayers } from "./components/button
 import { leftButtonPointZoneSize, rightButtonPointZoneSize } from "./components/buttonsPointZoneSize.js";
 import { leftButtonPointZonePerfect, rightButtonPointZonePerfect } from "./components/buttonsPointZonePerfect.js";
 import { leftButtonPointZoneGreat, rightButtonPointZoneGreat } from "./components/buttonsPointZoneGreat.js";
+import { leftButtonPointZoneGood, rightButtonPointZoneGood } from "./components/buttonsPointZoneGood.js";
 
 //// 設定画面 ////
 export function option(){
@@ -34,7 +35,11 @@ export function option(){
     leftButtonPointZoneGreat.draw(canvas.getContext());
     rightButtonPointZoneGreat.draw(canvas.getContext());
     pointZoneGreat();
-    let [left_button5, right_button5] = pointZoneGood();
+    leftButtonPointZoneGood.show();
+    rightButtonPointZoneGood.show();
+    leftButtonPointZoneGood.draw(canvas.getContext());
+    rightButtonPointZoneGood.draw(canvas.getContext());
+    pointZoneGood();
 
     // タイトルに戻るボタンの描画
     let back_to_title_button = new Button(
@@ -52,8 +57,6 @@ export function option(){
         right: {}
     };
 
-    buttons.left.pointZoneGood = left_button5;
-    buttons.right.pointZoneGood = right_button5;
     buttons.back_to_title = back_to_title_button;
 
     enableButtonOption(buttons);
