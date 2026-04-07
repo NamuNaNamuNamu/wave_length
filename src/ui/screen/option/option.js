@@ -7,6 +7,7 @@ import { pointZone2 } from "./internal/pointZone2.js";
 import { pointZone3 } from "./internal/pointZone3.js";
 import { pointZoneSize } from "./internal/pointZoneSize.js";
 import { leftButtonNumPlayers, rightButtonNumPlayers } from "./components/buttonsNumPlayers.js";
+import { leftButtonPointZoneSize, rightButtonPointZoneSize } from "./components/buttonsPointZoneSize.js";
 
 //// 設定画面 ////
 export function option(){
@@ -16,7 +17,11 @@ export function option(){
     leftButtonNumPlayers.draw(canvas.getContext());
     rightButtonNumPlayers.draw(canvas.getContext());
     numPlayers();
-    let [left_button2, right_button2] = pointZoneSize();
+    leftButtonPointZoneSize.show();
+    rightButtonPointZoneSize.show();
+    leftButtonPointZoneSize.draw(canvas.getContext());
+    rightButtonPointZoneSize.draw(canvas.getContext());
+    pointZoneSize();
     let [left_button3, right_button3] = pointZone1();
     let [left_button4, right_button4] = pointZone2();
     let [left_button5, right_button5] = pointZone3();
@@ -38,8 +43,8 @@ export function option(){
     };
     buttons.left.numPlayers = leftButtonNumPlayers;
     buttons.right.numPlayers = rightButtonNumPlayers;
-    buttons.left.pointZoneSize = left_button2;
-    buttons.right.pointZoneSize = right_button2;
+    buttons.left.pointZoneSize = leftButtonPointZoneSize;
+    buttons.right.pointZoneSize = rightButtonPointZoneSize;
     buttons.left.pointZone1 = left_button3;
     buttons.right.pointZone1 = right_button3;
     buttons.left.pointZone2 = left_button4;
