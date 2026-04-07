@@ -1,6 +1,5 @@
 import { textRenderer } from "./TextRenderer.js";
 import { gameSettings } from "../../../../game/states/gameSettings.js";
-import { ImageButton } from "../../../components/Button/Button.js";
 import { canvas } from "../../../../core/canvas/Canvas.js";
 
 export function pointZoneSize() {

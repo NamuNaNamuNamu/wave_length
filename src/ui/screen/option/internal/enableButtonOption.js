@@ -5,6 +5,8 @@ import { screenManager } from "../../ScreenManager.js";
 import { titleScreen } from "../../title/TitleScreen.js";
 import { eventListenerManager } from "../../EventListenerManager.js";
 import { leftButtonNumPlayers, rightButtonNumPlayers } from "../components/buttonsNumPlayers.js";
+import { numPlayers } from "./numPlayers.js";
+import { pointZoneSize } from "./pointZoneSize.js";
 
 export function enableButtonOption(buttons) {
     eventListenerManager.addEventListener("mousedown", mousedownListener, false);
@@ -55,32 +57,10 @@ export function enableButtonOption(buttons) {
         }
 
         canvas.reset();
-        textRenderer.drawGameSetting({
-            context: canvas.getContext(),
-            text: "プレイヤー数",
-            pos_x: canvas.getWidth() * 0.03,
-            pos_y: canvas.getWidth() * 0.1
-        });
-        textRenderer.drawGameSettingValue({
-            context: canvas.getContext(),
-            value: gameSettings.num_of_player,
-            pos_x: canvas.getWidth() * 0.7,
-            pos_y: canvas.getWidth() * 0.1
-        });
+        numPlayers();
         buttons.left.numPlayers.draw(canvas.getContext());
         buttons.right.numPlayers.draw(canvas.getContext());
-        textRenderer.drawGameSetting({
-            context: canvas.getContext(),
-            text: "得点ゾーン１つの大きさ(度)",
-            pos_x: canvas.getWidth() * 0.03,
-            pos_y: canvas.getWidth() * 0.27
-        });
-        textRenderer.drawGameSettingValue({
-            context: canvas.getContext(),
-            value: gameSettings.pointZoneSize,
-            pos_x: canvas.getWidth() * 0.7,
-            pos_y: canvas.getWidth() * 0.37
-        });
+        pointZoneSize();
         buttons.left.pointZoneSize.draw(canvas.getContext());
         buttons.right.pointZoneSize.draw(canvas.getContext());
         textRenderer.drawGameSetting({
