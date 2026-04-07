@@ -9,17 +9,17 @@ class ActivePlayerChecker {
     }
 
     getActivePlayer () {
-        if (gameSettings.num_of_player === 2) {
+        if (gameSettings.numPlayers === 2) {
             return [PLAYERS.PLAYER1];
         }
-        if (gameSettings.num_of_player === 3) {
+        if (gameSettings.numPlayers === 3) {
             return [PLAYERS.PLAYER1, PLAYERS.PLAYER2];
         }
-        if (gameSettings.num_of_player === 4) {
+        if (gameSettings.numPlayers === 4) {
             return [PLAYERS.PLAYER1, PLAYERS.PLAYER2, PLAYERS.PLAYER3];
         }
         else {
-            throw Error("設定のプレイヤー数が想定しない値になっています。想定しない値: " + gameSettings.num_of_player);
+            throw Error("設定のプレイヤー数が想定しない値になっています。想定しない値: " + gameSettings.numPlayers);
         }
     }
 

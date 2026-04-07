@@ -11,7 +11,7 @@ export function numPlayers() {
     });
     textRenderer.drawGameSettingValue({
         context: canvas.getContext(),
-        value: gameSettings.num_of_player,
+        value: gameSettings.numPlayers,
         pos_x: canvas.getWidth() * 0.7,
         pos_y: canvas.getWidth() * 0.1
     });
