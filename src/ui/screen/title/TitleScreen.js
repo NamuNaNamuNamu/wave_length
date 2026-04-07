@@ -1,19 +1,31 @@
+import { dispatchPointerToButtons } from "../../input/dispatchPointerToButtons.js";
+import { pointerInput } from "../../input/PointerInput.js";
 import { optionButton } from "./components/optionButton.js";
 import { startButton } from "./components/startButton.js";
-import { enableButtonTitle } from "./internal/enableButtonTitle.js";
 
 class TitleScreen {
-    constructor() {
+    #buttons;
 
+    constructor() {
+        this.#buttons = [
+            startButton,
+            optionButton
+        ];
     }
 
     draw(context) {
-        startButton.draw(context);
-        optionButton.draw(context);
+        for (let button of this.#buttons) {
+            button.draw(context);
+        }
     }
 
     activate() {
-        enableButtonTitle([startButton, optionButton]);
+        pointerInput.onPointerDown((pointer) => {
+            dispatchPointerToButtons({
+                pointer: pointer,
+                buttons: this.#buttons
+            });
+        });
     }
 }
 
