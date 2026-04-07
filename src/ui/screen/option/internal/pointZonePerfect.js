@@ -3,10 +3,10 @@ import { gameSettings } from "../../../../game/states/gameSettings.js";
 import { ImageButton } from "../../../components/Button/Button.js";
 import { canvas } from "../../../../core/canvas/Canvas.js";
 
-export function pointZone1() {
+export function pointZonePerfect() {
     textRenderer.drawGameSetting({
         context: canvas.getContext(),
-        text: "得点ゾーン１の得点",
+        text: "得点ゾーン１の得点", // TODO: 名称を変更する。得点ゾーン関連の設定は親をまとめてもいいかも。
         pos_x: canvas.getWidth() * 0.03,
         pos_y: canvas.getWidth() * 0.55
     });

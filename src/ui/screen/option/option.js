@@ -2,9 +2,9 @@ import { Button } from "../../components/Button/Button.js";
 import { canvas } from "../../../core/canvas/Canvas.js";
 import { enableButtonOption } from "./internal/enableButtonOption.js";
 import { numPlayers } from "./internal/numPlayers.js";
-import { pointZone1 } from "./internal/pointZone1.js";
-import { pointZone2 } from "./internal/pointZone2.js";
-import { pointZone3 } from "./internal/pointZone3.js";
+import { pointZonePerfect } from "./internal/pointZonePerfect.js";
+import { pointZoneGreat } from "./internal/pointZoneGreat.js";
+import { pointZoneGood } from "./internal/pointZoneGood.js";
 import { pointZoneSize } from "./internal/pointZoneSize.js";
 import { leftButtonNumPlayers, rightButtonNumPlayers } from "./components/buttonsNumPlayers.js";
 import { leftButtonPointZoneSize, rightButtonPointZoneSize } from "./components/buttonsPointZoneSize.js";
@@ -22,9 +22,9 @@ export function option(){
     leftButtonPointZoneSize.draw(canvas.getContext());
     rightButtonPointZoneSize.draw(canvas.getContext());
     pointZoneSize();
-    let [left_button3, right_button3] = pointZone1();
-    let [left_button4, right_button4] = pointZone2();
-    let [left_button5, right_button5] = pointZone3();
+    let [left_button3, right_button3] = pointZonePerfect();
+    let [left_button4, right_button4] = pointZoneGreat();
+    let [left_button5, right_button5] = pointZoneGood();
 
     // タイトルに戻るボタンの描画
     let back_to_title_button = new Button(
@@ -45,12 +45,12 @@ export function option(){
     buttons.right.numPlayers = rightButtonNumPlayers;
     buttons.left.pointZoneSize = leftButtonPointZoneSize;
     buttons.right.pointZoneSize = rightButtonPointZoneSize;
-    buttons.left.pointZone1 = left_button3;
-    buttons.right.pointZone1 = right_button3;
-    buttons.left.pointZone2 = left_button4;
-    buttons.right.pointZone2 = right_button4;
-    buttons.left.pointZone3 = left_button5;
-    buttons.right.pointZone3 = right_button5;
+    buttons.left.pointZonePerfect = left_button3;
+    buttons.right.pointZonePerfect = right_button3;
+    buttons.left.pointZoneGreat = left_button4;
+    buttons.right.pointZoneGreat = right_button4;
+    buttons.left.pointZoneGood = left_button5;
+    buttons.right.pointZoneGood = right_button5;
     buttons.back_to_title = back_to_title_button;
 
     enableButtonOption(buttons);
