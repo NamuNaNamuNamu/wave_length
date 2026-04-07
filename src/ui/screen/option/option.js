@@ -46,12 +46,7 @@ export function option(){
         left: {},
         right: {}
     };
-    buttons.left.numPlayers = leftButtonNumPlayers;
-    buttons.right.numPlayers = rightButtonNumPlayers;
-    buttons.left.pointZoneSize = leftButtonPointZoneSize;
-    buttons.right.pointZoneSize = rightButtonPointZoneSize;
-    buttons.left.pointZonePerfect = leftButtonPointZonePerfect;
-    buttons.right.pointZonePerfect = rightButtonPointZonePerfect;
+
     buttons.left.pointZoneGreat = left_button4;
     buttons.right.pointZoneGreat = right_button4;
     buttons.left.pointZoneGood = left_button5;
