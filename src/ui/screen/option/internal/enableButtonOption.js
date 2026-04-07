@@ -7,9 +7,11 @@ import { eventListenerManager } from "../../EventListenerManager.js";
 import { numPlayers } from "./numPlayers.js";
 import { pointZoneSize } from "./pointZoneSize.js";
 import { pointZonePerfect } from "./pointZonePerfect.js";
+import { pointZoneGreat } from "./pointZoneGreat.js";
 import { leftButtonNumPlayers, rightButtonNumPlayers } from "../components/buttonsNumPlayers.js";
 import { leftButtonPointZoneSize, rightButtonPointZoneSize } from "../components/buttonsPointZoneSize.js";
 import { leftButtonPointZonePerfect, rightButtonPointZonePerfect } from "../components/buttonsPointZonePerfect.js";
+import { leftButtonPointZoneGreat, rightButtonPointZoneGreat } from "../components/buttonsPointZoneGreat.js";
 
 export function enableButtonOption(buttons) {
     eventListenerManager.addEventListener("mousedown", mousedownListener, false);
@@ -29,16 +31,8 @@ export function enableButtonOption(buttons) {
         leftButtonPointZonePerfect.receiveClick(posX, posY);
         rightButtonPointZonePerfect.receiveClick(posX, posY);
         // 左右ボタン4
-        if(buttons.left.pointZoneGreat.clicked(event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top)){
-            if(gameSettings.points.great > 1){
-                gameSettings.points.great -= 1;
-            }
-        }
-        if(buttons.right.pointZoneGreat.clicked(event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top)){
-            if(gameSettings.points.great < 10){
-                gameSettings.points.great += 1;
-            }
-        }
+        leftButtonPointZoneGreat.receiveClick(posX, posY);
+        rightButtonPointZoneGreat.receiveClick(posX, posY);
         // 左右ボタン5
         if(buttons.left.pointZoneGood.clicked(event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top)){
             if(gameSettings.points.good > 1){
@@ -61,20 +55,9 @@ export function enableButtonOption(buttons) {
         pointZonePerfect();
         leftButtonPointZonePerfect.draw(canvas.getContext());
         rightButtonPointZonePerfect.draw(canvas.getContext());
-        textRenderer.drawGameSetting({
-            context: canvas.getContext(),
-            text: "得点ゾーン２の得点",
-            pos_x: canvas.getWidth() * 0.03,
-            pos_y: canvas.getWidth() * 0.65
-        });
-        textRenderer.drawGameSettingValue({
-            context: canvas.getContext(),
-            value: gameSettings.points.great,
-            pos_x: canvas.getWidth() * 0.7,
-            pos_y: canvas.getWidth() * 0.65
-        });
-        buttons.left.pointZoneGreat.draw();
-        buttons.right.pointZoneGreat.draw();
+        pointZoneGreat();
+        leftButtonPointZoneGreat.draw(canvas.getContext());
+        rightButtonPointZoneGreat.draw(canvas.getContext());
         textRenderer.drawGameSetting({
             context: canvas.getContext(),
             text: "得点ゾーン３の得点",
@@ -99,6 +82,8 @@ export function enableButtonOption(buttons) {
             rightButtonPointZoneSize.hide();
             leftButtonPointZonePerfect.hide();
             rightButtonPointZonePerfect.hide();
+            leftButtonPointZoneGreat.hide();
+            rightButtonPointZoneGreat.hide();
             screenManager.navigateTo(titleScreen);
         }
     }

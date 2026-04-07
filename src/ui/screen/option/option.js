@@ -9,6 +9,7 @@ import { pointZoneSize } from "./internal/pointZoneSize.js";
 import { leftButtonNumPlayers, rightButtonNumPlayers } from "./components/buttonsNumPlayers.js";
 import { leftButtonPointZoneSize, rightButtonPointZoneSize } from "./components/buttonsPointZoneSize.js";
 import { leftButtonPointZonePerfect, rightButtonPointZonePerfect } from "./components/buttonsPointZonePerfect.js";
+import { leftButtonPointZoneGreat, rightButtonPointZoneGreat } from "./components/buttonsPointZoneGreat.js";
 
 //// 設定画面 ////
 export function option(){
@@ -28,7 +29,11 @@ export function option(){
     leftButtonPointZonePerfect.draw(canvas.getContext());
     rightButtonPointZonePerfect.draw(canvas.getContext());
     pointZonePerfect();
-    let [left_button4, right_button4] = pointZoneGreat();
+    leftButtonPointZoneGreat.show();
+    rightButtonPointZoneGreat.show();
+    leftButtonPointZoneGreat.draw(canvas.getContext());
+    rightButtonPointZoneGreat.draw(canvas.getContext());
+    pointZoneGreat();
     let [left_button5, right_button5] = pointZoneGood();
 
     // タイトルに戻るボタンの描画
@@ -47,8 +52,6 @@ export function option(){
         right: {}
     };
 
-    buttons.left.pointZoneGreat = left_button4;
-    buttons.right.pointZoneGreat = right_button4;
     buttons.left.pointZoneGood = left_button5;
     buttons.right.pointZoneGood = right_button5;
     buttons.back_to_title = back_to_title_button;
