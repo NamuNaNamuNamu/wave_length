@@ -16,6 +16,7 @@ class EventListenerManager {
         for(let listener of this.#listeners) {
             canvas.removeEventListener(listener.type, listener.handler, listener.options);
         }
+        this.#listeners = [];
     }
 }
 
