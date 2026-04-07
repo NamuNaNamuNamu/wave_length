@@ -11,7 +11,7 @@ export function pointZonePerfect() {
     });
     textRenderer.drawGameSettingValue({
         context: canvas.getContext(),
-        value: gameSettings.points[0],
+        value: gameSettings.points.perfect,
         pos_x: canvas.getWidth() * 0.7,
         pos_y: canvas.getWidth() * 0.55
     });

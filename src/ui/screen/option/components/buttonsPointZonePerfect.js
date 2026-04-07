@@ -9,8 +9,8 @@ export const leftButtonPointZonePerfect = new ImageButtonReplaced({
     imageURL: "img/triangle_left.png",
     isVisible: false,
     onClick: () => {
-        if(gameSettings.points[0] > 1){
-            gameSettings.points[0] -= 1;
+        if(gameSettings.points.perfect > 1){
+            gameSettings.points.perfect -= 1;
         }
     }
 });
@@ -23,8 +23,8 @@ export const rightButtonPointZonePerfect = new ImageButtonReplaced({
     imageURL: "img/triangle_right.png",
     isVisible: false,
     onClick: () => {
-        if(gameSettings.points[0] < 10){
-            gameSettings.points[0] += 1;
+        if(gameSettings.points.perfect < 10){
+            gameSettings.points.perfect += 1;
         }
     }
 });

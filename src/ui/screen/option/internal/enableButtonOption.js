@@ -30,24 +30,24 @@ export function enableButtonOption(buttons) {
         rightButtonPointZonePerfect.receiveClick(posX, posY);
         // 左右ボタン4
         if(buttons.left.pointZoneGreat.clicked(event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top)){
-            if(gameSettings.points[1] > 1){
-                gameSettings.points[1] -= 1;
+            if(gameSettings.points.great > 1){
+                gameSettings.points.great -= 1;
             }
         }
         if(buttons.right.pointZoneGreat.clicked(event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top)){
-            if(gameSettings.points[1] < 10){
-                gameSettings.points[1] += 1;
+            if(gameSettings.points.great < 10){
+                gameSettings.points.great += 1;
             }
         }
         // 左右ボタン5
         if(buttons.left.pointZoneGood.clicked(event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top)){
-            if(gameSettings.points[2] > 1){
-                gameSettings.points[2] -= 1;
+            if(gameSettings.points.good > 1){
+                gameSettings.points.good -= 1;
             }
         }
         if(buttons.right.pointZoneGood.clicked(event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top)){
-            if(gameSettings.points[2] < 10){
-                gameSettings.points[2] += 1;
+            if(gameSettings.points.good < 10){
+                gameSettings.points.good += 1;
             }
         }
 
@@ -69,7 +69,7 @@ export function enableButtonOption(buttons) {
         });
         textRenderer.drawGameSettingValue({
             context: canvas.getContext(),
-            value: gameSettings.points[1],
+            value: gameSettings.points.great,
             pos_x: canvas.getWidth() * 0.7,
             pos_y: canvas.getWidth() * 0.65
         });
@@ -83,7 +83,7 @@ export function enableButtonOption(buttons) {
         });
         textRenderer.drawGameSettingValue({
             context: canvas.getContext(),
-            value: gameSettings.points[2],
+            value: gameSettings.points.good,
             pos_x: canvas.getWidth() * 0.7,
             pos_y: canvas.getWidth() * 0.75
         });

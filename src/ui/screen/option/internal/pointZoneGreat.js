@@ -12,7 +12,7 @@ export function pointZoneGreat() {
     });
     textRenderer.drawGameSettingValue({
         context: canvas.getContext(),
-        value: gameSettings.points[1],
+        value: gameSettings.points.great,
         pos_x: canvas.getWidth() * 0.7,
         pos_y: canvas.getWidth() * 0.65
     });

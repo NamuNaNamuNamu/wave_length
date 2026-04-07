@@ -12,7 +12,7 @@ export function pointZoneGood() {
     });
     textRenderer.drawGameSettingValue({
         context: canvas.getContext(),
-        value: gameSettings.points[2],
+        value: gameSettings.points.good,
         pos_x: canvas.getWidth() * 0.7,
         pos_y: canvas.getWidth() * 0.75
     });
