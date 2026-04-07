@@ -1,7 +1,7 @@
 import { gameSettings } from "../../../../game/states/gameSettings.js";
 import { ImageButtonReplaced } from "../../../components/Button/ImageButtonReplaced.js";
 
-export const left_button1 = new ImageButtonReplaced({
+export const leftButtonNumPlayers = new ImageButtonReplaced({
     posX: 0.6,
     posY: 0.08,
     width: 0.1,
@@ -15,7 +15,7 @@ export const left_button1 = new ImageButtonReplaced({
     }
 });
 
-export const right_button1 = new ImageButtonReplaced({
+export const rightButtonNumPlayers = new ImageButtonReplaced({
     posX: 0.8,
     posY: 0.08,
     width: 0.1,

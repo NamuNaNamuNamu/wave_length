@@ -6,15 +6,15 @@ import { pointZone1 } from "./internal/pointZone1.js";
 import { pointZone2 } from "./internal/pointZone2.js";
 import { pointZone3 } from "./internal/pointZone3.js";
 import { pointZoneSize } from "./internal/pointZoneSize.js";
-import { left_button1, right_button1 } from "./components/buttonsNumPlayers.js";
+import { leftButtonNumPlayers, rightButtonNumPlayers } from "./components/buttonsNumPlayers.js";
 
 //// 設定画面 ////
 export function option(){
     canvas.reset();
-    left_button1.show();
-    right_button1.show();
-    left_button1.draw(canvas.getContext());
-    right_button1.draw(canvas.getContext());
+    leftButtonNumPlayers.show();
+    rightButtonNumPlayers.show();
+    leftButtonNumPlayers.draw(canvas.getContext());
+    rightButtonNumPlayers.draw(canvas.getContext());
     numPlayers();
     let [left_button2, right_button2] = pointZoneSize();
     let [left_button3, right_button3] = pointZone1();
@@ -36,8 +36,8 @@ export function option(){
         left: {},
         right: {}
     };
-    buttons.left.numPlayers = left_button1;
-    buttons.right.numPlayers = right_button1;
+    buttons.left.numPlayers = leftButtonNumPlayers;
+    buttons.right.numPlayers = rightButtonNumPlayers;
     buttons.left.pointZoneSize = left_button2;
     buttons.right.pointZoneSize = right_button2;
     buttons.left.pointZone1 = left_button3;

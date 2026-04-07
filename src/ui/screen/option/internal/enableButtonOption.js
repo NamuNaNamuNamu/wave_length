@@ -4,7 +4,7 @@ import { canvas } from "../../../../core/canvas/Canvas.js";
 import { screenManager } from "../../ScreenManager.js";
 import { titleScreen } from "../../title/TitleScreen.js";
 import { eventListenerManager } from "../../EventListenerManager.js";
-import { left_button1, right_button1 } from "../components/buttonsNumPlayers.js";
+import { leftButtonNumPlayers, rightButtonNumPlayers } from "../components/buttonsNumPlayers.js";
 
 export function enableButtonOption(buttons) {
     eventListenerManager.addEventListener("mousedown", mousedownListener, false);
@@ -137,8 +137,8 @@ export function enableButtonOption(buttons) {
 
         // スタートボタンがクリックされたらお題出題フェーズに移行する
         if(buttons.back_to_title.clicked(event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top)){
-            left_button1.hide();
-            right_button1.hide();
+            leftButtonNumPlayers.hide();
+            rightButtonNumPlayers.hide();
             screenManager.navigateTo(titleScreen);
         }
     }
