@@ -1,5 +1,5 @@
 import { canvas } from "../../../../core/canvas/Canvas.js";
-import { eventListenerManager } from "../../EventListenerManager.js";
+import { eventListenerManager } from "../../../eventListener/EventListenerManager.js";
 import { screenManager } from "../../ScreenManager.js";
 import { titleScreen } from "../../title/TitleScreen.js";
 

@@ -1,5 +1,5 @@
 import { canvas } from "../../../../core/canvas/Canvas.js";
-import { eventListenerManager } from "../../EventListenerManager.js";
+import { eventListenerManager } from "../../../eventListener/EventListenerManager.js";
 
 export function enableButtonTitle(buttons) {
     eventListenerManager.addEventListener("mousedown", mousedownListener, false);

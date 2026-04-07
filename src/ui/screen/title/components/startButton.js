@@ -1,5 +1,5 @@
 import { ButtonReplaced } from "../../../components/Button/ButtonReplaced.js";
-import { eventListenerManager } from "../../EventListenerManager.js";
+import { eventListenerManager } from "../../../eventListener/EventListenerManager.js";
 import { ready } from "../../ready/ready.js";
 
 export const startButton = new ButtonReplaced({

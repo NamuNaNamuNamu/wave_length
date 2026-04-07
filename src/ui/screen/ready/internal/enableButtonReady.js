@@ -1,6 +1,6 @@
 import { question } from "../../question/question.js";
 import { canvas } from "../../../../core/canvas/Canvas.js";
-import { eventListenerManager } from "../../EventListenerManager.js";
+import { eventListenerManager } from "../../../eventListener/EventListenerManager.js";
 
 export function enableButtonReady(display_point_zone_button) {
     eventListenerManager.addEventListener("mousedown", mousedownListener, false);

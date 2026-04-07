@@ -6,7 +6,7 @@ import { questionPicker } from "../../../../game/QuestionPicker/QuestionPicker.j
 import { halfCircle } from "../../../components/HalfCircle.js";
 import { pointZone } from "../../../../game/PointZone.js";
 import { questionRenderer } from "../../../components/QuestionRenderer/QuestionRenderer.js";
-import { eventListenerManager } from "../../EventListenerManager.js";
+import { eventListenerManager } from "../../../eventListener/EventListenerManager.js";
 
 export function enableButtonQuestion(confirmation_button, question_reset_button) {
     eventListenerManager.addEventListener("mousedown", mousedownListener, false);

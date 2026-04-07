@@ -1,5 +1,5 @@
 import { canvas } from "../../../../core/canvas/Canvas.js";
-import { eventListenerManager } from "../../EventListenerManager.js";
+import { eventListenerManager } from "../../../eventListener/EventListenerManager.js";
 import { numPlayers } from "./numPlayers.js";
 import { pointZoneSize } from "./pointZoneSize.js";
 import { pointZonePerfect } from "./pointZonePerfect.js";
