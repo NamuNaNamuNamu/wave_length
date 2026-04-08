@@ -18,12 +18,21 @@ class NeedleInputHandler {
         screenManager.reDraw();
     }
 
-    #isClicked(_x, y) {
-        return y <= hScale(halfCircle.getCenterY());
+    #onDrag(x, y) {
+        this.#onClick(x, y);
+    }
+
+    #isHit(_x, y) {
+        const buffer = 0.1; // NOTE: ギリギリにすると、x軸と並行に針を配置するのが難しいため。
+        return y <= hScale(halfCircle.getCenterY() + buffer);
     }
 
     receiveClick(x, y) {
-        if(this.#isClicked(x, y)) { this.#onClick(x, y); }
+        if(this.#isHit(x, y)) { this.#onClick(x, y); }
+    }
+
+    receiveDrag(x, y) {
+        if(this.#isHit(x, y)) { this.#onDrag(x, y); }
     }
 }
 

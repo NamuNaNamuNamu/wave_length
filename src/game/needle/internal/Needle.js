@@ -17,7 +17,7 @@ export class Needle {
     }
 
     setDegree(degree) {
-        this.#degree = degree;
+        this.#degree = clamp(degree);
     }
 
     setLineWidth(lineWidth) {
@@ -36,4 +36,16 @@ export class Needle {
         context.lineWidth = this.#lineWidth;
         context.stroke();
     }
+}
+
+function clamp(degree) {
+    if (degree > 90) {
+        return -180;
+    }
+
+    if (degree > 0) {
+        return 0;
+    }
+
+    return degree;
 }

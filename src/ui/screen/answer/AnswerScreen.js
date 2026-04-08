@@ -5,7 +5,7 @@ import { gameParams } from "../../../game/states/gameParams.js";
 import { halfCircle } from "../../components/HalfCircle.js";
 import { questionRenderer } from "../../components/QuestionRenderer/QuestionRenderer.js";
 import { textRenderer } from "../../components/TextRenderer.js";
-import { dispatchPointerToHitTargets } from "../../input/dispatchPointerToHitTargets.js";
+import { dispatchPointerToClickTargets, dispatchPointerToDragTargets } from "../../input/dispatchPointerToHitTargets.js";
 import { pointerInput } from "../../input/PointerInput.js";
 import { buttonChangePlayer } from "./components/buttonChangePlayer.js";
 import { buttonDetermination } from "./components/buttonDetermination.js";
@@ -39,11 +39,20 @@ class AnswerScreen {
 
     activate() {
         pointerInput.onPointerDown((pointer) => {
-            dispatchPointerToHitTargets({
+            dispatchPointerToClickTargets({
                 pointer: pointer,
                 targets: [...this.#buttons, needleInputHandler]
             });
         });
+
+        pointerInput.onPointerDrag((pointer) => {
+            dispatchPointerToDragTargets({
+                pointer: pointer,
+                targets: [needleInputHandler]
+            });
+        });
+
+        pointerInput.onPointerUp((_pointer) => {});
     }
 }
 

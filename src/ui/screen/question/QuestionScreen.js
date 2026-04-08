@@ -4,7 +4,7 @@ import { gameParams } from "../../../game/states/gameParams.js";
 import { halfCircle } from "../../components/HalfCircle.js";
 import { questionRenderer } from "../../components/QuestionRenderer/QuestionRenderer.js";
 import { textRenderer } from "../../components/TextRenderer.js";
-import { dispatchPointerToHitTargets } from "../../input/dispatchPointerToHitTargets.js";
+import { dispatchPointerToClickTargets } from "../../input/dispatchPointerToHitTargets.js";
 import { pointerInput } from "../../input/PointerInput.js";
 import { buttonConfirmation } from "./components/buttonConfirmation.js";
 import { buttonQuestionReset } from "./components/buttonQuestionReset.js";
@@ -38,7 +38,7 @@ class QuestionScreen {
 
     activate() {
         pointerInput.onPointerDown((pointer) => {
-            dispatchPointerToHitTargets({
+            dispatchPointerToClickTargets({
                 pointer: pointer,
                 targets: this.#buttons
             });
