@@ -40,14 +40,22 @@ export class ButtonReplaced {
         return this.#height;
     }
 
+    #getText () {
+        return (typeof this.#text === "function") ? this.#text() : this.#text;
+    }
+
+    #getTextColor () {
+        return (typeof this.#textColor === "function") ? this.#textColor() : this.#textColor;
+    }
+
     draw(context) {
         context.fillStyle = this.#buttonColor;
         context.fillRect(wScale(this.#posX - this.#width * 0.5), hScale(this.#posY - this.#height * 0.5), wScale(this.#width), hScale(this.#height));
 
         context.font = hScale(this.#height * 0.8) + "px serif";
-        context.fillStyle = this.#textColor;
+        context.fillStyle = this.#getTextColor();
         context.textAlign = "center";
-        context.fillText(this.#text, wScale(this.#posX), hScale(this.#posY + this.#height * 0.3));
+        context.fillText(this.#getText(), wScale(this.#posX), hScale(this.#posY + this.#height * 0.3));
     }
 
     #isClicked(x, y) {
