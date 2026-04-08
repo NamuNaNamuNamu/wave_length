@@ -1,5 +1,5 @@
 import { ButtonReplaced } from "../../../components/Button/ButtonReplaced.js";
-import { questionScreen } from "../../question/questionScreen.js";
+import { questionScreen } from "../../question/QuestionScreen.js";
 import { screenManager } from "../../ScreenManager.js";
 
 export const buttonDisplayPointZone = new ButtonReplaced({
