@@ -1,6 +1,6 @@
 import { ButtonReplaced } from "../../../components/Button/ButtonReplaced.js";
-import { eventListenerManager } from "../../../eventListener/EventListenerManager.js";
-import { question } from "../../question/question.js";
+import { questionScreen } from "../../question/questionScreen.js";
+import { screenManager } from "../../ScreenManager.js";
 
 export const buttonDisplayPointZone = new ButtonReplaced({
     posX: 0.5,
@@ -8,8 +8,5 @@ export const buttonDisplayPointZone = new ButtonReplaced({
     width: 0.85,
     height: 0.15,
     text: "得点ゾーン表示",
-    onClick: () => { // TODO: questionScreen を実装したら、screenManager の navigateTo メソッドに置き換える
-        eventListenerManager.removeAllEventListener();
-        question();
-    }
+    onClick: () => { screenManager.navigateTo(questionScreen); }
 });

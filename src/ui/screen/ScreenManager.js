@@ -14,8 +14,9 @@ class ScreenManager {
         canvas.reset();
         eventListenerManager.removeAllEventListener();
 
+        this.#currentScreen?.onEnter?.();
         this.#currentScreen.draw(canvas.getContext());
-        this.#currentScreen.activate();
+        this.#currentScreen?.activate?.();
     }
 
     reDraw() {
