@@ -1,4 +1,4 @@
-import { dispatchPointerToButtons } from "../../input/dispatchPointerToButtons.js";
+import { dispatchPointerToHitTargets } from "../../input/dispatchPointerToHitTargets.js";
 import { pointerInput } from "../../input/PointerInput.js";
 import { buttonDisplayPointZone } from "./components/buttonDisplayPointZone.js";
 import { drawCaution } from "./internal/drawCaution.js";
@@ -22,9 +22,9 @@ class ReadyScreen {
 
     activate() {
         pointerInput.onPointerDown((pointer) => {
-            dispatchPointerToButtons({
+            dispatchPointerToHitTargets({
                 pointer: pointer,
-                buttons: this.#buttons
+                targets: this.#buttons
             });
         });
     }

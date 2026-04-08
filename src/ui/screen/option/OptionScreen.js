@@ -1,5 +1,5 @@
 import { drawSubLabel } from "../../components/drawSubLabel.js";
-import { dispatchPointerToButtons } from "../../input/dispatchPointerToButtons.js";
+import { dispatchPointerToHitTargets } from "../../input/dispatchPointerToHitTargets.js";
 import { pointerInput } from "../../input/PointerInput.js";
 import { buttonBackToTitle } from "./components/buttonBackToTitle.js";
 import { leftButtonNumPlayers, rightButtonNumPlayers } from "./components/buttonsNumPlayers.js";
@@ -61,9 +61,9 @@ class OptionScreen {
 
     activate() {
         pointerInput.onPointerDown((pointer) => {
-            dispatchPointerToButtons({
+            dispatchPointerToHitTargets({
                 pointer: pointer,
-                buttons: this.#buttons
+                targets: this.#buttons
             });
         });
     }

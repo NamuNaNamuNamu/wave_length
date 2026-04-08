@@ -1,4 +1,4 @@
-import { dispatchPointerToButtons } from "../../input/dispatchPointerToButtons.js";
+import { dispatchPointerToHitTargets } from "../../input/dispatchPointerToHitTargets.js";
 import { pointerInput } from "../../input/PointerInput.js";
 import { optionButton } from "./components/optionButton.js";
 import { startButton } from "./components/startButton.js";
@@ -21,9 +21,9 @@ class TitleScreen {
 
     activate() {
         pointerInput.onPointerDown((pointer) => {
-            dispatchPointerToButtons({
+            dispatchPointerToHitTargets({
                 pointer: pointer,
-                buttons: this.#buttons
+                targets: this.#buttons
             });
         });
     }
