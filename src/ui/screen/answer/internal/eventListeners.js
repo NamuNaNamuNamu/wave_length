@@ -11,6 +11,7 @@ import { questionRenderer } from "../../../components/QuestionRenderer/QuestionR
 import { PLAYERS } from "../../../../game/player/players.js";
 import { activePlayerChecker } from "../../../../game/player/ActivePlayerChecker.js";
 import { eventListenerManager } from "../../../eventListener/EventListenerManager.js";
+import { wScale, hScale } from "../../../../core/canvas/utils/scale.js";
 
 let x = new Array(1000);    // 指の数だけx座標を格納するための配列 (余裕を持って1000要素用意) 
 let y = new Array(1000);    // 指の数だけy座標を格納するための配列 (余裕を持って1000要素用意)
@@ -48,7 +49,7 @@ export function enableMousedownListener(determination_button) {
         let previous = needlesManager.getDegree(answerGameParams.current_player); // 一つ前の角度を保存しておく
         needlesManager.setDegree({
             player: answerGameParams.current_player,
-            degree: get_degree(halfCircle.getCenterX(), halfCircle.getCenterY(), event.clientX, event.clientY)
+            degree: get_degree(wScale(halfCircle.getCenterX()), hScale(halfCircle.getCenterY()), event.clientX, event.clientY)
         });
         // 決定ボタン以外で画面下半分がクリックされたら, 針は動かさない 
         if(needlesManager.getDegree(answerGameParams.current_player) > 0){
@@ -93,7 +94,7 @@ export function enableMousemoveListener(determination_button) {
             // ドラッグされた時点でのマウスの場所の角度を算出
             needlesManager.setDegree({
                 player: answerGameParams.current_player,
-                degree: get_degree(halfCircle.getCenterX(), halfCircle.getCenterY(), event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top)
+                degree: get_degree(wScale(halfCircle.getCenterX()), hScale(halfCircle.getCenterY()), event.clientX - canvas_rectangle.left, event.clientY - canvas_rectangle.top)
             });
             // 針が半円の下半分に行かないようにする
             if(needlesManager.getDegree(answerGameParams.current_player) > 90){
@@ -142,7 +143,7 @@ export function enableTouchmoveListener(determination_button) {
             // ドラッグされた時点での指の場所の角度を算出
             needlesManager.setDegree({
                 player: answerGameParams.current_player,
-                degree: get_degree(halfCircle.getCenterX(), halfCircle.getCenterY(), x[0], y[0])
+                degree: get_degree(wScale(halfCircle.getCenterX()), hScale(halfCircle.getCenterY()), x[0], y[0])
             });
             // 針が半円の下半分に行かないようにする
             if(needlesManager.getDegree(answerGameParams.current_player) > 90){
