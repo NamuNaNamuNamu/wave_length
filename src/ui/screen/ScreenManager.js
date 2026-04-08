@@ -1,20 +1,27 @@
 import { canvas } from "../../core/canvas/Canvas.js";
-import { eventListenerManager } from "./EventListenerManager.js";
+import { eventListenerManager } from "../eventListener/EventListenerManager.js";
 
 class ScreenManager {
+    #currentScreen;
+
     constructor() {
-
-    }
-
-    initialize() {
-        canvas.reset();
+        this.#currentScreen = null;
     }
 
     navigateTo(screen) {
-        this.initialize();
+        this.#currentScreen = screen;
+
+        canvas.reset();
         eventListenerManager.removeAllEventListener();
-        screen.draw(canvas.getContext());
-        screen.activate();
+
+        this.#currentScreen?.onEnter?.();
+        this.#currentScreen.draw(canvas.getContext());
+        this.#currentScreen?.activate?.();
+    }
+
+    reDraw() {
+        canvas.reset();
+        this.#currentScreen.draw(canvas.getContext());
     }
 }
 

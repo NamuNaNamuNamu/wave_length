@@ -1,19 +1,20 @@
 import { dispatchPointerToClickTargets } from "../../input/dispatchPointerToHitTargets.js";
 import { pointerInput } from "../../input/PointerInput.js";
-import { optionButton } from "./components/optionButton.js";
-import { startButton } from "./components/startButton.js";
+import { buttonDisplayPointZone } from "./components/buttonDisplayPointZone.js";
+import { drawCaution } from "./internal/drawCaution.js";
 
-class TitleScreen {
+class ReadyScreen {
     #buttons;
 
     constructor() {
         this.#buttons = [
-            startButton,
-            optionButton
+            buttonDisplayPointZone
         ];
     }
 
     draw(context) {
+        drawCaution(context);
+
         for (let button of this.#buttons) {
             button.draw(context);
         }
@@ -29,4 +30,4 @@ class TitleScreen {
     }
 }
 
-export const titleScreen = new TitleScreen();
+export const readyScreen = new ReadyScreen();

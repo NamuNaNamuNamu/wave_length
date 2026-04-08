@@ -12,15 +12,15 @@ const getResultPointText = (judge) => {
     let marks;
     
     if (judge === JUDGES.PERFECT) {
-        point = gameSettings.points[0];
+        point = gameSettings.points.perfect;
         marks = "！！！";
     }
     else if (judge === JUDGES.GREAT) {
-        point = gameSettings.points[1];
+        point = gameSettings.points.great;
         marks = "！！"
     }
     else if (judge === JUDGES.GOOD) {
-        point = gameSettings.points[2];
+        point = gameSettings.points.good;
         marks = "！"
     }
     else {

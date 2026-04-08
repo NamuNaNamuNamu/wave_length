@@ -3,7 +3,7 @@ import { degree_to_rad } from "../core/utils/degree.js";
 import { canvas } from "../core/canvas/Canvas.js";
 import { gameSettings } from "./states/gameSettings.js";
 import { JUDGES } from "./scoring/judges.js";
-
+import { wScale, hScale } from "../core/canvas/utils/scale.js";
 
 class PointZone {
     #answerDegree;
@@ -26,9 +26,9 @@ class PointZone {
             // パスの開始
             context.beginPath();
             // 起点
-            context.moveTo(halfCircle.getCenterX(), halfCircle.getCenterY());
+            context.moveTo(wScale(halfCircle.getCenterX()), hScale(halfCircle.getCenterY()));
             // 弧を指定
-            context.arc(halfCircle.getCenterX(), halfCircle.getCenterY(), halfCircle.getRadius(), degree_to_rad(this.#answerDegree - gameSettings.area_size * 2.5 + i * gameSettings.area_size), degree_to_rad(this.#answerDegree - gameSettings.area_size * 1.5 + i * gameSettings.area_size), false); // 引数: (円弧の中心の x 座標, 円弧の中心の y 座標, 半径, 始まりの角度[rad], 終わりの角度[rad], 反時計回り{true} or 時計回り{false})
+            context.arc(wScale(halfCircle.getCenterX()), hScale(halfCircle.getCenterY()), wScale(halfCircle.getRadius()), degree_to_rad(this.#answerDegree - gameSettings.pointZoneSize * 2.5 + i * gameSettings.pointZoneSize), degree_to_rad(this.#answerDegree - gameSettings.pointZoneSize * 1.5 + i * gameSettings.pointZoneSize), false); // 引数: (円弧の中心の x 座標, 円弧の中心の y 座標, 半径, 始まりの角度[rad], 終わりの角度[rad], 反時計回り{true} or 時計回り{false})
             // 塗りつぶし
             context.fillStyle = COLORS[i];
             context.fill();
@@ -36,7 +36,7 @@ class PointZone {
             // はみ出した部分を抜き出す
             // 灰色で染める
             context.fillStyle = "rgb(230, 230, 230)";
-            context.fillRect(0, halfCircle.getCenterY(), canvas.getWidth(), canvas.getHeight() - halfCircle.getCenterY());
+            context.fillRect(0, hScale(halfCircle.getCenterY()), wScale(canvas.getWidth()), hScale(canvas.getHeight() - halfCircle.getCenterY()));
         }
     }
 }

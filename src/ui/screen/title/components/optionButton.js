@@ -1,6 +1,7 @@
-import { ButtonReplaced } from "../../../components/ButtonReplaced.js";
-import { eventListenerManager } from "../../EventListenerManager.js";
-import { option } from "../../option/option.js";
+
+import { ButtonReplaced } from "../../../components/Button/ButtonReplaced.js";
+import { optionScreen } from "../../option/OptionScreen.js";
+import { screenManager } from "../../ScreenManager.js";
 
 export const optionButton = new ButtonReplaced({
     posX: 0.5,
@@ -8,11 +9,5 @@ export const optionButton = new ButtonReplaced({
     width: 0.6,
     height: 0.15,
     text: "設定",
-    onClick: temp
+    onClick: () => { screenManager.navigateTo(optionScreen); }
 });
-
-// TODO: optionScreen を実装したら、screenManager の navigateTo メソッドに置き換える
-function temp() {
-    eventListenerManager.removeAllEventListener();
-    option();
-}

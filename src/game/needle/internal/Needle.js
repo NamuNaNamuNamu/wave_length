@@ -1,4 +1,5 @@
 import { halfCircle } from "../../../ui/components/HalfCircle.js";
+import { wScale, hScale } from "../../../core/canvas/utils/scale.js";
 
 export class Needle {
     #player;
@@ -16,7 +17,7 @@ export class Needle {
     }
 
     setDegree(degree) {
-        this.#degree = degree;
+        this.#degree = clamp(degree);
     }
 
     setLineWidth(lineWidth) {
@@ -27,12 +28,24 @@ export class Needle {
         // パスの開始
         context.beginPath();
         // 起点
-        context.moveTo(halfCircle.getCenterX(), halfCircle.getCenterY());
+        context.moveTo(wScale(halfCircle.getCenterX()), hScale(halfCircle.getCenterY()));
         // 終点
-        context.lineTo(halfCircle.getCenterX() + Math.cos(this.#degree * Math.PI / 180) * halfCircle.getRadius() * 0.8, halfCircle.getCenterY() + Math.sin(this.#degree * Math.PI / 180) * halfCircle.getRadius() * 0.8);
+        context.lineTo(wScale(halfCircle.getCenterX()) + Math.cos(this.#degree * Math.PI / 180) * wScale(halfCircle.getRadius() * 0.8), hScale(halfCircle.getCenterY()) + Math.sin(this.#degree * Math.PI / 180) * wScale(halfCircle.getRadius() * 0.8));
         // 描画
         context.strokeStyle = this.#player.color;
         context.lineWidth = this.#lineWidth;
         context.stroke();
     }
+}
+
+function clamp(degree) {
+    if (degree > 90) {
+        return -180;
+    }
+
+    if (degree > 0) {
+        return 0;
+    }
+
+    return degree;
 }
