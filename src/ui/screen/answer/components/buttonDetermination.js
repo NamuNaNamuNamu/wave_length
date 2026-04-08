@@ -1,6 +1,6 @@
 import { ButtonReplaced } from "../../../components/Button/ButtonReplaced.js";
-import { eventListenerManager } from "../../../eventListener/EventListenerManager.js";
-import { result } from "../../result/result.js";
+import { resultScreen } from "../../result/ResultScreen.js";
+import { screenManager } from "../../ScreenManager.js";
 
 export const buttonDetermination = new ButtonReplaced({
     posX: 0.8,
@@ -8,8 +8,5 @@ export const buttonDetermination = new ButtonReplaced({
     width: 0.3,
     height: 0.15,
     text: "決定",
-    onClick: () => { // TODO: resultScreen を実装したら、screenManager の navigateTo メソッドに置き換える
-        eventListenerManager.removeAllEventListener();
-        result();
-    }
+    onClick: () => { screenManager.navigateTo(resultScreen); }
 });
