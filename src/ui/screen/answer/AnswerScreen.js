@@ -7,7 +7,7 @@ import { questionRenderer } from "../../components/QuestionRenderer/QuestionRend
 import { textRenderer } from "../../components/TextRenderer.js";
 import { dispatchPointerToHitTargets } from "../../input/dispatchPointerToHitTargets.js";
 import { pointerInput } from "../../input/PointerInput.js";
-import { buttonChangePlayerButton } from "./components/buttonChangePlayerButton.js";
+import { buttonChangePlayer } from "./components/buttonChangePlayer.js";
 import { buttonDetermination } from "./components/buttonDetermination.js";
 import { needleInputHandler } from "./internal/NeedleInputHandler.js";
 
@@ -16,7 +16,7 @@ class AnswerScreen {
 
     constructor() {
         this.#buttons = [
-            buttonChangePlayerButton,
+            buttonChangePlayer,
             buttonDetermination
         ];
     }

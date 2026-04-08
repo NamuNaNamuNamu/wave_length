@@ -4,7 +4,7 @@ import { answerGameParams } from "../../../../game/states/answerGameParams.js";
 import { ButtonReplaced } from "../../../components/Button/ButtonReplaced.js";
 import { screenManager } from "../../ScreenManager.js";
 
-export const buttonChangePlayerButton = new ButtonReplaced({
+export const buttonChangePlayer = new ButtonReplaced({
     posX: 0.3,
     posY: 0.85,
     width: 0.5,
@@ -12,7 +12,7 @@ export const buttonChangePlayerButton = new ButtonReplaced({
     text: () => `P${answerGameParams.current_player}`,
     textColor: () => getCurrentPlayerColor(),
     onClick: () => {
-        changeToNextPlayer();
+        answerGameParams.current_player = getNextPlayerNumber(answerGameParams.current_player);
         screenManager.reDraw();
     }
 });
@@ -24,11 +24,11 @@ function getCurrentPlayerColor () {
     throw Error("現在のプレイヤーが想定しない値になっています。");
 }
 
-function changeToNextPlayer () {
-    if (answerGameParams.current_player === activePlayerChecker.getNumActivePlayer()) {
-        answerGameParams.current_player = PLAYERS.PLAYER1.number;
+function getNextPlayerNumber (currentPlayerNumber) {
+    if (currentPlayerNumber === activePlayerChecker.getNumActivePlayer()) {
+        return PLAYERS.PLAYER1.number;
     }
     else {
-        answerGameParams.current_player++;
+        return currentPlayerNumber + 1;
     }
 }
